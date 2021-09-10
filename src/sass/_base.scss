@@ -1,0 +1,176 @@
+  
+html {
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    box-sizing: inherit;
+  }
+  
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+li {
+    margin: 0;
+    padding: 0;
+  }
+  
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  li {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .opacity {
+    opacity: 0;
+  }
+
+  img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+  
+  body {
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.25;
+    // color: var(--main-text-color);
+  
+    @media screen and (min-width: 1280px) {
+      font-size: 18px;
+      line-height: 1.22;
+    }
+  }
+  
+  a {
+    text-decoration: none;
+  
+    // transition: color var(--animation);
+  
+    // &:hover,
+    // &:focus {
+    //   color: var(--accent-color);
+    // }
+  }
+  
+  body.menu-modal-open {
+    overflow: hidden;
+  }
+  
+  .section-title {
+    font-family: 'Caveat Brush', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 3.61;
+    text-align: center;
+    color: var(--main-text-color);
+    @media screen and (min-width: 768px) {
+      line-height: 3.8;
+    }
+    @media screen and (min-width: 1280px) {
+      font-size: 36px;
+      line-height: 2.2;
+    }
+  }
+  
+  .visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+  }
+  
+//   .btn {
+//     display: inline-flex;
+//     justify-content: center;
+//     align-items: center;
+//     min-width: 145px;
+//     height: 40px;
+//     padding: 0;
+  
+//     // padding-top: 12px;
+//     // padding-bottom: 13px;
+//     // padding-left: 45px;
+//     // padding-right: 45px;
+//     border: none;
+//     cursor: pointer;
+//     border-radius: 25px;
+  
+//     font-family: 'Caveat Brush', sans-serif;
+//     font-style: normal;
+//     font-weight: 400;
+//     font-size: 18px;
+//     line-height: 2.1;
+//     text-align: center;
+//     background-color: #ab816c;
+//     color: var(--white-text-color);
+//     transition: background-color var(--animation), color var(--animation), border var(--animation);
+  
+//     &:focus,
+//     &:hover {
+//       background-color: rgba(171, 129, 108, 15%);
+//       color: var(--accent-color);
+//       border: 1px solid var(--accent-color);
+//     }
+  
+//     @media screen and (min-width: 1280px) {
+//       min-width: 158px;
+//       height: 45px;
+//     }
+  
+//     @media screen and (min-width: 1280px) {
+//       font-size: 24px;
+//     }
+//   }
+  
+
+
+
+// container
+
+  .container {
+    display: block;
+    margin: 0 auto;
+    padding: 0 20px;
+    width: 100%;
+  
+    // контейнер для мобілки
+    @media screen and (min-width: 320px) {
+      width: 320px;
+      padding: 0 20px;
+    }
+  
+     // контейнер для планшета
+    @media screen and (min-width: 768px) {
+      width: 664px;
+      padding: 0 20px;
+    }
+  
+     // контейнер для компютера
+    @media screen and (min-width: 1280px) {
+      width: 854px;
+      padding: 0 20px;
+    }
+  }
