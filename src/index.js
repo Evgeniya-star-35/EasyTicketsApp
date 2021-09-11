@@ -2,17 +2,18 @@ import './sass/main.scss';
 import NewsApiService from './js/fetchEvents';
 import fetchCountries from './js/fetchCountry';
 
-const input = document.querySelector('.input');
-const inputCountry = document.querySelector('.input-country');
-input.addEventListener('input', onSearchEvent);
-inputCountry.addEventListener('input', onSearchCountry);
+const formSearchEvents = document.querySelector('#search-form');
+// const formCountry = document.querySelector('.choose-form');
+formSearchEvents.addEventListener('input', onSearchEvent);
+// formCountry.addEventListener('submit', onSearchCountry);
 
-function onSearchCountry(e) {
-  const query = e.target.value;
-  fetchCountries(query);
-}
+// function onSearchCountry(e) {
+//   e.preventDefault();
+//   const query = e.target.value;
+//   fetchCountries(query);
+// }
 const newsApiService = new NewsApiService();
-input.addEventListener('input', onSearchEvent);
+
 function onSearchEvent(e) {
   //   e.preventDefault();
   newsApiService.searchQuery = e.target.value;

@@ -14,11 +14,19 @@
 import countries from '../country.json';
 console.log(countries);
 import selectMenu from '../templates/selectMenu.hbs';
+const formCountry = document.querySelector('.choose-form');
+const selectList = document.querySelector('.select');
 
 function createListCountry(countries) {
   const markUp = selectMenu(countries);
   selectList.insertAdjacentHTML('beforeend', markUp);
 }
-const selectList = document.querySelector('.select');
-const searchButton = document.querySelector('.search');
-searchButton.addEventListener('submit', createListCountry);
+
+// formCountry.addEventListener('input', createListCountry);
+formCountry.addEventListener('input', onSearchCountry);
+
+function onSearchCountry(e) {
+  e.preventDefault();
+  const query = e.target.value;
+  fetchCountries(query);
+}
