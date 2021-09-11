@@ -91,5 +91,14 @@
 .input-icon {
   position: absolute;
   top: 40%;
+  right: 10px;
+}
+
+.search-button,
+.choose-button {
+  position: absolute;
+  top: 40%;
   right: 20px;
+  border: none;
+  background-color: transparent;
 }
