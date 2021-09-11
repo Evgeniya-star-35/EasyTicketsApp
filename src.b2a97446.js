@@ -77,4 +77,4 @@ var e,t=arguments[3];!function(t,r){"object"==typeof exports&&"object"==typeof m
 },{"../country.json":"GTlx","../templates/selectMenu.hbs":"xXSR"}],"Focm":[function(require,module,exports) {
 "use strict";require("./sass/main.scss");var e=r(require("./js/fetchEvents")),t=r(require("./js/fetchCountry"));function r(e){return e&&e.__esModule?e:{default:e}}const n=document.querySelector("#search-form");n.addEventListener("input",u);const s=new e.default;function u(e){s.searchQuery=e.target.value,console.log(e.target.value),c()}function c(){s.fetchEvents()}
 },{"./sass/main.scss":"clu1","./js/fetchEvents":"sPMT","./js/fetchCountry":"INDD"}]},{},["Focm"], null)
-//# sourceMappingURL=/EasyTicketsApp/src.1e91f91e.js.map
+//# sourceMappingURL=/EasyTicketsApp/src.b2a97446.js.map
