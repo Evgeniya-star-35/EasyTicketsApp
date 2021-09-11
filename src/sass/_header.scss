@@ -1,1 +1,61 @@
+.header {
+  max-width: 1600px;
+  //   min-height: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background: rgba(11, 11, 11, 0.5);
+  background-image: url(../images/desctop/desctop-pic@1x.png);
+  padding-top: 40px;
+  padding-bottom: 190px;
+}
 
+.header-title {
+  font-family: inherit;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 50px;
+  line-height: 61px;
+  text-align: center;
+  color: #dc56c5;
+  width: 590px;
+  margin-right: auto;
+  margin-left: auto;
+  text-shadow: #dc56c5;
+}
+
+.loockfor {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// .search-form,
+// .choose-form {
+
+// }
+
+.input-search,
+.input-country {
+  min-width: 270px;
+  height: 40px;
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(20px);
+  border-radius: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 30px;
+}
+
+.input-search::placeholder,
+.input-country::placeholder {
+  font-family: inherit;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  color: #939393;
+  letter-spacing: 0.03 em;
+}

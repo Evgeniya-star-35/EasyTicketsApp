@@ -1,12 +1,34 @@
-<form class="search-form" id="search-form">
-  <input class="input" type="text" name="query" autocomplete="off" placeholder="Search" />
-</form>
-<form>
-  <input
-    class="input-country"
-    type="text"
-    name="query"
-    autocomplete="off"
-    placeholder="Search country"
-  />
-</form>
+<header class="header">
+  <a class="logo" href="#">
+    <svg class="logo-icon" width="135" height="62">
+      <use href="./images/sprite.svg#icon-logoevent"></use>
+    </svg>
+  </a>
+  <h1 class="header-title">FIND BEST EVENTS AROUND THE WORLD</h1>
+  <div class="loockfor">
+    <form class="search-form" id="search-form">
+      <input
+        class="input-search"
+        type="text"
+        name="query"
+        autocomplete="off"
+        placeholder="Start searching"
+      />
+      <svg class="input-icon" width="12" height="12">
+        <use href="./images/sprite.svg#icon-search"></use>
+      </svg>
+    </form>
+    <form class="choose-form">
+      <input
+        class="input-country"
+        type="text"
+        name="query"
+        autocomplete="off"
+        placeholder="Choose country"
+      />
+      <svg class="input-icon" width="15" height="10">
+        <use href="./images/sprite.svg#icon-polygon"></use>
+      </svg>
+    </form>
+  </div>
+</header>
