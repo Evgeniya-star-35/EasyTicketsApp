@@ -69,4 +69,4 @@ module.exports=require("./lib/axios");
 },{"axios":"dZBD"}],"Focm":[function(require,module,exports) {
 "use strict";require("./sass/main.scss");var e=n(require("./js/fetchEvents")),t=n(require("./js/fetchCountry"));function n(e){return e&&e.__esModule?e:{default:e}}const u=document.querySelector("#search-form"),r=document.querySelector(".input"),c=document.querySelector(".input-country");function s(e){const n=e.target.value;(0,t.default)(n)}r.addEventListener("input",a),c.addEventListener("input",s);const o=new e.default;function a(e){o.searchQuery=e.target.value,console.log(e.target.value),i()}function i(){o.fetchEvents()}r.addEventListener("input",a);
 },{"./sass/main.scss":"clu1","./js/fetchEvents":"sPMT","./js/fetchCountry":"INDD"}]},{},["Focm"], null)
-//# sourceMappingURL=/EasyTicketsApp/src.093e749d.js.map
+//# sourceMappingURL=/EasyTicketsApp/src.cae67c10.js.map
