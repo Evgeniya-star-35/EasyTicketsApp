@@ -4,7 +4,7 @@ axios.defaults.baseURL = 'https://app.ticketmaster.com/discovery/v2/';
 
 export default async function fetchCountries(searchQuery) {
   try {
-    const response = await axios.get(`events.json?&countryCode=${searchQuery}&apikey=${API_KEY}`);
+    const response = await axios.get(`events.json?&geoPoint=${searchQuery}&apikey=${API_KEY}`);
 
     return response;
   } catch (error) {
