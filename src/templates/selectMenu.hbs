@@ -1,7 +1,7 @@
-{{#each this}}
-<li>
-    <p>{{name}}
-        <span>{{alphaCode}}</span>
+{{#each events}}
+  <li>
+    <p>{{_embedded.venues.country.name}}
+      <span>{{_embedded.venues.country.countryCode}}</span>
     </p>
-</li>
+  </li>
 {{/each}}
