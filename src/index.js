@@ -16,12 +16,13 @@ function onSearchEvent(e) {
   fetchEvs();
 }
 function fetchEvs() {
-  newsApiService.fetchEvents().then(events => {
-    renderTicketsGallery(events);
-  });
+  newsApiService.fetchEvents();
+  // .then(events => {
+  //     renderTicketsGallery(events);
+  //   });
 }
-const gallery = document.querySelector('.gallery');
-function renderTicketsGallery(events) {
-  const markup = galleryItem(events);
-  gallery.insertAdjacentHTML('beforeend', markup);
-}
+// const gallery = document.querySelector('.gallery');
+// function renderTicketsGallery(events) {
+//   const markup = galleryItem(events);
+//   gallery.insertAdjacentHTML('beforeend', markup);
+// }
