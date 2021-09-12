@@ -553,7 +553,7 @@ body.menu-modal-open {
   color: #939393;
   font-weight: normal;
   font-size: 16px;
-  line-height: 20px;
+  line-height: 1.25;
   margin-top: 80px;
   padding-bottom: 19px;
 }
@@ -561,12 +561,12 @@ body.menu-modal-open {
 @media screen and (min-width: 320px) {
   .footer-text {
     font-size: 14px;
-    line-height: 17px;
+    line-height: 1.21;
     letter-spacing: 0.7px;
     margin-left: 34px;
     margin-right: 34px;
     margin-top: 60px;
-    padding-bottom: 27px;
+    margin-bottom: 60px;
   }
 }
 
