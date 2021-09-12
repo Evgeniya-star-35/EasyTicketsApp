@@ -16,6 +16,7 @@ export default class NewsApiService {
       );
 
       this.incrementPage();
+      console.log(events);
       return events;
     } catch (error) {
       console.log('Error!');

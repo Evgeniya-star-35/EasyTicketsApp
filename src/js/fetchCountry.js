@@ -12,13 +12,13 @@
 //   }
 // }
 
+// поиск со своего бекенда
 import countries from '../country.json';
 import selectMenu from '../templates/selectMenu.hbs';
 var throttle = require('lodash.throttle');
 const formCountry = document.querySelector('.choose-form');
 const selectList = document.querySelector('.select');
 
-// formCountry.addEventListener('input', createListCountry);
 formCountry.addEventListener('submit', throttle(onSearchCountry, 200));
 
 function onSearchCountry(e) {
