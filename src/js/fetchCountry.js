@@ -11,21 +11,22 @@
 //     console.log('Error!');
 //   }
 // }
+
 import countries from '../country.json';
 import selectMenu from '../templates/selectMenu.hbs';
+var throttle = require('lodash.throttle');
 const formCountry = document.querySelector('.choose-form');
 const selectList = document.querySelector('.select');
 
-function createListCountry(value) {
-  const markUp = selectMenu(countries);
-  return selectList.insertAdjacentHTML('beforeend', markUp);
-}
-
 // formCountry.addEventListener('input', createListCountry);
-formCountry.addEventListener('input', onSearchCountry);
+formCountry.addEventListener('submit', throttle(onSearchCountry, 200));
 
 function onSearchCountry(e) {
   e.preventDefault();
   const query = e.target.value;
   createListCountry(query);
+}
+function createListCountry(value) {
+  const markUp = selectMenu(countries);
+  return selectList.insertAdjacentHTML('beforeend', markUp);
 }

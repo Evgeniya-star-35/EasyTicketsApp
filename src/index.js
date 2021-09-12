@@ -1,10 +1,11 @@
 import './sass/main.scss';
 import NewsApiService from './js/fetchEvents';
 import fetchCountries from './js/fetchCountry';
+var throttle = require('lodash.throttle');
 
 const formSearchEvents = document.querySelector('#search-form');
 // const formCountry = document.querySelector('.choose-form');
-formSearchEvents.addEventListener('input', onSearchEvent);
+formSearchEvents.addEventListener('submit', throttle(onSearchEvent, 200));
 // formCountry.addEventListener('submit', onSearchCountry);
 
 // function onSearchCountry(e) {
