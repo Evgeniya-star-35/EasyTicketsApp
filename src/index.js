@@ -1,25 +1,27 @@
 import './sass/main.scss';
 import NewsApiService from './js/fetchEvents';
 import fetchCountries from './js/fetchCountry';
+import galleryItem from './templates/gallery.hbs';
 var throttle = require('lodash.throttle');
 
 const formSearchEvents = document.querySelector('#search-form');
 // const formCountry = document.querySelector('.choose-form');
 formSearchEvents.addEventListener('submit', throttle(onSearchEvent, 200));
-// formCountry.addEventListener('submit', onSearchCountry);
 
-// function onSearchCountry(e) {
-//   e.preventDefault();
-//   const query = e.target.value;
-//   fetchCountries(query);
-// }
 const newsApiService = new NewsApiService();
 
 function onSearchEvent(e) {
   e.preventDefault();
-  newsApiService.searchQuery = e.target.value;
+  newsApiService.searchQuery = e.currentTarget.elements.query.value;
   fetchEvs();
 }
 function fetchEvs() {
-  newsApiService.fetchEvents();
+  newsApiService.fetchEvents().then(events => {
+    renderTicketsGallery(events);
+  });
+}
+const gallery = document.querySelector('.gallery');
+function renderTicketsGallery(events) {
+  const markup = galleryItem(events);
+  gallery.insertAdjacentHTML('beforeend', markup);
 }
