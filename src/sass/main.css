@@ -558,21 +558,22 @@ body.menu-modal-open {
   padding-bottom: 19px;
 }
 
-@media screen and (min-width: 768px) {
-  .footer-text {
-    margin-top: 60px;
-    padding-bottom: 18px;
-  }
-}
-
 @media screen and (min-width: 320px) {
   .footer-text {
     font-size: 14px;
     line-height: 17px;
+    letter-spacing: 0.7px;
     margin-left: 34px;
     margin-right: 34px;
     margin-top: 60px;
     padding-bottom: 27px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .footer-text {
+    margin-top: 60px;
+    padding-bottom: 18px;
   }
 }
 
