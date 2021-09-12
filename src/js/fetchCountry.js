@@ -12,14 +12,13 @@
 //   }
 // }
 import countries from '../country.json';
-console.log(countries);
 import selectMenu from '../templates/selectMenu.hbs';
 const formCountry = document.querySelector('.choose-form');
 const selectList = document.querySelector('.select');
 
-function createListCountry(countries) {
+function createListCountry(value) {
   const markUp = selectMenu(countries);
-  selectList.insertAdjacentHTML('beforeend', markUp);
+  return selectList.insertAdjacentHTML('beforeend', markUp);
 }
 
 // formCountry.addEventListener('input', createListCountry);
@@ -28,5 +27,5 @@ formCountry.addEventListener('input', onSearchCountry);
 function onSearchCountry(e) {
   e.preventDefault();
   const query = e.target.value;
-  fetchCountries(query);
+  createListCountry(query);
 }

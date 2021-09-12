@@ -15,9 +15,8 @@ formSearchEvents.addEventListener('input', onSearchEvent);
 const newsApiService = new NewsApiService();
 
 function onSearchEvent(e) {
-  //   e.preventDefault();
+  e.preventDefault();
   newsApiService.searchQuery = e.target.value;
-  console.log(e.target.value);
   fetchEvs();
 }
 function fetchEvs() {
