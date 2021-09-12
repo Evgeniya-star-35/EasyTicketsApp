@@ -549,13 +549,21 @@ body.menu-modal-open {
 }
 
 .footer-text {
-  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   color: #939393;
   font-weight: normal;
   font-size: 16px;
   line-height: 1.25;
   margin-top: 80px;
-  padding-bottom: 19px;
+  margin-bottom: 19px;
 }
 
 @media screen and (min-width: 320px) {
@@ -573,7 +581,7 @@ body.menu-modal-open {
 @media screen and (min-width: 768px) {
   .footer-text {
     margin-top: 60px;
-    padding-bottom: 18px;
+    margin-bottom: 18px;
   }
 }
 
