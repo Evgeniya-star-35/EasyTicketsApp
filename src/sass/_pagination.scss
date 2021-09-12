@@ -19,11 +19,15 @@
   margin-right: 15px;
 }
 
-.pagination-button {
+.dots{
+  color: var(--white-text-color);
+}
+
+.pagination-button{
   padding: 0;
-  background-color: $modal-text-color;
   border: none;
-  color: $white-text-color;
+  color: var(--white-text-color);
+  background-color: var(--modal-text-color);
   cursor: pointer;
   font-family: Montserrat;
   font-weight: 400;
@@ -35,13 +39,14 @@
   width: 30px;
   height: 30px;
   border: 1px solid #DC56C5;
-  color: $white-text-color;
+  border-radius: 10px 0px;
+  color:var(--white-text-color);
 }
 
 
 .dots,
-.first-button,
-.last-button {
+.first-button
+ {
   @media screen and (max-width: 768px) {
     display: none;
   }
