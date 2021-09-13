@@ -7,38 +7,41 @@
     </a>
     <div class="logo-gradient"></div>
 
-    <h1 class="header-title animate__animated animate__bounceInDown">
-      FIND BEST EVENTS AROUND THE WORLD
-    </h1>
-    <div class="loockfor">
-      <form class="search-form" id="search-form">
-        <input
-          class="input-search"
-          type="text"
-          name="query"
-          autocomplete="off"
-          placeholder="Start searching"
-        />
-        <button class="search-button" type="submit">
-          <svg class="input-icon" width="12" height="12">
-            <use href="./images/sprite.svg#icon-search"></use>
-          </svg>
-        </button>
-      </form>
-      <form class="choose-form">
-        <input
-          class="input-country"
-          type="text"
-          name="query"
-          autocomplete="off"
-          placeholder="Choose country"
-        />
-        <button class="choose-button" type="submit">
-          <svg class="input-icon" width="15" height="10">
-            <use href="./images/sprite.svg#icon-polygon"></use>
-          </svg>
-        </button>
-      </form>
+
+  <h1 class="header-title animate__animated animate__bounceInDown">
+    FIND BEST EVENTS AROUND THE WORLD
+  </h1>
+  <div class="loockfor">
+    <div class="search-form" id="search-form">
+      <input
+        class="input-search"
+        type="text"
+        name="query"
+        autocomplete="off"
+        placeholder="Start searching"
+      />
+      <button class="search-button" type="submit">
+        <svg class="input-icon" width="12" height="12">
+          <use href="./images/sprite.svg#icon-search"></use>
+        </svg>
+      </button>
+    </div>
+    <div class="choose-form">
+      <!-- <input
+        class="input-country"
+        type="text"
+        name="query"
+        autocomplete="off"
+        placeholder="Choose country"
+      /> -->
+      <select class="input-country" name="country" id="select-countri">
+        <option value="" disabled selected hidden>Choose country</option>
+      </select>
+      <button class="choose-button" type="submit">
+        <svg class="input-icon" width="15" height="10">
+          <use href="./images/sprite.svg#icon-polygon"></use>
+        </svg>
+      </button>
     </div>
   </div>
 </header>
