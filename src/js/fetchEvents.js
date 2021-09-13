@@ -1,5 +1,5 @@
 import axios from 'axios';
-const API_KEY = 'PzrzbFx6KOLu93UpjkE0jgoi6XvAmcaG';
+const API_KEY = 'jV9uz55seY7b9FTi8qfGgp0zGLZ7GPsL';
 axios.defaults.baseURL = 'https://app.ticketmaster.com/discovery/v2/';
 export default class NewsApiService {
   constructor() {
@@ -12,7 +12,7 @@ export default class NewsApiService {
       const {
         data: { _embedded: events },
       } = await axios.get(
-        `events.json?keyword=${this.searchQuery}&page=${this.page}&size=24&apikey=${API_KEY}`,
+        `events.json?keyword=${this.searchQuery}&page=${this.page}&size=20&apikey=${API_KEY}`,
       );
 
       this.incrementPage();
