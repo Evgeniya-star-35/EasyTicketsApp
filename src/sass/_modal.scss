@@ -28,7 +28,7 @@
     padding-top: 75px;
     padding-bottom: 104px;
     border-radius: 150px 0px;
-    background-color: #FFF2FD;
+    background-color: var(--modal-bg-color);
     
     transform: translate(-50%, -50%) scale(1);
     transition: transform 500ms var(--timing-function);
@@ -64,6 +64,14 @@
   border: none;
   background-color: transparent;
   cursor: pointer;
+}
+
+.modal__icon-close {
+    fill: var(--btn-color);
+    @media screen and (min-width: 1280px) {
+        width: 25px;
+        height: 25px;
+    }
 }
 
 .modal__preview-img {
@@ -138,11 +146,10 @@
 
 .modal__title {
     margin-bottom: 5px;
-    // font-family: Montserrat;
     font-weight: 600;
     font-size: 20px;
     line-height: 1.2;    
-    color: #DC56C5;
+    color: var(--main-text-color);
 
     @media screen and (min-width: 1280px) {
         margin-bottom: 7px;
@@ -152,10 +159,7 @@
 }
 
 .modal__text {
-    // font-family: Montserrat;
-    font-size: 16px;
-    line-height: 1.25;
-    color: #0E0E0E;
+    color: var(--modal-text-color);
 
     @media screen and (min-width: 1280px) {
         font-size: 18px;
@@ -176,46 +180,81 @@
     }
 }
 
+.modal__prices-list-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @media screen and (min-width: 768px) {
+        justify-content: start;
+    }
+}
+
+.modal__text--prices-list {
+    margin-left: 13px;
+}
+
 .modal__prices-list-button {
     margin-top: 10px;
+    padding: 9px 15px 11px;
     width: 145px;
     height: 40px;
 
     font-weight: 500;
-    font-size: 16px;
-    line-height: 1.25;
-    background-color: #4C00FE;
+    // background-color: var(--btn-color);
+    background-color: var(--main-text-color);
     border-radius: 5px;
-    color: #FFFFFF;
+    color: var(--white-text-color);
+    border: 1px solid var(--main-text-color);
+    cursor: pointer;
     
     @media screen and (min-width: 1280px) {
         margin-top: 20px;
+        font-size: 16px;
+        line-height: 1.25;
     }
 }
+
+.modal__prices-list-button:hover,
+.modal__prices-list-button:focus {
+    background-color: var(--white-text-color);
+    color: var(--main-text-color);
+    transition: color var(--animation), background-color var(--animation);
+}
+
 
 .modal__more-button {
     display: block;
     margin-top: 25px;
     margin-left: auto;
     margin-right: auto;
+    padding: 0;
     width: 230px;
     height: 40px;
-    border: 1px solid #4C00FE;
+    border: 1px solid var(--main-text-color);
     border-radius: 5px;
     font-weight: 500;
-    font-size: 16px;
-    line-height: 1.25;
-    color: #4C00FE;
+    color: var(--main-text-color);
     background-color: transparent;
+    cursor: pointer;
     
     @media screen and (min-width: 768px) {
         margin-top: 43px;
         width: 255px;
-        border: 1px solid #DC56C5;
+        border: 1px solid var(--main-text-color);
     }
 
     @media screen and (min-width: 1280px) {
         margin-top: 45px;
-        border: 1px solid #4C00FE;      
+        border: 1px solid var(--main-text-color);  
+        font-size: 16px;
+        line-height: 1.25;    
     }
+}
+
+.modal__more-button:hover,
+.modal__more-button:focus {
+    background-color: var(--main-text-color);
+    color: var(--white-text-color);
+    transition: color var(--animation), background-color var(--animation);
 }
