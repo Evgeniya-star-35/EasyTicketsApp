@@ -1,7 +1,10 @@
-.footer-text {
+.footer {
   display: flex;
-  align-items: center;
   justify-content: center;
+}
+
+.footer-text {
+  text-align: center;
   color: #939393;
   font-weight: normal;
   font-size: 16px;
@@ -11,11 +14,12 @@
   @media screen and (min-width: 320px){
     font-size: 14px;
     line-height: 1.21;
-    letter-spacing: 0.7px;
+    letter-spacing: 0.7px; 
+    flex-direction: column; 
     margin-left: 34px;
     margin-right: 34px;
     margin-top: 60px;
-    margin-bottom: 60px;
+    margin-bottom: 27px;
   }
   @media screen and (min-width: 768px){
     margin-top: 60px;
@@ -25,7 +29,6 @@
 
 .heart {
   font-size: 16px;
-  line-height: 0.8;
-  text-align: center;
+  line-height: 1.25;
   color: rgb(247, 95, 68);
 }
