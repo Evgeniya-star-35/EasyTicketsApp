@@ -141,15 +141,21 @@
     margin-top: 8px;
   }
 }
+.gallery__location {
+  display: flex;
+  justify-content: center;
+  // align-items: center;
+}
 .material-icons {
-  width: 6px;
-  height: 9px;
+  width: 3px;
+  height: 6px;
   color: var(--white-text-color);
   @media screen and (min-width: 768px) {
-    width: 7px;
-    height: 10px;
+    width: 22px;
+    height: 7px;
   }
 }
+
 .gallery__link {
   //   width: 109px;
   //   height: 12px;

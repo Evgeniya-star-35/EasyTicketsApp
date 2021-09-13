@@ -11,12 +11,11 @@
       <div class='gallery__description'>
         <h3 class='gallery__title'>{{name}}</h3>
         <p class='gallery__text'>{{dates.start.localDate}}</p>
-
-        <p class='gallery__text'><a class='gallery__link' href=''><i
-              class='material-icons'
-            >room</i>{{_embedded.venues.location.longitude}}
-
-          </a></p></div>
+        <div class='gallery__location'>
+          <i class='material-icons'>room</i>
+          <p class='gallery__text'>{{_embedded.venues.0.address.line1}}</p>
+        </div>
+      </div>
     </div>
   </li>
 {{/each}}
