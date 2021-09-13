@@ -1,7 +1,6 @@
 // import countries from '../country.json';
 import selectMenu from '../templates/selectMenu.hbs';
 import axios from 'axios';
-var throttle = require('lodash.throttle');
 const formCountry = document.querySelector('.choose-form');
 const selectList = document.querySelector('.select');
 

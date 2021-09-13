@@ -18,7 +18,6 @@ function onSearchEvent(e) {
   clearEventGallery();
   fetchEvs();
   newsApiService.resetPage();
-
   e.currentTarget.reset();
 }
 function fetchEvs() {
