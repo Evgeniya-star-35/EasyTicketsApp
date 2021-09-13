@@ -1,0 +1,24 @@
+{{#each events}}
+  <li class='gallery__item'>
+    <div class='gallery__card'>
+      <picture class='gallery__image'>
+        <source srcset='{{images.1.url}}, {{images.6.url}}' media='(min-width: 1280px)' />
+        <source srcset='{{images.4.url}}, {{images.3.url}}' media='(min-width: 768px)' />
+        <source srcset='{{images.8.url}}, {{images.7.url}}' media='(max-width: 767.9px)' />
+        <img src='{{images.1.url}}' width='180' alt='{{name}}' />
+      </picture>
+
+      <div class='gallery__description'>
+        <h3 class='gallery__title'>{{name}}</h3>
+        <p class='gallery__text'>{{dates.start.localDate}}</p>
+
+        <p class='gallery__text'><a class='gallery__link' href=''><i
+              class='material-icons'
+            >room</i>{{_embedded.venues.location.longitude}}
+
+          </a></p>
+
+      </div>
+    </div>
+  </li>
+{{/each}}
