@@ -2,7 +2,10 @@ import './sass/main.scss';
 import NewsApiService from './js/fetchEvents';
 import fetchCountries from './js/fetchCountry';
 import galleryItem from './templates/gallery.hbs';
+import { toggleModal } from './js/modal';
 var throttle = require('lodash.throttle');
+
+toggleModal();
 
 const formSearchEvents = document.querySelector('#search-form');
 // const formCountry = document.querySelector('.choose-form');
