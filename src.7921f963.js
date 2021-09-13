@@ -82,4 +82,4 @@ var t=arguments[3],n="Expected a function",e=NaN,i="[object Symbol]",r=/^\s+|\s+
 },{}],"Focm":[function(require,module,exports) {
 "use strict";require("./sass/main.scss");var e=u(require("./js/fetchEvents")),r=u(require("./js/fetchCountry")),t=u(require("./templates/gallery.hbs")),s=require("./js/modal");function u(e){return e&&e.__esModule?e:{default:e}}var n=require("lodash.throttle");(0,s.toggleModal)();const a=document.querySelector("#search-form");a.addEventListener("submit",n(l,200));const c=new e.default;function l(e){e.preventDefault(),c.searchQuery=e.currentTarget.elements.query.value,o()}function o(){c.fetchEvents()}
 },{"./sass/main.scss":"clu1","./js/fetchEvents":"sPMT","./js/fetchCountry":"INDD","./templates/gallery.hbs":"YMFI","./js/modal":"RSqK","lodash.throttle":"FNyO"}]},{},["Focm"], null)
-//# sourceMappingURL=/EasyTicketsApp/src.72928779.js.map
+//# sourceMappingURL=/EasyTicketsApp/src.7921f963.js.map
