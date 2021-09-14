@@ -1,17 +1,19 @@
 import './sass/main.scss';
-import 'material-icons/iconfont/material-icons.css';
+// import 'material-icons/iconfont/material-icons.css';
 import NewsApiService from './js/fetchEvents';
+// import fetchCountries from './js/fetchCountry';
 import fetchCountries from './js/fetchCountry';
 import galleryItem from './templates/galleryCard.hbs';
 import { toggleModal } from './js/modal';
 var throttle = require('lodash.throttle');
 import  fetchDefaultEvents  from './js/onload'
 console.log(fetchDefaultEvents);
+import { refs } from './js/refs';
+
 
 toggleModal();
 
-const formSearchEvents = document.querySelector('#search-form');
-formSearchEvents.addEventListener('submit', onSearchEvent);
+refs.formSearchEvents.addEventListener('submit', onSearchEvent);
 const newsApiService = new NewsApiService();
 
 function onSearchEvent(e) {
@@ -27,10 +29,9 @@ function fetchEvs() {
     renderTicketsGallery(events);
   });
 }
-const gallery = document.querySelector('#gallery');
 function renderTicketsGallery(events) {
   const markup = galleryItem(events);
-  gallery.insertAdjacentHTML('beforeend', markup);
+  refs.gallery.insertAdjacentHTML('beforeend', markup);
 }
 function clearEventGallery() {
   gallery.innerHTML = '';
