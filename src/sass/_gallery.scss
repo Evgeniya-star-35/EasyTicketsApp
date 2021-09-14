@@ -6,7 +6,10 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+  animation: fade-in 1500ms var(--timing-function);
+  @media (min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
     background-image: url(../images/mobile/mobile-bg-body@2x.jpg);
   }
   @media screen and (min-width: 768px) {
@@ -17,7 +20,9 @@
     background-position: center;
     background-repeat: no-repeat;
 
-    @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+    @media (min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
       background-image: url(../images/tablet/tablets-bg-body@2x.jpg); // изменила адресс
     }
   }
@@ -31,10 +36,15 @@
     background-position: center;
     background-repeat: no-repeat;
 
-    @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+    @media (min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
       background-image: url(../images/desctop/bg-body@2x.jpg); // изменила адресс
     }
   }
+}
+.animate__backInLeft {
+  animation-duration: 3000ms;
 }
 
 #gallery {
@@ -43,6 +53,16 @@
   margin-top: -40px;
   margin-left: -14px;
 }
+// ==
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+// ==
 .gallery__item {
   position: relative;
   text-align: center;
@@ -86,7 +106,7 @@
   }
 }
 .gallery__card::after {
-  content: ' ';
+  content: " ";
   position: absolute;
   width: 109px;
   height: 101px;
