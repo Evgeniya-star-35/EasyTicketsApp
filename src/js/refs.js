@@ -4,4 +4,6 @@ export const refs = {
   selectList: document.querySelector('.select'),
   formSearchEvents: document.querySelector('#search-form'),
   buttonSearchCountry: document.querySelector('.choose-button'),
+  backdrop: document.querySelector('.backdrop'),
+  modal: document.querySelector('.modal'),
 };
