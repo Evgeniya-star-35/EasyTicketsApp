@@ -81,4 +81,4 @@ var e,t=arguments[3];!function(t,r){"object"==typeof exports&&"object"==typeof m
 },{}],"Focm":[function(require,module,exports) {
 "use strict";require("./sass/main.scss");var e=u(require("./js/fetchEvents")),r=u(require("./js/fetchCountry")),t=u(require("./templates/galleryCard.hbs")),n=require("./js/modal"),s=require("./js/refs");function u(e){return e&&e.__esModule?e:{default:e}}(0,n.toggleModal)(),s.refs.formSearchEvents.addEventListener("submit",c);const a=new e.default;function c(e){e.preventDefault(),a.searchQuery=e.currentTarget.elements.query.value,l(),f(),a.resetPage(),e.currentTarget.reset()}function f(){a.fetchEvents().then(e=>{i(e)})}function i(e){const r=(0,t.default)(e);s.refs.gallery.insertAdjacentHTML("beforeend",r)}function l(){gallery.innerHTML=""}
 },{"./sass/main.scss":"clu1","./js/fetchEvents":"sPMT","./js/fetchCountry":"INDD","./templates/galleryCard.hbs":"B7cY","./js/modal":"RSqK","./js/refs":"VyiV"}]},{},["Focm"], null)
-//# sourceMappingURL=/EasyTicketsApp/src.14c9682e.js.map
+//# sourceMappingURL=/EasyTicketsApp/src.2041b5b4.js.map
