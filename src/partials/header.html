@@ -25,25 +25,29 @@
           </svg>
         </button>
       </form>
-      <form class="choose-form">
-        <!-- <input
-        class="input-country"
-        type="text"
-        name="query"
-        autocomplete="off"
-        placeholder="Choose country"
-      /> -->
-        <select class="input-country" name="country" id="select-countri">
+      <div class="choose-form">
+        <input
+          list="country-code"
+          class="input-country"
+          type="text"
+          name="country"
+          id="country"
+          autocomplete="off"
+          placeholder="Choose country"
+        />
+        <!-- <select class="input-country" name="country" id="select-countri">
           <option value="" disabled selected hidden>Choose country</option>
-        </select>
-        <button class="choose-button" type="submit">
+        </select> -->
+        <button class="choose-button" type="button" id="countryBtn">
           <svg class="input-icon" width="15" height="10">
             <use href="./images/sprite.svg#icon-polygon"></use>
           </svg>
         </button>
-      </form>
+      </div>
+
+      <datalist id="country-code"></datalist>
     </div>
   </div>
 </header>
 <!-- строчка 47 добавила div -->
-<!-- добавила tag form на селект -->
+<!-- изменила верстку второго инпута, добавила дата лист -->
