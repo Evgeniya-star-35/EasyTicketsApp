@@ -7,7 +7,6 @@ import galleryItem from './templates/galleryCard.hbs';
 import { toggleModal } from './js/modal';
 var throttle = require('lodash.throttle');
 import  fetchDefaultEvents  from './js/onload'
-console.log(fetchDefaultEvents);
 import { refs } from './js/refs';
 
 
@@ -29,7 +28,7 @@ function fetchEvs() {
     renderTicketsGallery(events);
   });
 }
-function renderTicketsGallery(events) {
+export function renderTicketsGallery(events) {
   const markup = galleryItem(events);
   refs.gallery.insertAdjacentHTML('beforeend', markup);
 }
