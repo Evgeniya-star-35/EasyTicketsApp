@@ -7,8 +7,7 @@ import { toggleModal } from './js/modal';
 import fetchDefaultEvents from './js/onload';
 import { refs } from './js/refs';
 import onModalOpen from './js/modalHbs';
-
-// toggleModal();
+import { createPagination } from './js/pagination';
 
 refs.formSearchEvents.addEventListener('submit', onSearchEvent);
 const newsApiService = new NewsApiService();
@@ -21,10 +20,10 @@ function onSearchEvent(e) {
   newsApiService.resetPage();
   e.currentTarget.reset();
 }
-function fetchEvs() {
+export function fetchEvs() {
   newsApiService.fetchEvents().then(events => {
-    // console.log(events._embedded);
-    renderTicketsGallery(events);
+    renderTicketsGallery(events._embedded);
+    refs.pagination.innerHTML = createPagination(events.page.totalPages, events.page.number);
   });
 }
 export function renderTicketsGallery(events) {

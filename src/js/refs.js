@@ -6,4 +6,5 @@ export const refs = {
   buttonSearchCountry: document.querySelector('.choose-button'),
   backdrop: document.querySelector('.backdrop'),
   modal: document.querySelector('.modal'),
+  pagination: document.querySelector('.pagination ul'),
 };
