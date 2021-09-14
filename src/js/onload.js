@@ -1,12 +1,12 @@
 import axios from "axios";
 const API_KEY = "jV9uz55seY7b9FTi8qfGgp0zGLZ7GPsL";
 axios.defaults.baseURL = "https://app.ticketmaster.com/discovery/v2/";
-import galleryItem from "../templates/galleryCard.hbs";
+import { renderTicketsGallery } from "../index";
 
 export default class NewDefaulteFetchServise {
   constructor() {
     this.locale = "*";
-    this.keyword = "";
+    this.keyword = "Europe";
     this.size = 24;
     this.page = 1;
     this.preferredCountry = "";
@@ -28,6 +28,10 @@ export default class NewDefaulteFetchServise {
 }
 
 const defaultServise = new NewDefaulteFetchServise();
+
+defaultServise
+  .defaultFetchServise()
+  .then((events) => renderTicketsGallery(events));
 
 window.addEventListener(
   "DOMContentLoaded",
