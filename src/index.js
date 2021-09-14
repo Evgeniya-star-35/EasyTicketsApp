@@ -5,7 +5,11 @@ import NewsApiService from './js/fetchEvents';
 import fetchCountries from './js/fetchCountry';
 import galleryItem from './templates/galleryCard.hbs';
 import { toggleModal } from './js/modal';
+var throttle = require('lodash.throttle');
+import  fetchDefaultEvents  from './js/onload'
+console.log(fetchDefaultEvents);
 import { refs } from './js/refs';
+
 
 toggleModal();
 
