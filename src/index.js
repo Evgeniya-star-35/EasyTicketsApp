@@ -7,7 +7,11 @@ import { onEventClick } from './js/modal';
 import { refs } from './js/refs';
 import './js/btnUp';
 import onModalOpen from './js/modalHbs';
+
+import { createPagination } from './js/pagination';
+
 var throttle = require('lodash.throttle');
+
 
 refs.formSearchEvents.addEventListener('submit', onSearchEvent);
 const newsApiService = new NewsApiService();
@@ -21,10 +25,10 @@ function onSearchEvent(e) {
   e.currentTarget.reset();
 }
 
-function fetchEvs() {
-  newsApiService.fetchEvents().then(events => {
-    // console.log(events._embedded);
-    renderTicketsGallery(events);
+export function fetchEvs() {
+newsApiService.fetchEvents().then(events => {
+    renderTicketsGallery(events._embedded);
+    refs.pagination.innerHTML = createPagination(events.page.totalPages, events.page.number);
   });
 }
 

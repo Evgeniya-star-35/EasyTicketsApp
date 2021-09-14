@@ -1,59 +1,40 @@
-.pagination-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  
-  
-    @media screen and (min-width: 320px) and (max-width: 767px) {
-      padding: 60px 0;
-    }
-  
-    @media screen and (min-width: 768px) {
-      padding: 60px 0 60px 0;
-    }
-  }
-
-
-.pagination-button:not(:last-child),
-.dots {
-  margin-right: 15px;
+.pagination ul {
+  padding-top: 60px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
 }
-
-.dots{
-  color: var(--white-text-color);
+.pagination ul li:not(:last-child) {
+  margin-right: 5px;
 }
-
-.pagination-button{
-  padding: 0;
-  border: none;
-  color: var(--white-text-color);
-  background-color: var(--modal-text-color);
-  cursor: pointer;
-  font-family: Montserrat;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 1.219;
+.pagination .prev,
+.pagination .next {
+  width: 50px;
 }
-
-.pagination--current {
-  width: 30px;
+.pagination ul li {
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 30px;
-  border: 1px solid #DC56C5;
+  width: 30px;
+  line-height: 20px;
+  font-size: 16px;
+  font-weight: 400;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.3s ease;
+}
+
+.pagination ul li.dots {
+  cursor: default;
+}
+
+.pagination li.active,
+.pagination ul li.numb:hover,
+.pagination ul li:first-child:hover,
+.pagination ul li:last-child:hover {
+  color: #dc56c5;
+  border: 1px solid #dc56c5;
   border-radius: 10px 0px;
-  color:var(--white-text-color);
 }
-
-
-.dots,
-.first-button
- {
-  @media screen and (max-width: 768px) {
-    display: none;
-  }
-}
-
-
-
-
- 
-

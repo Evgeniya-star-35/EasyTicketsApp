@@ -9,14 +9,12 @@ export default class NewsApiService {
   //функция для получения массива events
   async fetchEvents() {
     try {
-      const {
-        data: { _embedded: events },
-      } = await axios.get(
+      const data = await axios.get(
         `events.json?keyword=${this.searchQuery}&page=${this.page}&size=24&apikey=${API_KEY}`,
       );
 
       this.incrementPage();
-      return events;
+      return data.data;
     } catch (error) {
       console.log('Error!');
     }
