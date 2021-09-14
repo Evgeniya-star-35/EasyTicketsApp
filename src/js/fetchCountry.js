@@ -1,37 +1,45 @@
 // import countries from '../country.json';
+import { refs } from './refs';
 import selectMenu from '../templates/selectMenu.hbs';
 import axios from 'axios';
-const formCountry = document.querySelector('.choose-form');
-const selectList = document.querySelector('.select');
 
-formCountry.addEventListener('submit', searchCountry);
-const API_KEY = 'PzrzbFx6KOLu93UpjkE0jgoi6XvAmcaG';
-axios.defaults.baseURL = 'https://app.ticketmaster.com/discovery/v2/';
+refs.buttonSearchCountry.addEventListener('click', searchCountry);
+const API_KEY = 'jV9uz55seY7b9FTi8qfGgp0zGLZ7GPsL';
+// axios.defaults.baseURL = 'https://app.ticketmaster.com/discovery/v2/';
+const baseURL = 'https://app.ticketmaster.com/discovery-feed/v2/events?';
+// export default async function fetchCountry(name) {
+//   try {
+//     const result = await axios.get(`events.json?countryCode=${name}&apikey=${API_KEY}`);
+//     console.log(result);
+//     return result;
+//   } catch (error) {
+//     console.log('Error!');
+//   }
+// }
+export async function fetchCountries(name) {
+  const response = await fetch(`${baseURL}&apikey=${API_KEY}`);
+  const resultDate = response.json();
+  return resultDate;
+}
+// const date = fetchCountries(name);
+// date.then(res => console.log(res));
 
-export default async function fetchCountries(country) {
+async function searchCountry(e) {
+  e.preventDefault();
+  // const value = e.target.value;
   try {
-    const {
-      data: { _embedded: events },
-    } = await axios.get(`events.json?&keyword=${country}&page=1&size=20&apikey=${API_KEY}`);
-    console.log(events);
-    return events;
+    const countryFetch = await fetchCountries(country).then(items => console.log(items.countries));
   } catch (error) {
     console.log('Error!');
   }
 }
-
-function searchCountry(e) {
-  e.preventDefault();
-  const value = e.currentTarget.elements.query.value;
-  fetchCountries(value);
-}
-function markUpList(events) {
-  const render = selectMenu(events);
-  selectList.insertAdjacentHTML('beforeend', render);
-}
-function fetchCountry() {
-  fetchCountries().then(events => markUpList(events));
-}
+// function markUpList(events) {
+//   const render = selectMenu(events);
+//   refs.selectList.insertAdjacentHTML('beforeend', render);
+// }
+// function fetchCountry() {
+//   fetchCountries().then(events => markUpList(events));
+// }
 // поиск со своего бекенда
 
 // formCountry.addEventListener('submit', throttle(onSearchCountry, 200));
