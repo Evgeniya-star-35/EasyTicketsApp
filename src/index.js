@@ -5,6 +5,8 @@ import fetchCountries from './js/fetchCountry';
 import galleryItem from './templates/galleryCard.hbs';
 import { toggleModal } from './js/modal';
 var throttle = require('lodash.throttle');
+import  fetchDefaultEvents  from './js/onload'
+console.log(fetchDefaultEvents);
 
 toggleModal();
 
