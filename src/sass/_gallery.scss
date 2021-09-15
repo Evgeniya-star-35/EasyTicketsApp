@@ -7,9 +7,7 @@
   background-position: center;
   background-repeat: no-repeat;
   animation: fade-in 1500ms var(--timing-function);
-  @media (min-device-pixel-ratio: 2),
-    (min-resolution: 192dpi),
-    (min-resolution: 2dppx) {
+  @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
     background-image: url(../images/mobile/mobile-bg-body@2x.jpg);
   }
   @media screen and (min-width: 768px) {
@@ -20,9 +18,7 @@
     background-position: center;
     background-repeat: no-repeat;
 
-    @media (min-device-pixel-ratio: 2),
-      (min-resolution: 192dpi),
-      (min-resolution: 2dppx) {
+    @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
       background-image: url(../images/tablet/tablets-bg-body@2x.jpg); // изменила адресс
     }
   }
@@ -36,9 +32,7 @@
     background-position: center;
     background-repeat: no-repeat;
 
-    @media (min-device-pixel-ratio: 2),
-      (min-resolution: 192dpi),
-      (min-resolution: 2dppx) {
+    @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
       background-image: url(../images/desctop/bg-body@2x.jpg); // изменила адресс
     }
   }
@@ -69,6 +63,13 @@
   margin-top: 40px;
   margin-right: 14px;
   flex-basis: calc((100% - 2 * 14px) / 2);
+  transition: box-shadow var(--animation), transform var(--animation); // добавила
+
+  &:hover .gallery__card::after {
+    //
+    box-shadow: 7px 0 7px 0px var(--main-text-color); // добавила
+    transform: translateY(-10%); //
+  } //
 }
 @media screen and (min-width: 768px) {
   #gallery {
@@ -106,7 +107,7 @@
   }
 }
 .gallery__card::after {
-  content: " ";
+  content: ' ';
   position: absolute;
   width: 109px;
   height: 101px;
@@ -114,6 +115,8 @@
   top: -10px;
   border: 1px solid rgba(220, 86, 197, 0.3);
   border-radius: 50px 0px;
+  cursor: pointer; //добавила
+
   @media screen and (min-width: 768px) {
     width: 153px;
     height: 143px;
@@ -121,11 +124,19 @@
     top: -13px;
   }
 }
+
+.gallery__card {
+  //
+  transition: box-shadow var(--animation), transform var(--animation); // добавила
+}
+//
 .gallery__card:hover,
 .gallery__card:focus {
   outline: 2px solid rgb(12, 15, 17);
   box-shadow: 0px 10px 10px -7px #000000, 1px 3px 7px 6px var(--main-text-color);
+  transform: translateY(-10%); // добавила
 }
+
 .gallery__title {
   font-weight: 700;
   line-height: 1.21;
