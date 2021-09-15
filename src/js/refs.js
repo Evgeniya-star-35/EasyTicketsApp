@@ -1,13 +1,14 @@
 export const refs = {
   gallery: document.querySelector('#gallery'),
   galleryCard: document.querySelector('.gallery__card'),
-  backdrop: document.querySelector('.backdrop'),
   closeButton: document.querySelector('.modal__close-button'),
-  formCountry: document.querySelector('.choose-form'),
+  buttonCountry: document.querySelector('#countryBtn'),
   selectList: document.querySelector('.select'),
   formSearchEvents: document.querySelector('#search-form'),
   buttonSearchCountry: document.querySelector('.choose-button'),
   backdrop: document.querySelector('.backdrop'),
   modal: document.querySelector('.modal'),
   pagination: document.querySelector('.pagination ul'),
+  datalist: document.querySelector('#country-code'),
+  input: document.querySelector('.input-country'),
 };

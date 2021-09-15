@@ -1,5 +1,6 @@
 import './sass/main.scss';
 import NewsApiService from './js/fetchEvents';
+import './js/connectInputs';
 import fetchCountries from './js/fetchCountry';
 import galleryItem from './templates/galleryCard.hbs';
 import  fetchDefaultEvents  from './js/onload';
@@ -7,7 +8,6 @@ import { onEventClick } from './js/modal';
 import { refs } from './js/refs';
 import './js/btnUp';
 import onModalOpen from './js/modalHbs';
-
 import { createPagination } from './js/pagination';
 
 var throttle = require('lodash.throttle');
