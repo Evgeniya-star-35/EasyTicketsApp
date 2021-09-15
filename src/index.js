@@ -9,6 +9,8 @@ import './js/btnUp';
 import onModalOpen from './js/modalHbs';
 
 import { createPagination } from './js/pagination';
+import { alert, error, notice } from '../node_modules/@pnotify/core/dist/PNotify.js';
+import '@pnotify/core/dist/BrightTheme.css';
 
 var throttle = require('lodash.throttle');
 
