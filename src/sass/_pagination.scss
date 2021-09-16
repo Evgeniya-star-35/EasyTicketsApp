@@ -1,39 +1,74 @@
-.pagination ul {
+a.tui-page-btn.tui-last,
+a.tui-page-btn.tui-first,
+.tui-is-disabled,
+.tui-prev-is-ellip,
+.tui-next-is-ellip {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+div.tui-pagination {
   padding-top: 60px;
+  padding-bottom: 60px;
+  @media screen and (min-width: 1280px) {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
   margin: 0 auto;
   display: flex;
   justify-content: center;
 }
-.pagination ul li:not(:last-child) {
-  margin-right: 5px;
-}
-.pagination .prev,
-.pagination .next {
-  width: 50px;
-}
-.pagination ul li {
+
+a.tui-page-btn,
+strong.tui-page-btn {
   color: white;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 30px;
   width: 30px;
-  line-height: 20px;
-  font-size: 16px;
+  line-height: 1.2;
+  font-size: 14px;
   font-weight: 400;
   cursor: pointer;
   user-select: none;
   transition: all 0.3s ease;
+  @media screen and (min-width: 768px) {
+    line-height: 1.1;
+    font-size: 16px;
+  }
+}
+a,
+strong {
+  margin-left: 5px;
+}
+a.tui-prev {
+  margin-left: -5px;
+}
+a.tui-prev,
+a.tui-next {
+  width: 32px;
+  height: 32px;
+  font-size: 14px;
 }
 
-.pagination ul li.dots {
-  cursor: default;
+a.tui-page-btn:hover,
+a.tui-page-btn:focus,
+strong.tui-page-btn:hover,
+strong.tui-page-btn:focus {
+  color: #dc56c5;
+  border: 1px solid #dc56c5;
+  border-radius: 10px 0px;
 }
 
-.pagination li.active,
-.pagination ul li.numb:hover,
-.pagination ul li:first-child:hover,
-.pagination ul li:last-child:hover {
+a.tui-first-child.tui-page-btn:hover,
+a.tui-page-btn:focus,
+strong.tui-is-selected {
   color: #dc56c5;
   border: 1px solid #dc56c5;
   border-radius: 10px 0px;

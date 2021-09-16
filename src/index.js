@@ -3,20 +3,17 @@ import NewsApiService from "./js/fetchEvents";
 // import './js/connectInputs';
 import "./js/renderJson";
 // import fetchCountries from './js/fetchCountry';
-import galleryItem from "./templates/galleryCard.hbs";
-import fetchDefaultEvents from "./js/onload";
-import { onEventClick } from "./js/modal";
-import { refs } from "./js/refs";
-import "./js/btnUp";
-import onModalOpen from "./js/modalHbs";
-import { createPagination } from "./js/pagination";
-// ==
-import { info, notice } from "@pnotify/core";
-import "@pnotify/core/dist/Material.css";
-import "@pnotify/core/dist/PNotify.css";
-// ==
 
-var throttle = require("lodash.throttle");
+import galleryItem from './templates/galleryCard.hbs';
+import fetchDefaultEvents from './js/onload';
+import { onEventClick } from './js/modal';
+import { refs } from './js/refs';
+import './js/btnUp';
+import onModalOpen from './js/modalHbs';
+import { success, alert, error, notice } from '../node_modules/@pnotify/core/dist/PNotify.js';
+import '@pnotify/core/dist/BrightTheme.css';
+import { renderPaginationTrandingMovie } from './js/pagination';
+var throttle = require('lodash.throttle');
 
 refs.formSearchEvents.addEventListener("submit", onSearchEvent);
 const newsApiService = new NewsApiService();
@@ -34,10 +31,8 @@ export function fetchEvs() {
   newsApiService.fetchEvents().then((events) => {
     renderTicketsGallery(events._embedded);
 
-    refs.pagination.innerHTML = createPagination(
-      events.page.totalPages,
-      events.page.number
-    );
+    renderPaginationTrandingMovie(events.page.totalPages);
+
   });
 }
 

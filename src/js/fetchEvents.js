@@ -12,12 +12,15 @@ export default class NewsApiService {
       const data = await axios.get(
         `events.json?keyword=${this.searchQuery}&page=${this.page}&size=24&apikey=${API_KEY}`,
       );
-
       this.incrementPage();
       return data.data;
     } catch (error) {
       console.log('Error!');
     }
+  }
+
+  page(currentPage) {
+    this.page = currentPage;
   }
 
   get query() {
