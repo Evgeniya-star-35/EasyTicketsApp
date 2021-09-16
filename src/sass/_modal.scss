@@ -188,7 +188,8 @@
   margin-left: 10px;
 }
 
-.modal__prices-list-button {
+.modal__prices-list-link {
+  display: block;
   margin-top: 10px;
   padding: 9px 15px 11px;
   width: 140px;
@@ -213,8 +214,8 @@
   }
 }
 
-.modal__prices-list-button:hover,
-.modal__prices-list-button:focus {
+.modal__prices-list-link:hover,
+.modal__prices-list-link:focus {
   background-color: var(--white-text-color);
   color: var(--main-text-color);
   transition: color var(--animation), background-color var(--animation);
