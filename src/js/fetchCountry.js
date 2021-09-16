@@ -9,6 +9,7 @@ const BASE_URL = 'https://app.ticketmaster.com/discovery-feed/v2/events?';
 async function fetchCountries(name) {
   const promiseCountries = await fetch(`${BASE_URL}apikey=${API_KEY}`);
   const countryData = promiseCountries.json();
+  // console.log(countryData);
   return countryData;
 }
 
