@@ -2,10 +2,12 @@ import axios from "axios";
 const API_KEY = "jV9uz55seY7b9FTi8qfGgp0zGLZ7GPsL";
 axios.defaults.baseURL = "https://app.ticketmaster.com/discovery/v2/";
 import { renderTicketsGallery } from "../index";
-
+// ==PNotify
+import { info, notice } from "@pnotify/core";
+import "@pnotify/core/dist/Material.css";
+import "@pnotify/core/dist/PNotify.css";
 export default class NewDefaulteFetchServise {
   constructor() {
-    this.locale = "*";
     this.keyword = "Europe";
     this.size = 24;
     this.page = 1;
@@ -17,7 +19,7 @@ export default class NewDefaulteFetchServise {
       const {
         data: { _embedded: events },
       } = await axios.get(
-        `events.json?page=${this.page}&size=${this.size}&keyword=${this.keyword}&apikey=${API_KEY}&preferredCountry=${this.preferredCountry}&locale=${this.locale}`
+        `events.json?page=${this.page}&size=${this.size}&keyword=${this.keyword}&apikey=${API_KEY}&preferredCountry=${this.preferredCountry}`
       );
 
       return events;
@@ -33,7 +35,33 @@ defaultServise
   .defaultFetchServise()
   .then((events) => renderTicketsGallery(events));
 
-window.addEventListener(
-  "DOMContentLoaded",
-  defaultServise.defaultFetchServise()
-);
+function infoAtFirst() {
+  if ("DOMContentLoaded") {
+    info({
+      title: "😀 Welkom to our site!",
+      text: "Enjoy your time on our website 💖",
+      delay: 2750,
+      icons: "material",
+      styling: "material",
+      addModelessClass: "animate__backInLeft",
+    });
+  } else {
+    error({
+      title: "ERROR!",
+      text: "😯 Sorry We Work with this Problem...",
+      delay: 1000,
+      icons: "material",
+      styling: "material",
+      addModelessClass: "animate__bounce",
+    });
+  }
+}
+
+infoAtFirst();
+
+// ==
+
+// window.addEventListener(
+//   "DOMContentLoaded",
+//   defaultServise.defaultFetchServise()
+// );
