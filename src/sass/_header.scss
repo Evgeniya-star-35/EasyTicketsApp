@@ -96,14 +96,22 @@
   @media screen and (min-width: 480px) {
     padding-left: 55px;
     padding-right: 55px;
-    background-image: linear-gradient(180deg, rgba(13, 13, 13, 0) 0%, rgba(14, 14, 14, 0.8) 100%),
+    background-image: linear-gradient(
+        180deg,
+        rgba(13, 13, 13, 0) 0%,
+        rgba(14, 14, 14, 0.8) 100%
+      ),
       url(../images/tablet/tablets-pic@1x.jpg);
 
     @media (min-device-pixel-ratio: 2),
       (-webkit-min-device-pixel-ratio: 2),
       (min-resolution: 192dpi),
       (min-resolution: 2dppx) {
-      background-image: linear-gradient(180deg, rgba(13, 13, 13, 0) 0%, rgba(14, 14, 14, 0.8) 100%),
+      background-image: linear-gradient(
+          180deg,
+          rgba(13, 13, 13, 0) 0%,
+          rgba(14, 14, 14, 0.8) 100%
+        ),
         url(../images/tablet/tablets-pic@2x.jpg);
     }
   }
@@ -141,14 +149,15 @@
   margin-right: auto;
   margin-left: auto;
   margin-bottom: 50px;
-  text-shadow: 1px 1px 2px rgba(0, 132, 255, 0.562), 0 0 1em rgba(183, 0, 255, 0.801),
-    0 0 0.2em rgba(0, 140, 255, 0.411);
+  text-shadow: 1px 1px 2px rgba(0, 132, 255, 0.562),
+    0 0 1em rgba(183, 0, 255, 0.801), 0 0 0.2em rgba(0, 140, 255, 0.411);
 
   transition: color var(--animation), text-shadow var(--animation);
 
   &:hover {
     color: #702e65;
-    text-shadow: 3px 3px 5px rgba(234, 0, 255, 0.555), 2 2 4em blue, 0 0 0.8em blue;
+    text-shadow: 3px 3px 5px rgba(234, 0, 255, 0.555), 2 2 4em blue,
+      0 0 0.8em blue;
   }
 
   @media screen and (min-width: 480px) {
@@ -278,4 +287,8 @@ select {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
+}
+
+.select {
+  position: absolute;
 }
