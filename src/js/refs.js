@@ -9,6 +9,5 @@ export const refs = {
   backdrop: document.querySelector('.backdrop'),
   modal: document.querySelector('.modal'),
   pagination: document.querySelector('.pagination ul'),
-  datalist: document.querySelector('#country-code'),
-  input: document.querySelector('.input-country'),
+  select: document.querySelector('#select-country'),
 };
