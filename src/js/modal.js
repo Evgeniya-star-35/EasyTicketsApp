@@ -45,7 +45,7 @@ function modalOpen(e) {
   e.stopPropagation();
   refs.modal.innerHTML = '';
   refs.backdrop.classList.remove('is-hidden');
-  fetchEvs();
+  // fetchEvs();
   const saveData = localStorage.getItem('data');
   const parseData = JSON.parse(saveData);
 
