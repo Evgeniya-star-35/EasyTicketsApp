@@ -8,11 +8,11 @@
         <img src='{{images.1.url}}' width='180' alt='{{name}}' data-source='{{id}}' />
       </picture>
 
-      <div class='gallery__description'>
+      <div class='gallery__description' data-source='{{id}}'>
         <h3 class='gallery__title' data-source='{{id}}'>{{name}}</h3>
         <p class='gallery__text'>{{dates.start.localDate}}</p>
-        <div class='gallery__location'>
-          <p class='gallery__text'><i
+        <div class='gallery__location' data-source='{{id}}'>
+          <p class='gallery__text' data-source='{{id}}'><i
               class='material-icons gallery__icon'
             >room</i>{{_embedded.venues.0.address.line1}}</p>
         </div>
