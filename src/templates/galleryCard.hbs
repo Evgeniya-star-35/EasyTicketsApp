@@ -1,7 +1,7 @@
 {{#each events}}
   <li class='gallery__item'>
     <div class='gallery__card'>
-      <picture class='gallery__image'>
+      <picture class='gallery__image' data-source='{{id}}'>
         <source srcset='{{images.1.url}}, {{images.6.url}}' media='(min-width: 1280px)' />
         <source srcset='{{images.4.url}}, {{images.3.url}}' media='(min-width: 768px)' />
         <source srcset='{{images.8.url}}, {{images.7.url}}' media='(max-width: 767.9px)' />
