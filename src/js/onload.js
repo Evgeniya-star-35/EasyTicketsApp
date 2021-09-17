@@ -38,7 +38,7 @@ defaultServise
 function infoAtFirst() {
   if ("DOMContentLoaded") {
     info({
-      title: "😀 Welkom to our site!",
+      title: "😀 Welcome to our site!",
       text: "Enjoy your time on our website 💖",
       delay: 2750,
       icons: "material",
@@ -48,7 +48,7 @@ function infoAtFirst() {
   } else {
     error({
       title: "ERROR!",
-      text: "😯 Sorry We Work with this Problem...",
+      text: "😯 Sorry, We Work with this Problem...",
       delay: 1000,
       icons: "material",
       styling: "material",
