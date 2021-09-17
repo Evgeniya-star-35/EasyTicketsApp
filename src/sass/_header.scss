@@ -96,22 +96,14 @@
   @media screen and (min-width: 480px) {
     padding-left: 55px;
     padding-right: 55px;
-    background-image: linear-gradient(
-        180deg,
-        rgba(13, 13, 13, 0) 0%,
-        rgba(14, 14, 14, 0.8) 100%
-      ),
+    background-image: linear-gradient(180deg, rgba(13, 13, 13, 0) 0%, rgba(14, 14, 14, 0.8) 100%),
       url(../images/tablet/tablets-pic@1x.jpg);
 
     @media (min-device-pixel-ratio: 2),
       (-webkit-min-device-pixel-ratio: 2),
       (min-resolution: 192dpi),
       (min-resolution: 2dppx) {
-      background-image: linear-gradient(
-          180deg,
-          rgba(13, 13, 13, 0) 0%,
-          rgba(14, 14, 14, 0.8) 100%
-        ),
+      background-image: linear-gradient(180deg, rgba(13, 13, 13, 0) 0%, rgba(14, 14, 14, 0.8) 100%),
         url(../images/tablet/tablets-pic@2x.jpg);
     }
   }
@@ -149,15 +141,14 @@
   margin-right: auto;
   margin-left: auto;
   margin-bottom: 50px;
-  text-shadow: 1px 1px 2px rgba(0, 132, 255, 0.562),
-    0 0 1em rgba(183, 0, 255, 0.801), 0 0 0.2em rgba(0, 140, 255, 0.411);
+  text-shadow: 1px 1px 2px rgba(0, 132, 255, 0.562), 0 0 1em rgba(183, 0, 255, 0.801),
+    0 0 0.2em rgba(0, 140, 255, 0.411);
 
   transition: color var(--animation), text-shadow var(--animation);
 
   &:hover {
     color: #702e65;
-    text-shadow: 3px 3px 5px rgba(234, 0, 255, 0.555), 2 2 4em blue,
-      0 0 0.8em blue;
+    text-shadow: 3px 3px 5px rgba(234, 0, 255, 0.555), 2 2 4em blue, 0 0 0.8em blue;
   }
 
   @media screen and (min-width: 480px) {
@@ -220,10 +211,8 @@
   background-color: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(20px);
   border-radius: 20px;
-  padding-top: 10px;
-  padding-bottom: 10px;
   padding-left: 30px;
-  padding-right: 60px;
+  padding-right: 15px;
 
   transition: background-color var(--animation), box-shadow(--animation);
 
@@ -237,18 +226,14 @@
     box-shadow: 5px 15px 30px var(--main-text-color);
     outline: transparent;
   }
-
-  @media screen and (min-width: 768px) {
-    width: 270px;
-  }
 }
 
 .input-search::placeholder {
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 1.25;
+  // font-weight: 400;
+  // font-size: 16px;
+  // line-height: 1.25;
   color: var(--footer-text-color);
-  letter-spacing: 0.03em;
+  // letter-spacing: 0.03em;
 }
 
 .input-icon {
@@ -284,10 +269,55 @@
 }
 
 select {
+  cursor: pointer;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
+  // transform: scaleY(1);
+  // transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1) 0.2s;
+  &::-webkit-scrollbar {
+    width: 0.7em;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #1b0c1b;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--main-text-color);
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+  }
 }
+
+.choose-form::before {
+  content: ' ';
+  width: 15px;
+  height: 10px;
+  position: absolute;
+  z-index: 10;
+  top: 38%;
+  right: 30px;
+  background-image: url(../images/icon-polygon.svg);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+
+.country-option {
+  font-size: 14px;
+  font-weight: 500;
+  width: 100%;
+  color: var(--main-text-color);
+  background-color: #1b0c1b;
+  border: 5px solid rgb(168, 63, 63);
+  border-radius: 20px;
+}
+
+// .dropdown {
+//   border-radius: 20px;
+//   height: 75px;
+// }
 
 .select {
   position: absolute;
