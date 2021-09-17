@@ -42,21 +42,20 @@ export function onEventClick(e) {
 //   window.addEventListener('click', modalCloseOverlay);
 // }
 function modalOpen(e) {
-  e.preventDefault();
+  e.stopPropagation();
+  refs.modal.innerHTML = '';
   refs.backdrop.classList.remove('is-hidden');
   fetchEvs();
   const saveData = localStorage.getItem('data');
   const parseData = JSON.parse(saveData);
+
   // console.log(parseData);
-  parseData.forEach((el, ind, arr) => {
-    const elementId = e.target.dataset.source;
-    console.log(e.target);
-    if (arr[ind].id === el.id) {
-      console.log(arr[ind].id === el.id);
+  parseData.find(el => {
+    if (e.target.dataset.source === el.id) {
+      console.log(e.target.dataset.source === el.id);
       renderModalCard(el);
     }
   });
-  // renderModalCard(parseData);
 
   window.addEventListener('keyup', modalCloseESC);
   window.addEventListener('click', modalCloseOverlay);

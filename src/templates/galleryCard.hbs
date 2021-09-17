@@ -1,15 +1,15 @@
 {{#each events}}
   <li class='gallery__item'>
-    <div class='gallery__card'>
+    <div class='gallery__card' data-source='{{id}}'>
       <picture class='gallery__image' data-source='{{id}}'>
         <source srcset='{{images.1.url}}, {{images.6.url}}' media='(min-width: 1280px)' />
         <source srcset='{{images.4.url}}, {{images.3.url}}' media='(min-width: 768px)' />
         <source srcset='{{images.8.url}}, {{images.7.url}}' media='(max-width: 767.9px)' />
-        <img src='{{images.1.url}}' width='180' alt='{{name}}' />
+        <img src='{{images.1.url}}' width='180' alt='{{name}}' data-source='{{id}}' />
       </picture>
 
       <div class='gallery__description'>
-        <h3 class='gallery__title'>{{name}}</h3>
+        <h3 class='gallery__title' data-source='{{id}}'>{{name}}</h3>
         <p class='gallery__text'>{{dates.start.localDate}}</p>
         <div class='gallery__location'>
           <p class='gallery__text'><i
