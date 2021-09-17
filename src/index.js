@@ -10,10 +10,15 @@ import { onEventClick } from './js/modal';
 import { refs } from './js/refs';
 import './js/btnUp';
 import onModalOpen from './js/modalHbs';
+import closePreloader from './js/preloader';
 import { success, alert, error, notice } from '../node_modules/@pnotify/core/dist/PNotify.js';
 import '@pnotify/core/dist/BrightTheme.css';
 import { renderPaginationTrandingMovie } from './js/pagination';
+
+
 var throttle = require('lodash.throttle');
+
+
 
 refs.formSearchEvents.addEventListener("submit", onSearchEvent);
 const newsApiService = new NewsApiService();
@@ -46,3 +51,5 @@ function clearEventGallery() {
 }
 // модалка
 refs.gallery.addEventListener("click", onEventClick);
+
+
