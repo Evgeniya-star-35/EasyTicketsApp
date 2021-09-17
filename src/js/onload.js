@@ -1,12 +1,20 @@
 import axios from 'axios';
+import Pagination from 'tui-pagination';
+import { refs } from './refs';
+import {
+  renderPaginationGallery,
+  addClassToElement,
+  removeClassFromElement,
+  toPageTopOnClick,
+} from './pagination';
 const API_KEY = 'jV9uz55seY7b9FTi8qfGgp0zGLZ7GPsL';
 axios.defaults.baseURL = 'https://app.ticketmaster.com/discovery/v2/';
-import { renderTicketsGallery } from '../index';
 // ==PNotify
 import { info, notice } from '@pnotify/core';
 import '@pnotify/core/dist/Material.css';
 import '@pnotify/core/dist/PNotify.css';
 import { saveData } from '../index';
+
 export default class NewDefaulteFetchServise {
   constructor() {
     this.keyword = 'Europe';
@@ -17,25 +25,27 @@ export default class NewDefaulteFetchServise {
 
   async defaultFetchServise() {
     try {
-      const {
-        data: { _embedded: events },
-      } = await axios.get(
+      const data = await axios.get(
         `events.json?page=${this.page}&size=${this.size}&keyword=${this.keyword}&apikey=${API_KEY}&preferredCountry=${this.preferredCountry}`,
       );
 
-      return events;
+      return data.data;
     } catch (error) {
       console.log('ERROR!');
     }
+  }
+  page(currentPage) {
+    this.page = currentPage;
   }
 }
 
 const defaultServise = new NewDefaulteFetchServise();
 
 defaultServise.defaultFetchServise().then(events => {
-  renderTicketsGallery(events);
-  console.log(events);
-  saveData(events.events);
+  renderPaginationEventsDefault(events.page.totalPages);
+  renderPaginationGallery(events._embedded);
+   saveData(events._embedded.events);
+
 });
 
 function infoAtFirst() {
@@ -68,3 +78,42 @@ infoAtFirst();
 //   "DOMContentLoaded",
 //   defaultServise.defaultFetchServise()
 // );
+
+export function renderPaginationEventsDefault(totalItems) {
+  if (totalItems === 0) {
+    addClassToElement(refs.paginationAnchorRef, 'hidden');
+  } else {
+    if (totalItems === 1) {
+      addClassToElement(refs.paginationAnchorRef, 'hidden');
+    } else {
+      removeClassFromElement(refs.paginationAnchorRef, 'hidden');
+    }
+  }
+  if (totalItems <= 1) {
+    addClassToElement(refs.paginationAnchorRef, 'hidden');
+  } else {
+    removeClassFromElement(refs.paginationAnchorRef, 'hidden');
+  }
+  const options = {
+    totalItems,
+    itemsPerPage: 1,
+    visiblePages: 5,
+    centerAlign: true,
+  };
+
+  const pagination = new Pagination(refs.paginationAnchorRef, options);
+
+  pagination.on('afterMove', event => {
+    const currentPage = event.page;
+    defaultServise.page = currentPage;
+
+    const renderingPage = () => {
+      defaultServise
+        .defaultFetchServise()
+        .then(resonse => renderPaginationGallery(resonse._embedded))
+        .then(toPageTopOnClick)
+        .catch(error => console.log(error));
+    };
+    setTimeout(renderingPage, 400);
+  });
+}
