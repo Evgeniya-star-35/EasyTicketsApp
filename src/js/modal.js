@@ -1,6 +1,7 @@
 import { refs } from './refs';
 import modalHbs from '../templates/galleryModalCard.hbs';
-import NewsApiService from './fetchEvents';
+import { fetchEvs } from '../index';
+import { saveData } from '../index';
 
 // function onEventClick(e) {
 //   e.preventDefault();
@@ -13,32 +14,54 @@ import NewsApiService from './fetchEvents';
 export function onEventClick(e) {
   e.preventDefault();
 
-  if (e.target.nodeName!=="IMG"
-      &e.target.nodeName!=="H3"
-      &e.target.nodeName!=="P"
-      &e.target.nodeName!=="DIV") {
+  if (
+    (e.target.nodeName !== 'IMG') &
+    (e.target.nodeName !== 'H3') &
+    (e.target.nodeName !== 'P') &
+    (e.target.nodeName !== 'DIV')
+  ) {
     return;
   }
   modalOpen(e);
 }
 
-function modalOpen(e) {
-  refs.backdrop.classList.remove('is-hidden');
+// function modalOpen(e) {
+//   refs.backdrop.classList.remove('is-hidden');
 
-  const fetchCardInfo = new NewsApiService();
-fetchCardInfo.fetchEvents()
-.then(events => console.log(events))
-// .then(events => events.map((el, index, array) => {
-//   renderModalCard(el)
-// }));
-.then(events => renderModalCard(events));
+//   const fetchCardInfo = new NewsApiService();
+//   fetchCardInfo
+//     .fetchEvents()
+//     .then(events => console.log(events))
+
+//     // .then(events => events.map((el, index, array) => {
+//     //   renderModalCard(el)
+//     // }));
+//     .then(events => renderModalCard(events));
+
+//   window.addEventListener('keyup', modalCloseESC);
+//   window.addEventListener('click', modalCloseOverlay);
+// }
+function modalOpen(e) {
+  e.stopPropagation();
+  refs.modal.innerHTML = '';
+  refs.backdrop.classList.remove('is-hidden');
+  // fetchEvs();
+  const saveData = localStorage.getItem('data');
+  const parseData = JSON.parse(saveData);
+
+  // console.log(parseData);
+  parseData.find(el => {
+    if (e.target.dataset.source === el.id) {
+      console.log(e.target.dataset.source === el.id);
+      renderModalCard(el);
+    }
+  });
 
   window.addEventListener('keyup', modalCloseESC);
   window.addEventListener('click', modalCloseOverlay);
 }
-
-function renderModalCard(events) {
-  const markup = modalHbs(events);
+function renderModalCard(event) {
+  const markup = modalHbs(event);
   refs.modal.innerHTML = markup;
 }
 
@@ -65,7 +88,7 @@ function modalClose(e) {
 // закрытие по ESC
 
 function modalCloseESC(e) {
-  if(e.key !== 'Escape') {
+  if (e.key !== 'Escape') {
     return;
   }
   modalClose(e);
@@ -75,9 +98,8 @@ function modalCloseESC(e) {
 
 function modalCloseOverlay(e) {
   e.stopPropagation();
-  if(e.target !== refs.backdrop) {
+  if (e.target !== refs.backdrop) {
     return;
   }
   modalClose(e);
 }
-

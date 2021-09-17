@@ -31,11 +31,15 @@ function onSearchEvent(e) {
 export function fetchEvs() {
   newsApiService.fetchEvents().then(events => {
     renderTicketsGallery(events._embedded);
+    saveData(events._embedded.events);
 
     renderPaginationTrandingMovie(events.page.totalPages, newsApiService.query);
   });
 }
-
+export function saveData(data) {
+  localStorage.setItem('data', JSON.stringify(data));
+  // data = JSON.parse(localStorage.getItem('data'));
+}
 export function renderTicketsGallery(events) {
   const markup = galleryItem(events);
   refs.gallery.insertAdjacentHTML('beforeend', markup);
@@ -46,4 +50,3 @@ function clearEventGallery() {
 }
 // модалка
 refs.gallery.addEventListener('click', onEventClick);
-

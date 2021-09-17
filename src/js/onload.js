@@ -1,20 +1,19 @@
 import axios from 'axios';
 import Pagination from 'tui-pagination';
 import { refs } from './refs';
-import galleryItem from '../templates/galleryCard.hbs';
 import {
   renderPaginationGallery,
   addClassToElement,
   removeClassFromElement,
   toPageTopOnClick,
 } from './pagination';
+const API_KEY = 'jV9uz55seY7b9FTi8qfGgp0zGLZ7GPsL';
+axios.defaults.baseURL = 'https://app.ticketmaster.com/discovery/v2/';
 // ==PNotify
 import { info, notice } from '@pnotify/core';
 import '@pnotify/core/dist/Material.css';
 import '@pnotify/core/dist/PNotify.css';
-
-const API_KEY = 'jV9uz55seY7b9FTi8qfGgp0zGLZ7GPsL';
-axios.defaults.baseURL = 'https://app.ticketmaster.com/discovery/v2/';
+import { saveData } from '../index';
 
 export default class NewDefaulteFetchServise {
   constructor() {
@@ -45,12 +44,14 @@ const defaultServise = new NewDefaulteFetchServise();
 defaultServise.defaultFetchServise().then(events => {
   renderPaginationEventsDefault(events.page.totalPages);
   renderPaginationGallery(events._embedded);
+   saveData(events._embedded.events);
+
 });
 
 function infoAtFirst() {
   if ('DOMContentLoaded') {
     info({
-      title: '😀 Welkom to our site!',
+      title: '😀 Welcome to our site!',
       text: 'Enjoy your time on our website 💖',
       delay: 2750,
       icons: 'material',
@@ -60,7 +61,7 @@ function infoAtFirst() {
   } else {
     error({
       title: 'ERROR!',
-      text: '😯 Sorry We Work with this Problem...',
+      text: '😯 Sorry, We Work with this Problem...',
       delay: 1000,
       icons: 'material',
       styling: 'material',
