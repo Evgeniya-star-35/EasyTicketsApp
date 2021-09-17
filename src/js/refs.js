@@ -8,6 +8,6 @@ export const refs = {
   buttonSearchCountry: document.querySelector('.choose-button'),
   backdrop: document.querySelector('.backdrop'),
   modal: document.querySelector('.modal'),
-  paginationAnchorRef: document.getElementById('tui-pagination-container'),
+  paginationAnchorRef: document.querySelector('#tui-pagination-container'),
   select: document.querySelector('#select-country'),
 };

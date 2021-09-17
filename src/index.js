@@ -3,20 +3,21 @@ import NewsApiService from './js/fetchEvents';
 // import './js/connectInputs';
 import './js/renderJson';
 // import fetchCountries from './js/fetchCountry';
-
 import galleryItem from './templates/galleryCard.hbs';
 import fetchDefaultEvents from './js/onload';
 import { onEventClick } from './js/modal';
 import { refs } from './js/refs';
 import './js/btnUp';
 import onModalOpen from './js/modalHbs';
+import closePreloader from './js/preloader';
 import { success, alert, error, notice } from '../node_modules/@pnotify/core/dist/PNotify.js';
 import '@pnotify/core/dist/BrightTheme.css';
 import { renderPaginationTrandingMovie } from './js/pagination';
 var throttle = require('lodash.throttle');
 
 refs.formSearchEvents.addEventListener('submit', onSearchEvent);
-export const newsApiService = new NewsApiService();
+
+const newsApiService = new NewsApiService();
 
 function onSearchEvent(e) {
   e.preventDefault();
@@ -32,7 +33,7 @@ export function fetchEvs() {
     renderTicketsGallery(events._embedded);
     saveData(events._embedded.events);
 
-    renderPaginationTrandingMovie(events.page.totalPages);
+    renderPaginationTrandingMovie(events.page.totalPages, newsApiService.query);
   });
 }
 export function saveData(data) {
