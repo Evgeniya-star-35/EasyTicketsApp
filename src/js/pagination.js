@@ -36,7 +36,7 @@ export function renderPaginationTrandingMovie(totalItems) {
 }
 
 function toPageTopOnClick() {
-  window.scrollTo({ top: 400, behavior: 'smooth' });
+  window.scrollTo({ top: 300, behavior: 'smooth' });
 }
 
 function renderPaginationGallery(events) {
