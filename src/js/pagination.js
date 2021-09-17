@@ -1,23 +1,24 @@
-import { refs } from './refs';
-import Pagination from 'tui-pagination';
-import NewsApiService from './fetchEvents';
-import galleryItem from '../templates/galleryCard.hbs';
+import { refs } from "./refs";
+import Pagination from "tui-pagination";
+import NewsApiService from "./fetchEvents";
+import galleryItem from "../templates/galleryCard.hbs";
+import { saveData } from "../index";
 const newsApiService = new NewsApiService();
 
 export function renderPaginationTrandingMovie(totalItems, searchQuery) {
   if (totalItems === 0) {
-    addClassToElement(refs.paginationAnchorRef, 'hidden');
+    addClassToElement(refs.paginationAnchorRef, "hidden");
   } else {
     if (totalItems === 1) {
-      addClassToElement(refs.paginationAnchorRef, 'hidden');
+      addClassToElement(refs.paginationAnchorRef, "hidden");
     } else {
-      removeClassFromElement(refs.paginationAnchorRef, 'hidden');
+      removeClassFromElement(refs.paginationAnchorRef, "hidden");
     }
   }
   if (totalItems <= 1) {
-    addClassToElement(refs.paginationAnchorRef, 'hidden');
+    addClassToElement(refs.paginationAnchorRef, "hidden");
   } else {
-    removeClassFromElement(refs.paginationAnchorRef, 'hidden');
+    removeClassFromElement(refs.paginationAnchorRef, "hidden");
   }
 
   const options = {
@@ -28,23 +29,28 @@ export function renderPaginationTrandingMovie(totalItems, searchQuery) {
   };
   const pagination = new Pagination(refs.paginationAnchorRef, options);
   newsApiService.query = searchQuery;
-  pagination.on('afterMove', event => {
+  pagination.on("afterMove", (event) => {
     const currentPage = event.page;
     newsApiService.page = currentPage;
 
     const renderingPage = () => {
       newsApiService
         .fetchEvents()
-        .then(resonse => renderPaginationGallery(resonse._embedded))
+        .then((response) => {
+          renderPaginationGallery(response._embedded);
+          saveData(response._embedded.events);
+        })
+
         .then(toPageTopOnClick)
-        .catch(error => console.log(error));
+
+        .catch((error) => console.log(error));
     };
     setTimeout(renderingPage, 400);
   });
 }
 
 export function toPageTopOnClick() {
-  window.scrollTo({ top: 300, behavior: 'smooth' });
+  window.scrollTo({ top: 300, behavior: "smooth" });
 }
 
 export function renderPaginationGallery(events) {
