@@ -1,11 +1,19 @@
 import { refs } from './refs';
 import Pagination from 'tui-pagination';
 import NewsApiService from './fetchEvents';
-import { renderTicketsGallery } from '../index';
 import galleryItem from '../templates/galleryCard.hbs';
 const newsApiService = new NewsApiService();
 
-export function renderPaginationTrandingMovie(totalItems) {
+export function renderPaginationTrandingMovie(totalItems, searchQuery) {
+  if (totalItems === 0) {
+    addClassToElement(refs.paginationAnchorRef, 'hidden');
+  } else {
+    if (totalItems === 1) {
+      addClassToElement(refs.paginationAnchorRef, 'hidden');
+    } else {
+      removeClassFromElement(refs.paginationAnchorRef, 'hidden');
+    }
+  }
   if (totalItems <= 1) {
     addClassToElement(refs.paginationAnchorRef, 'hidden');
   } else {
@@ -19,7 +27,7 @@ export function renderPaginationTrandingMovie(totalItems) {
     centerAlign: true,
   };
   const pagination = new Pagination(refs.paginationAnchorRef, options);
-
+  newsApiService.query = searchQuery;
   pagination.on('afterMove', event => {
     const currentPage = event.page;
     newsApiService.page = currentPage;
