@@ -43,19 +43,19 @@ export function renderPaginationTrandingMovie(totalItems, searchQuery) {
   });
 }
 
-function toPageTopOnClick() {
+export function toPageTopOnClick() {
   window.scrollTo({ top: 300, behavior: 'smooth' });
 }
 
-function renderPaginationGallery(events) {
+export function renderPaginationGallery(events) {
   const markup = galleryItem(events);
   refs.gallery.innerHTML = markup;
 }
 
-function addClassToElement(ref, className) {
+export function addClassToElement(ref, className) {
   ref.classList.add(className);
 }
 
-function removeClassFromElement(ref, className) {
+export function removeClassFromElement(ref, className) {
   ref.classList.remove(className);
 }
