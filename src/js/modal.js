@@ -1,7 +1,7 @@
 import { refs } from './refs';
 import modalHbs from '../templates/galleryModalCard.hbs';
-import { fetchEvs } from '../index';
-import { saveData } from '../index';
+import { fetchEvs } from './fetchSearch';
+import { saveData } from './fetchSearch';
 
 // function onEventClick(e) {
 //   e.preventDefault();
@@ -52,7 +52,7 @@ function modalOpen(e) {
   // console.log(parseData);
   parseData.find(el => {
     if (e.target.dataset.source === el.id) {
-      console.log(e.target.dataset.source === el.id);
+      // console.log(e.target.dataset.source === el.id);
       renderModalCard(el);
     }
   });

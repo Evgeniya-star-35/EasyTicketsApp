@@ -2,7 +2,6 @@ import { refs } from './refs';
 import galleryCard from '../templates/galleryCard.hbs';
 import selectMenu from '../templates/selectMenu.hbs';
 import NewsApiService from './fetchEvents';
-var throttle = require('lodash.throttle');
 
 const apiService = new NewsApiService();
 
