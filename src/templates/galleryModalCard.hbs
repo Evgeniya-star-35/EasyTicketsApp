@@ -26,43 +26,54 @@
   <div class='modal__info'>
     <ul class='modal__info-list'>
       <li class='modal__info-list-item'>
-        <h2 class='modal__title'>INFO</h2>
+
         {{#if info}}
-        <p class='modal__text'>{{info}}</p>
-        {{else}}
-        <p class='modal__text'>No additional information.</p>
+          <h2 class='modal__title'>INFO</h2>
+          <p class='modal__text'>{{info}}</p>
         {{/if}}
       </li>
       <li class='modal__info-list-item'>
-        <h2 class='modal__title'>WHEN</h2>
-        <p class='modal__text'>{{dates.start.localDate}}</p>
-        <p class='modal__text'>{{dates.start.localTime}} {{dates.timezone}}</p>
+        {{#if dates}}
+          <h2 class='modal__title'>WHEN</h2>
+          <p class='modal__text'>{{dates.start.localDate}}</p>
+          <p class='modal__text'>{{dates.start.localTime}} ({{dates.status.timezone}})</p>
+        {{/if}}
+
       </li>
       <li class='modal__info-list-item'>
-        <h2 class='modal__title'>WHERE</h2>
-        <p class='modal__text'>{{_embedded.venues.0.city.name}},
-          {{_embedded.venues.0.country.name}}</p>
-        <p class='modal__text'>{{_embedded.venues.0.address.line1}}</p>
+        {{#if _embedded.venues}}
+          <h2 class='modal__title'>WHERE</h2>
+          <p class='modal__text'>{{_embedded.venues.0.city.name}},
+            {{_embedded.venues.0.country.name}}</p>
+          <p class='modal__text'>{{_embedded.venues.0.address.line1}}</p>
+        {{/if}}
       </li>
       <li class='modal__info-list-item'>
-        <h2 class='modal__title'>WHO</h2>
-        <p class='modal__text'>{{name}}</p>
+
+        {{#if _embedded.attractions}}
+          <h2 class='modal__title'>WHO</h2>
+          <p class='modal__text'>{{_embedded.attractions.0.name}}</p>
+        {{/if}}
+
       </li>
       <li class='modal__info-list-item'>
+
         <h2 class='modal__title'>PRICES</h2>
         <ul class='modal__prices-list'>
           <li class='modal__prices-list-item'>
+
             <div class='modal__prices-list-box'>
               <svg width='24' height='16'>
                 <use href='../images/sprite.svg#icon-ticket1'></use>
               </svg>
+
               {{#if priceRanges.1.min}}
               <p class='modal__text modal__text--prices-list'>Standart
                 {{priceRanges.1.min}}-{{priceRanges.1.max}}
                 {{priceRanges.1.currency}}</p>
                 {{else}}
               <p class='modal__text modal__text--prices-list'>No information about standart price.</p>
-                {{/if}}
+                {{/if}}            
             </div>
             <a
               class='modal__prices-list-link'
@@ -70,12 +81,15 @@
               target='_blank'
               rel='noopener noreferrer'
             >BUY TICKETS</a>
+            {{/if}}
+
           </li>
           <li class='modal__prices-list-item'>
             <div class='modal__prices-list-box'>
               <svg width='24' height='16'>
                 <use href='../images/sprite.svg#icon-ticket2'></use>
               </svg>
+
               {{#if priceRanges.0.min}}
               <p class='modal__text modal__text--prices-list'>VIP
                 {{priceRanges.0.min}}-{{priceRanges.0.max}}
@@ -83,6 +97,7 @@
                 {{else}}
                 <p class='modal__text modal__text--prices-list'>No information about VIP price.</p>
                 {{/if}}
+
             </div>
             <a
               class='modal__prices-list-link'
@@ -90,8 +105,10 @@
               target='_blank'
               rel='noopener noreferrer'
             >BUY TICKETS</a>
+          {{/if}}
           </li>
         </ul>
+
       </li>
     </ul>
   </div>
