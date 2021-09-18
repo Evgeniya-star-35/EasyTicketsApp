@@ -68,7 +68,24 @@
     height: 25px;
   }
 }
+.modal__image-small img {
+object-fit: cover;
+width: 102px;
+  height: 102px;
+  @media screen and (min-width: 768px) {
+    width: 70px;
+    height: 70px;
+  }
 
+  @media screen and (min-width: 1280px) {
+    //  width: 100px;
+    // height: 100px;
+    width: 132px;
+    height: 132px;
+    border-radius: 100px;
+  }
+
+}
 .modal__preview-img {
   margin-left: auto;
   margin-right: auto;
@@ -107,11 +124,26 @@
   }
 }
 
+.modal__image-big img {
+  object-fit: cover;
+  // задать размеры
+   @media screen and (min-width: 768px) {
+    width: 233px;
+    height: 416px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 300px;
+    height: 450px;
+  }
+}
+
 .modal__image {
   display: none;
 
   @media screen and (min-width: 768px) {
     display: block;
+      // object-fit: contain;
     width: 233px;
     height: 416px;
   }
