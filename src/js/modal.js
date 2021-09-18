@@ -42,14 +42,11 @@ export function onEventClick(e) {
 //   window.addEventListener('click', modalCloseOverlay);
 // }
 function modalOpen(e) {
-  e.stopPropagation();
+  // e.stopPropagation();
   refs.modal.innerHTML = '';
   refs.backdrop.classList.remove('is-hidden');
-  // fetchEvs();
   const saveData = localStorage.getItem('data');
   const parseData = JSON.parse(saveData);
-
-  // console.log(parseData);
   parseData.find(el => {
     if (e.target.dataset.source === el.id) {
       console.log(e.target.dataset.source === el.id);

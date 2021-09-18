@@ -6,11 +6,11 @@ var throttle = require('lodash.throttle');
 
 const apiService = new NewsApiService();
 
-refs.select.addEventListener('input', throttle(onInputValueSearch, 1000));
-//  let countryCode;
+refs.select.addEventListener('change', onInputValueSearch);
+
 function onInputValueSearch(e) {
   try {
-    const countryValue = e.target.value;
+    let countryValue = e.target.value;
     apiService
       .fetchEvents()
       .then(data =>
