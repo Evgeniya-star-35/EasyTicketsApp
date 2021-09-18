@@ -240,8 +240,7 @@
   fill: var(--footer-text-color);
 }
 
-.search-button,
-.choose-button {
+.search-button {
   position: absolute;
   top: 8%;
   right: 20px;
@@ -264,17 +263,16 @@
   }
 }
 
-.choose-button:focus .input-icon {
-  transform: rotate(180deg);
-}
+// .choose-button:focus .input-icon {
+//   transform: rotate(180deg);
+// }
 
 select {
   cursor: pointer;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  // transform: scaleY(1);
-  // transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1) 0.2s;
+
   &::-webkit-scrollbar {
     width: 0.7em;
   }
@@ -289,20 +287,21 @@ select {
   }
 }
 
-.choose-form::before {
-  content: ' ';
-  width: 15px;
-  height: 10px;
-  position: absolute;
-  z-index: 10;
-  top: 38%;
-  right: 30px;
-  background-image: url(../images/icon-polygon.svg);
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
-  cursor: pointer;
-}
+// .choose-form::before {
+//   content: ' ';
+//   width: 15px;
+//   height: 10px;
+//   position: absolute;
+//   z-index: 1;
+//   top: 38%;
+//   right: 30px;
+//   background-image: url(../images/icon-polygon.svg);
+//   background-size: contain;
+//   background-position: center;
+//   background-repeat: no-repeat;
+//   cursor: pointer;
+
+// }
 
 .country-option {
   font-size: 14px;
@@ -314,11 +313,17 @@ select {
   border-radius: 20px;
 }
 
-// .dropdown {
-//   border-radius: 20px;
-//   height: 75px;
-// }
-
 .select {
   position: absolute;
+}
+
+.pink-polygon {
+  width: 270px;
+  height: 40px;
+  background-image: url(../images/icon-pink-polygon.svg);
+  background-size: 21px 17px;
+  background-position-x: 90%;
+  background-position-y: 13px;
+  background-repeat: no-repeat;
+  // transform: rotate(180deg);
 }
