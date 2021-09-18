@@ -106,12 +106,19 @@
     padding: 0;
   }
 }
+.modal__image-big img {
+  object-fit: cover;
+  // задать размеры
+   width: 300px;
+    height: 450px;
+}
 
 .modal__image {
   display: none;
 
   @media screen and (min-width: 768px) {
     display: block;
+      // object-fit: contain;
     width: 233px;
     height: 416px;
   }
