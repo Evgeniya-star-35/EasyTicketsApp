@@ -66,13 +66,15 @@
               <svg width='24' height='16'>
                 <use href='../images/sprite.svg#icon-ticket1'></use>
               </svg>
-              {{#if priceRanges.1.max}}
-                <p class='modal__text modal__text--prices-list'>Standart
-                  {{priceRanges.1.min}}-{{priceRanges.1.max}}
-                  {{priceRanges.1.currency}}</p>
-              
-            </div>
 
+              {{#if priceRanges.1.min}}
+              <p class='modal__text modal__text--prices-list'>Standart
+                {{priceRanges.1.min}}-{{priceRanges.1.max}}
+                {{priceRanges.1.currency}}</p>
+                {{else}}
+              <p class='modal__text modal__text--prices-list'>No information about standart price.</p>
+                {{/if}}            
+            </div>
             <a
               class='modal__prices-list-link'
               href={{url}}
@@ -88,11 +90,13 @@
                 <use href='../images/sprite.svg#icon-ticket2'></use>
               </svg>
 
-              {{#if priceRanges.2.max}}
-                <p class='modal__text modal__text--prices-list'>VIP
-                  {{priceRanges.2.min}}-{{priceRanges.2.max}}
-                  {{priceRanges.2.currency}}</p>
-              
+              {{#if priceRanges.0.min}}
+              <p class='modal__text modal__text--prices-list'>VIP
+                {{priceRanges.0.min}}-{{priceRanges.0.max}}
+                {{priceRanges.0.currency}}</p>
+                {{else}}
+                <p class='modal__text modal__text--prices-list'>No information about VIP price.</p>
+                {{/if}}
 
             </div>
             <a
