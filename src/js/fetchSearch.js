@@ -4,7 +4,6 @@ import { refs } from "./refs";
 import { onError } from "./pnotify";
 import { renderPaginationTrandingMovie } from "./pagination";
 
-
 refs.formSearchEvents.addEventListener("submit", onSearchEvent);
 
 const newsApiService = new NewsApiService();

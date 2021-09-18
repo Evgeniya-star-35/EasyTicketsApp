@@ -1,5 +1,4 @@
 let preloaderRef = document.getElementById('.preloader');
-
 window.addEventListener('load', closePreloader);
 function closePreloader() {
   setTimeout(() => {
