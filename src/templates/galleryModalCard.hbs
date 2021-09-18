@@ -33,11 +33,10 @@
         {{/if}}
       </li>
       <li class='modal__info-list-item'>
-        {{#if dates}}
-          <h2 class='modal__title'>WHEN</h2>
-          <p class='modal__text'>{{dates.start.localDate}}</p>
-          <p class='modal__text'>{{dates.start.localTime}} ({{dates.status.timezone}})</p>
-        {{/if}}
+
+        <h2 class='modal__title'>WHEN</h2>
+        <p class='modal__text'>{{dates.start.localDate}}</p>
+        <p class='modal__text'>{{dates.start.localTime}} {{dates.status.timezone}}</p>
 
       </li>
       <li class='modal__info-list-item'>
