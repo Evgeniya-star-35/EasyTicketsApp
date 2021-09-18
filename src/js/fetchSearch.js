@@ -22,7 +22,8 @@ export function fetchEvs() {
   newsApiService.fetchEvents().then((events) => {
     if (
       events.page.totalPages === 0 ||
-      newsApiService.searchQuery.length === 0
+      newsApiService.searchQuery.length === 0 ||
+      newsApiService.searchQuery === " "
     ) {
       return onError();
     } else {
