@@ -3,7 +3,7 @@ import galleryItem from "../templates/galleryCard.hbs";
 import { refs } from "./refs";
 import { onError } from "./pnotify";
 import { renderPaginationTrandingMovie } from "./pagination";
-import "animate.css";
+
 
 refs.formSearchEvents.addEventListener("submit", onSearchEvent);
 
