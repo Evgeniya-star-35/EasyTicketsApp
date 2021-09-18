@@ -63,6 +63,7 @@ function modalOpen(e) {
 function renderModalCard(event) {
   const markup = modalHbs(event);
   refs.modal.innerHTML = markup;
+
 }
 
 // модальное окно закрытие

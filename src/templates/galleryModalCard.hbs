@@ -4,14 +4,14 @@
         <use href="../images/sprite.svg#icon-close"></use>
       </svg>
     </button> 
-
+<div class="modal__image-small">
 <picture >
   <source srcset='{{images.1.url}}, {{images.6.url}}' media='(min-width: 1280px)' />
   <source srcset='{{images.4.url}}, {{images.3.url}}' media='(min-width: 768px)' />
   <source srcset='{{images.8.url}}, {{images.7.url}}' media='(max-width: 767.9px)' />
   <img class='modal__preview-img' src='{{images.1.url}}' width='132' alt='{{name}}' />
 </picture>
-
+</div>
 <div class='modal__data'>
   <div class="modal__image-big">
   <picture class='modal__image'>
@@ -27,7 +27,11 @@
     <ul class='modal__info-list'>
       <li class='modal__info-list-item'>
         <h2 class='modal__title'>INFO</h2>
+        {{#if info}}
         <p class='modal__text'>{{info}}</p>
+        {{else}}
+        <p class='modal__text'>No additional information.</p>
+        {{/if}}
       </li>
       <li class='modal__info-list-item'>
         <h2 class='modal__title'>WHEN</h2>
