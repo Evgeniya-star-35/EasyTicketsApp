@@ -10,10 +10,10 @@ import {
 const API_KEY = "jV9uz55seY7b9FTi8qfGgp0zGLZ7GPsL";
 axios.defaults.baseURL = "https://app.ticketmaster.com/discovery/v2/";
 // ==PNotify
-import { info, notice } from "@pnotify/core";
+import { info, error } from "@pnotify/core";
 import "@pnotify/core/dist/Material.css";
 import "@pnotify/core/dist/PNotify.css";
-import { saveData } from "../index";
+import { saveData } from "./fetchSearch";
 
 export default class NewDefaulteFetchServise {
   constructor() {
@@ -49,9 +49,9 @@ defaultServise.defaultFetchServise().then((events) => {
 function infoAtFirst() {
   if ("DOMContentLoaded") {
     info({
-      title: "😀 Welcome to our site!",
+      title: "🎼 Welcome to our site!",
       text: "Enjoy your time on our website 💖",
-      delay: 2750,
+      delay: 2500,
       icons: "material",
       styling: "material",
       addModelessClass: "animate__backInLeft",

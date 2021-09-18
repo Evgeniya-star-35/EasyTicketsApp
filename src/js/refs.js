@@ -10,4 +10,5 @@ export const refs = {
   paginationAnchorRef: document.querySelector('#tui-pagination-container'),
   select: document.querySelector('#select-country'),
   selectList: document.querySelector('.select'),
-};
+
+}

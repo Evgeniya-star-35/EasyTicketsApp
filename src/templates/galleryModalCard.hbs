@@ -1,14 +1,3 @@
-{{!-- {{#each this}} --}}
-{{! <div class="backdrop is-hidden">
-    <div class="modal"> }}
-{{! <button class='modal__close-button'>
-  <svg class='modal__icon-close' width='17' height='17'>
-    <use href='../images/sprite.svg#icon-close'></use>
-  </svg>
-</button> }}
-
-{{! <img class="modal__preview-img" src="https://www.memphisveterinaryspecialists.com/files/best-breeds-of-house-cats-memphis-vet-1-1.jpeg" width="132" height="132" alt=""> }}
-
 <picture class='modal__preview-img'>
   <source srcset='{{images.1.url}}, {{images.6.url}}' media='(min-width: 1280px)' />
   <source srcset='{{images.4.url}}, {{images.3.url}}' media='(min-width: 768px)' />
@@ -17,7 +6,6 @@
 </picture>
 
 <div class='modal__data'>
-  {{! <img class="modal__image" src="https://www.memphisveterinaryspecialists.com/files/best-breeds-of-house-cats-memphis-vet-1-1.jpeg" width="360" height="641" alt=""> }}
   <picture class='modal__image'>
     <source srcset='{{images.1.url}}, {{images.6.url}}' media='(min-width: 1280px)' />
     <source srcset='{{images.4.url}}, {{images.3.url}}' media='(min-width: 768px)' />
@@ -107,7 +95,3 @@
 </div>
 
 <button type='button' class='modal__more-button'>MORE FROM THIS AUTHOR</button>
-
-{{! </div>
-</div> }}
-{{!-- {{/each}} --}}
