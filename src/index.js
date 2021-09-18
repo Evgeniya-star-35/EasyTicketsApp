@@ -16,6 +16,7 @@ import './js/pnotify';
 import { renderPaginationTrandingMovie } from './js/pagination';
 import './js/select-arrowDD';
 var throttle = require('lodash.throttle');
+import './js/teamLightbox';
 
 // // модалка
 refs.gallery.addEventListener('click', onEventClick);
