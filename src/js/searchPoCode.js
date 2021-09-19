@@ -10,7 +10,7 @@ import { renderPaginationTrandingMovie } from './pagination';
 import { renderTicketsGallery, clearEventGallery, saveData } from './fetchSearch';
 import { onInfoSearch } from './pnotify';
 import axios from 'axios';
-const API_KEY = 'jV9uz55seY7b9FTi8qfGgp0zGLZ7GPsL';
+const API_KEY = 'KmSv9ZvTIjEkvV4oyWgGjfzHzDqkrmtD';
 axios.defaults.baseURL = 'https://app.ticketmaster.com/discovery/v2/';
 
 const apiService = new NewsApiService();
