@@ -1,10 +1,10 @@
-import NewsApiService from "./fetchEvents";
-import galleryItem from "../templates/galleryCard.hbs";
-import { refs } from "./refs";
-import { onError } from "./pnotify";
-import { renderPaginationTrandingMovie } from "./pagination";
+import NewsApiService from './fetchEvents';
+import galleryItem from '../templates/galleryCard.hbs';
+import { refs } from './refs';
+import { onError } from './pnotify';
+import { renderPaginationTrandingMovie } from './pagination';
 
-refs.formSearchEvents.addEventListener("submit", onSearchEvent);
+refs.formSearchEvents.addEventListener('submit', onSearchEvent);
 
 const newsApiService = new NewsApiService();
 
@@ -18,11 +18,11 @@ function onSearchEvent(e) {
 }
 
 export function fetchEvs() {
-  newsApiService.fetchEvents().then((events) => {
+  newsApiService.fetchEvents().then(events => {
     if (
       events.page.totalPages === 0 ||
       newsApiService.searchQuery.length === 0 ||
-      newsApiService.searchQuery === " "
+      newsApiService.searchQuery === ' '
     ) {
       return onError();
     } else {
@@ -36,14 +36,13 @@ export function fetchEvs() {
   });
 }
 export function saveData(data) {
-  localStorage.setItem("data", JSON.stringify(data));
-  // data = JSON.parse(localStorage.getItem('data'));
+  localStorage.setItem('data', JSON.stringify(data));
 }
 export function renderTicketsGallery(events) {
   const markup = galleryItem(events);
-  refs.gallery.insertAdjacentHTML("beforeend", markup);
+  refs.gallery.innerHTML = markup;
 }
 
-function clearEventGallery() {
-  gallery.innerHTML = "";
+export function clearEventGallery() {
+  gallery.innerHTML = '';
 }
