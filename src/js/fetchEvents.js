@@ -18,7 +18,7 @@ export default class NewsApiService {
       const data = await axios.get(
 
 
-        `events.json?keyword=${this.searchQuery}&page=${this.page}&name=&{this.name}&countryCode=${this.countryCode}&size=24&apikey=${API_KEY}`,
+        `events.json?keyword=${this.searchQuery}&page=${this.page}&name=${this.name}&countryCode=${this.countryCode}&size=24&apikey=${API_KEY}`,
 
       );
       this.incrementPage();
