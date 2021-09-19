@@ -6,7 +6,7 @@ import vladUrl from '../images/team-vlad.jpeg';
 import tetjanaUrl from '../images/team-tetjana.jpeg';
 import tanyaUrl from '../images/team-tanya.jpeg';
 import oksanaUrl from '../images/team-oksana.jpeg';
-import dariiaUrl from '../images/team-dariia.jpeg';
+import dariiaUrl from '../images/team-daria.jpeg';
 import spriteUrl from '../images/sprite-git.svg';
 
 const markup = `<div class="team-wrapper"><div class="team-card">
