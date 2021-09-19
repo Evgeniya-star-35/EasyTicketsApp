@@ -1,7 +1,6 @@
 <button class="modal__close-button" type='button'>
 	{{!-- <svg class="modal__icon-close" width="17" height="17">
-		<use href="../images/sprite.svg#icon-close"></use>
-		
+		<use href="../images/sprite.svg#icon-close"></use>		
 	</svg> --}}
 	<span class="material-icons-outlined">
 		clear
@@ -18,7 +17,6 @@
 </div>
 <div class='modal__data'>
 
-
 	<div class="modal__image-big">
 		<picture class='modal__image'>
 			<source srcset='{{images.1.url}}, {{images.6.url}}' media='(min-width: 1280px)' />
@@ -27,7 +25,6 @@
 			<img src='{{images.7.url}}' width='360' alt='{{name}}' />
 		</picture>
 	</div>
-
 
 	<div class='modal__info'>
 		<ul class='modal__info-list'>
@@ -40,11 +37,9 @@
 				{{/if}}
 			</li>
 			<li class='modal__info-list-item'>
-
 				<h2 class='modal__title'>WHEN</h2>
 				<p class='modal__text'>{{dates.start.localDate}}</p>
 				<p class='modal__text'>{{dates.start.localTime}} {{dates.status.timezone}}</p>
-
 			</li>
 			<li class='modal__info-list-item'>
 				{{#if _embedded.venues}}
@@ -55,30 +50,22 @@
 				{{/if}}
 			</li>
 			<li class='modal__info-list-item'>
-
 				<h2 class='modal__title'>WHO</h2>
 				{{#if _embedded.attractions}}
-
-
-				
-
 				<p class='modal__text'>{{_embedded.attractions.0.name}}</p>
 				{{else}}
 				<p class='modal__text'>{{name}}</p>
 				{{/if}}
-
 			</li>
 			<li class='modal__info-list-item'>
 
 				<h2 class='modal__title'>PRICES</h2>
 				<ul class='modal__prices-list'>
 					<li class='modal__prices-list-item'>
-
 						<div class='modal__prices-list-box'>
 							<svg width='24' height='16'>
 								<use href='../images/sprite.svg#icon-ticket1'></use>
 							</svg>
-
 							{{#if priceRanges.1.min}}
 							<p class='modal__text modal__text--prices-list'>Standart
 								{{priceRanges.1.min}}-{{priceRanges.1.max}}
@@ -89,15 +76,12 @@
 						</div>
 						<a class='modal__prices-list-link' href={{url}} target='_blank' rel='noopener noreferrer'>BUY
 							TICKETS</a>
-
-
 					</li>
 					<li class='modal__prices-list-item'>
 						<div class='modal__prices-list-box'>
 							<svg width='24' height='16'>
 								<use href='../images/sprite.svg#icon-ticket2'></use>
 							</svg>
-
 							{{#if priceRanges.0.min}}
 							<p class='modal__text modal__text--prices-list'>VIP
 								{{priceRanges.0.min}}-{{priceRanges.0.max}}
@@ -105,20 +89,16 @@
 							{{else}}
 							<p class='modal__text modal__text--prices-list'>Click below for more information about VIP price.</p>
 							{{/if}}
-
 						</div>
 						<a class='modal__prices-list-link' href={{url}} target='_blank' rel='noopener noreferrer'>BUY
 							TICKETS</a>
-
 					</li>
 				</ul>
-
 			</li>
 		</ul>
 	</div>
 </div>
 
-<button type='button' id="modal__more-button"  class='modal__more-button'>MORE FROM THIS AUTHOR</button>
+<button type='button' id='modal__more-button' class='modal__more-button'>MORE FROM THIS AUTHOR</button>
 
 {{!-- <a class='buttonk' href={{url}} target='_blank' rel='noopener noreferrer'>MORE FROM THIS AUTHOR</a> --}}
-

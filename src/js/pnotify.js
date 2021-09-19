@@ -1,4 +1,4 @@
-import { error } from '../../node_modules/@pnotify/core/dist/PNotify.js';
+import { error, info } from '../../node_modules/@pnotify/core/dist/PNotify.js';
 export function onError() {
   error({
     title: ' ATTANTION!',
@@ -9,8 +9,8 @@ export function onError() {
     addModelessClass: 'animate__animated animate__heartBeat',
   });
 }
-export function onErrorSearch() {
-  error({
+export function onInfoSearch() {
+  info({
     title: ' ATTANTION!',
     text: 'Sorry, no events in the selected country!',
     delay: 1000,
