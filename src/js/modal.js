@@ -1,7 +1,11 @@
-import { refs } from './refs';
-import modalHbs from '../templates/galleryModalCard.hbs';
-import { fetchEvs } from './fetchSearch';
-import { saveData } from './fetchSearch';
+import { refs } from "./refs";
+import modalHbs from "../templates/galleryModalCard.hbs";
+import { fetchEvs, renderTicketsGallery } from "./fetchSearch";
+import { saveData } from "./fetchSearch";
+import NewApiService from "./fetchEvents";
+// console.log(NewApiService);
+// ==
+// const searchAuthor = new NewApiService();
 
 // function onEventClick(e) {
 //   e.preventDefault();
@@ -15,10 +19,10 @@ export function onEventClick(e) {
   e.preventDefault();
 
   if (
-    (e.target.nodeName !== 'IMG') &
-    (e.target.nodeName !== 'H3') &
-    (e.target.nodeName !== 'P') &
-    (e.target.nodeName !== 'DIV')
+    (e.target.nodeName !== "IMG") &
+    (e.target.nodeName !== "H3") &
+    (e.target.nodeName !== "P") &
+    (e.target.nodeName !== "DIV")
   ) {
     return;
   }
@@ -43,28 +47,21 @@ export function onEventClick(e) {
 // }
 
 export function modalOpen(e) {
-
-
   // e.stopPropagation();
-  refs.modal.innerHTML = '';
-  refs.backdrop.classList.remove('is-hidden');
-  const saveData = localStorage.getItem('data');
+  refs.modal.innerHTML = "";
+  refs.backdrop.classList.remove("is-hidden");
+  const saveData = localStorage.getItem("data");
   const parseData = JSON.parse(saveData);
 
-
-
-  parseData.find(el => {
- 
+  parseData.find((el) => {
     if (e.target.dataset.source === el.id) {
       renderModalCard(el);
     }
   });
 
-  window.addEventListener('keyup', modalCloseESC);
-  window.addEventListener('click', modalCloseOverlay);
-
+  window.addEventListener("keyup", modalCloseESC);
+  window.addEventListener("click", modalCloseOverlay);
 }
-
 
 function renderModalCard(event) {
   const markup = modalHbs(event);
@@ -72,10 +69,10 @@ function renderModalCard(event) {
 }
 
 // модальное окно закрытие
-refs.closeButton.addEventListener('click', modalClose);
+refs.closeButton.addEventListener("click", modalClose);
 
 export function modalClose(e) {
-  refs.backdrop.classList.add('is-hidden');
+  refs.backdrop.classList.add("is-hidden");
 
   // refs.modal.innerHTML = `<div class="backdrop is-hidden">
   // <div class="modal">
@@ -87,14 +84,14 @@ export function modalClose(e) {
   //     </div>
   //     </div>`;
 
-  window.removeEventListener('keyup', modalCloseESC);
-  window.removeEventListener('click', modalCloseOverlay);
+  window.removeEventListener("keyup", modalCloseESC);
+  window.removeEventListener("click", modalCloseOverlay);
 }
 
 // закрытие по ESC
 
 function modalCloseESC(e) {
-  if (e.key !== 'Escape') {
+  if (e.key !== "Escape") {
     return;
   }
   modalClose(e);
@@ -109,3 +106,5 @@ function modalCloseOverlay(e) {
   }
   modalClose(e);
 }
+
+refs.gallery.addEventListener("click", onEventClick);
