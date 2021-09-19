@@ -1,4 +1,5 @@
 export const refs = {
+
   gallery: document.querySelector('#gallery'),
   galleryCard: document.querySelector('.gallery__card'),
   closeButton: document.querySelector('.modal__close-button'),
@@ -11,4 +12,5 @@ export const refs = {
   paginationAnchorRef: document.querySelector('#tui-pagination-container'),
   select: document.querySelector('#select-country'),
   moreAuthorBtn: document.querySelector('.modal__more-button'),
+
 };

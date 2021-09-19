@@ -41,18 +41,21 @@ export function onEventClick(e) {
 //   window.addEventListener('keyup', modalCloseESC);
 //   window.addEventListener('click', modalCloseOverlay);
 // }
+
 export function modalOpen(e) {
+
+
   // e.stopPropagation();
   refs.modal.innerHTML = '';
   refs.backdrop.classList.remove('is-hidden');
-  // fetchEvs();
   const saveData = localStorage.getItem('data');
   const parseData = JSON.parse(saveData);
+
+
 
   parseData.find(el => {
  
     if (e.target.dataset.source === el.id) {
-      // console.log(e.target.dataset.source === el.id);
       renderModalCard(el);
     }
   });

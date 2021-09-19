@@ -34,7 +34,7 @@ img {
 }
 
 body {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
@@ -91,4 +91,11 @@ body.menu-modal-open {
     width: 946px;
     padding: 0 20px;
   }
+}
+
+// ===PNotify===
+.pnotify-container {
+  position: relative;
+  margin-left: 44px !important;
+  margin-right: 0px !important;
 }
