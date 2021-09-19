@@ -263,10 +263,6 @@
   }
 }
 
-// .choose-button:focus .input-icon {
-//   transform: rotate(180deg);
-// }
-
 select {
   cursor: pointer;
   -webkit-appearance: none;
@@ -287,22 +283,6 @@ select {
   }
 }
 
-// .choose-form::before {
-//   content: ' ';
-//   width: 15px;
-//   height: 10px;
-//   position: absolute;
-//   z-index: 1;
-//   top: 38%;
-//   right: 30px;
-//   background-image: url(../images/icon-polygon.svg);
-//   background-size: contain;
-//   background-position: center;
-//   background-repeat: no-repeat;
-//   cursor: pointer;
-
-// }
-
 .country-option {
   font-size: 14px;
   font-weight: 500;
@@ -322,6 +302,17 @@ select {
   height: 40px;
   background-image: url(../images/icon-pink-polygon.svg);
   background-size: 21px 17px;
+  background-position-x: 90%;
+  background-position-y: 13px;
+  background-repeat: no-repeat;
+  // transform: rotate(180deg);
+}
+
+.grey-polygon {
+  width: 270px;
+  height: 40px;
+  background-image: url(../images/icon-polygon.svg);
+  background-size: 15px 10px;
   background-position-x: 90%;
   background-position-y: 13px;
   background-repeat: no-repeat;

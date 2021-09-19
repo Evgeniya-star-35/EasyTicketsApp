@@ -41,16 +41,16 @@ export function onEventClick(e) {
 //   window.addEventListener('keyup', modalCloseESC);
 //   window.addEventListener('click', modalCloseOverlay);
 // }
-function modalOpen(e) {
-  e.stopPropagation();
+export function modalOpen(e) {
+  // e.stopPropagation();
   refs.modal.innerHTML = '';
   refs.backdrop.classList.remove('is-hidden');
   // fetchEvs();
   const saveData = localStorage.getItem('data');
   const parseData = JSON.parse(saveData);
 
-  // console.log(parseData);
   parseData.find(el => {
+ 
     if (e.target.dataset.source === el.id) {
       // console.log(e.target.dataset.source === el.id);
       renderModalCard(el);
@@ -59,7 +59,10 @@ function modalOpen(e) {
 
   window.addEventListener('keyup', modalCloseESC);
   window.addEventListener('click', modalCloseOverlay);
+
 }
+
+
 function renderModalCard(event) {
   const markup = modalHbs(event);
   refs.modal.innerHTML = markup;
@@ -68,7 +71,7 @@ function renderModalCard(event) {
 // модальное окно закрытие
 refs.closeButton.addEventListener('click', modalClose);
 
-function modalClose(e) {
+export function modalClose(e) {
   refs.backdrop.classList.add('is-hidden');
 
   // refs.modal.innerHTML = `<div class="backdrop is-hidden">

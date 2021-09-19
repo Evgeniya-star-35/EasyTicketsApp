@@ -15,6 +15,7 @@ import '@pnotify/core/dist/BrightTheme.css';
 import { renderPaginationTrandingMovie } from './js/pagination';
 import './js/select-arrowDD';
 var throttle = require('lodash.throttle');
+import './js/moreButton';
 
 // // модалка
 refs.gallery.addEventListener('click', onEventClick);

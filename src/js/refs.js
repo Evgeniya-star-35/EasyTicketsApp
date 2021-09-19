@@ -10,4 +10,5 @@ export const refs = {
   modal: document.querySelector('.modal'),
   paginationAnchorRef: document.querySelector('#tui-pagination-container'),
   select: document.querySelector('#select-country'),
+  moreAuthorBtn: document.querySelector('.modal__more-button'),
 };
