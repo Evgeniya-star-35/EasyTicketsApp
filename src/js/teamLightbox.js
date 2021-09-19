@@ -11,7 +11,7 @@ import spriteUrl from '../images/sprite-git.svg';
 
 const markup = `<div class="team-wrapper"><div class="team-card">
     <img src="${evgeniiaUrl}" alt="evgeniia" class="team-image">
-    <p class="team-name">Evgeniia</p>
+    <p class="team-name">Evgeniya</p>
     <p class="team-role">Team Lead</p>
     <a href="https://github.com/Evgeniya-star-35" target="_blank" class="team-git"><svg class="logo__icon-footer" width="24" height="24">
     <use href="${spriteUrl}#github"></use>
@@ -42,8 +42,8 @@ const markup = `<div class="team-wrapper"><div class="team-card">
     </svg></a>
 </div>
 <div class="team-card">
-    <img src="${tetjanaUrl}" alt="Tetjana" class="team-image">
-    <p class="team-name">Tetjana</p>
+    <img src="${tetjanaUrl}" alt="Tatiana" class="team-image">
+    <p class="team-name">Tatiana</p>
     <p class="team-role">Developer</p>
     <a href="https://github.com/Tatiana37" target="_blank" class="team-git"><svg class="logo__icon-footer" width="24" height="24">
     <use href="${spriteUrl}#github"></use>
@@ -61,13 +61,13 @@ const markup = `<div class="team-wrapper"><div class="team-card">
     <img src="${oksanaUrl}" alt="Oksana" class="team-image">
     <p class="team-name">Oksana</p>
     <p class="team-role">Developer</p>
-    <a href="https://github.com/Oksana07" target="_blank" class="team-git"><svg class="logo__icon-footer" width="15" height="15">
+    <a href="https://github.com/Oksana07" target="_blank" class="team-git"><svg class="logo__icon-footer" width="24" height="24">
     <use href="${spriteUrl}#github"></use>
     </svg></a>
 </div>
 <div class="team-card">
     <img src="${dariiaUrl}" alt="Dariia" class="team-image">
-    <p class="team-name">Dariia</p>
+    <p class="team-name">Dariya</p>
     <p class="team-role">Developer</p>
     <a href="https://github.com/DariyaBelokon" target="_blank" class="team-git"><svg class="logo__icon-footer" width="24" height="24">
     <use href="${spriteUrl}#github"></use>
