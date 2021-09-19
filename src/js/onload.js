@@ -49,7 +49,7 @@ defaultServise.defaultFetchServise().then((events) => {
 function infoAtFirst() {
   if ("DOMContentLoaded") {
     info({
-      title: "🎼 Welcome to our site!",
+      title: "🎶 Welcome to our site!",
       text: "Enjoy your time on our website 💖",
       delay: 2500,
       icons: "material",

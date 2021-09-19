@@ -1,9 +1,8 @@
 import './sass/main.scss';
 import NewsApiService from './js/fetchEvents';
 import './js/fetchSearch';
-// import './js/connectInputs';
+import './js/searchPoCode';
 import './js/renderJson';
-// import fetchCountries from './js/fetchCountry';
 import galleryItem from './templates/galleryCard.hbs';
 import fetchDefaultEvents from './js/onload';
 import { onEventClick } from './js/modal';
@@ -19,7 +18,6 @@ var throttle = require('lodash.throttle');
 import {openModal, closeModalHandler} from './js/teamLightbox';
 import './js/apiServis';
 import '../node_modules/basiclightbox';
-
-
+import './js/moreButton';
 // // модалка
 refs.gallery.addEventListener('click', onEventClick);

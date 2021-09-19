@@ -41,32 +41,40 @@ export function onEventClick(e) {
 //   window.addEventListener('keyup', modalCloseESC);
 //   window.addEventListener('click', modalCloseOverlay);
 // }
-function modalOpen(e) {
+
+export function modalOpen(e) {
+
+
   // e.stopPropagation();
   refs.modal.innerHTML = '';
   refs.backdrop.classList.remove('is-hidden');
   const saveData = localStorage.getItem('data');
   const parseData = JSON.parse(saveData);
+
+
+
   parseData.find(el => {
+ 
     if (e.target.dataset.source === el.id) {
-      // console.log(e.target.dataset.source === el.id);
       renderModalCard(el);
     }
   });
 
   window.addEventListener('keyup', modalCloseESC);
   window.addEventListener('click', modalCloseOverlay);
+
 }
+
+
 function renderModalCard(event) {
   const markup = modalHbs(event);
   refs.modal.innerHTML = markup;
-
 }
 
 // модальное окно закрытие
 refs.closeButton.addEventListener('click', modalClose);
 
-function modalClose(e) {
+export function modalClose(e) {
   refs.backdrop.classList.add('is-hidden');
 
   // refs.modal.innerHTML = `<div class="backdrop is-hidden">

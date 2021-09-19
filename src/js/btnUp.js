@@ -1,20 +1,19 @@
-var throttle = require('lodash.throttle');
-const upBtn = document.querySelector('[data-up-btn]');
+var throttle = require("lodash.throttle");
+const upBtn = document.querySelector("[data-up-btn]");
 
-window.addEventListener('scroll', throttle(hideElOnScroll(upBtn), 250));
-upBtn.addEventListener('click', toPageTopOnClick);
+window.addEventListener("scroll", throttle(hideElOnScroll(upBtn), 250));
+upBtn.addEventListener("click", toPageTopOnClick);
 
 function hideElOnScroll(el) {
   return function hideOnScroll(e) {
     if (pageYOffset < document.documentElement.clientHeight) {
-      el.classList.add('visually-hidden');
+      el.classList.add("visually-hidden");
     } else {
-      el.classList.remove('visually-hidden');
+      el.classList.remove("visually-hidden");
     }
   };
 }
 
 function toPageTopOnClick(e) {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-
+  window.scrollTo({ top: 0, behavior: "smooth" });
 }
