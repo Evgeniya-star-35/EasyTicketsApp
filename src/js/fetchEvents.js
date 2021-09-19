@@ -24,12 +24,7 @@ export default class NewsApiService {
   page(currentPage) {
     this.page = currentPage;
   }
-  // get countryCode() {
-  //   return this.countryCode;
-  // }
-  // set countryCode(newCountryCode) {
-  //   this.countryCode = newCountryCode;
-  // }
+  
   get query() {
     return this.searchQuery;
   }

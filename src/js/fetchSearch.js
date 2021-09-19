@@ -22,17 +22,16 @@ export function fetchEvs() {
     if (
       events.page.totalPages === 0 ||
       newsApiService.searchQuery.length === 0 ||
-      newsApiService.searchQuery === ' '
+      newsApiService.searchQuery === ''
     ) {
       return onError();
     } else {
       renderTicketsGallery(events._embedded);
+      saveData(events._embedded.events);
+      renderPaginationTrandingMovie(events.page.totalPages, newsApiService.query);
     }
 
-    // renderTicketsGallery(events._embedded);
-    saveData(events._embedded.events);
-
-    renderPaginationTrandingMovie(events.page.totalPages, newsApiService.query);
+    
   });
 }
 export function saveData(data) {
