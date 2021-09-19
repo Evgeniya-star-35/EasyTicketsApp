@@ -1,8 +1,13 @@
-<button class="modal__close-button">
-	<svg class="modal__icon-close" width="17" height="17">
+<button class="modal__close-button" type='button'>
+	{{!-- <svg class="modal__icon-close" width="17" height="17">
 		<use href="../images/sprite.svg#icon-close"></use>
-	</svg>
+		
+	</svg> --}}
+	<span class="material-icons-outlined">
+		clear
+	</span>
 </button>
+
 <div class="modal__image-small">
 	<picture>
 		<source srcset='{{images.1.url}}, {{images.6.url}}' media='(min-width: 1280px)' />
@@ -25,10 +30,11 @@
 	<div class='modal__info'>
 		<ul class='modal__info-list'>
 			<li class='modal__info-list-item'>
-
-				{{#if info}}
 				<h2 class='modal__title'>INFO</h2>
+				{{#if info}}
 				<p class='modal__text'>{{info}}</p>
+				{{else}}
+				<p class='modal__text'>No additional information</p>
 				{{/if}}
 			</li>
 			<li class='modal__info-list-item'>
@@ -70,7 +76,7 @@
 								{{priceRanges.1.min}}-{{priceRanges.1.max}}
 								{{priceRanges.1.currency}}</p>
 							{{else}}
-							<p class='modal__text modal__text--prices-list'>No information about standart price.</p>
+							<p class='modal__text modal__text--prices-list'>Click below for more information about standard price.</p>
 							{{/if}}
 						</div>
 						<a class='modal__prices-list-link' href={{url}} target='_blank' rel='noopener noreferrer'>BUY
@@ -89,7 +95,7 @@
 								{{priceRanges.0.min}}-{{priceRanges.0.max}}
 								{{priceRanges.0.currency}}</p>
 							{{else}}
-							<p class='modal__text modal__text--prices-list'>No information about VIP price.</p>
+							<p class='modal__text modal__text--prices-list'>Click below for more information about VIP price.</p>
 							{{/if}}
 
 						</div>
