@@ -14,9 +14,6 @@ const API_KEY = 'jV9uz55seY7b9FTi8qfGgp0zGLZ7GPsL';
 axios.defaults.baseURL = 'https://app.ticketmaster.com/discovery/v2/';
 
 const apiService = new NewsApiService();
-// class newFetchCountry {
-//   constructor()
-// }
 
 refs.select.addEventListener('change', onSelectChange);
 
@@ -38,12 +35,12 @@ function onSelectChange(e) {
 }
 function fetchCodes() {
   apiService.fetchEvents().then(data => {
-    console.log(data);
+    // console.log(data);
     if (data.page.totalElements === 0) {
       return onInfoSearch();
     }
     renderTicketsGallery(data._embedded);
-    saveData(data._embedded?.events);
+    saveData(data._embedded.events);
     renderPaginationTrandingMovie(data.page.totalPages, apiService.query);
   });
 }

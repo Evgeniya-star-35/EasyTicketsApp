@@ -24,7 +24,7 @@ export default class NewsApiService {
   page(currentPage) {
     this.page = currentPage;
   }
-  
+
   get query() {
     return this.searchQuery;
   }
