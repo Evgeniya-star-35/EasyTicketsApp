@@ -2,7 +2,12 @@ import NewsApiService from './fetchEvents';
 import galleryItem from '../templates/galleryCard.hbs';
 import { refs } from './refs';
 import { onError } from './pnotify';
-import { renderPaginationTrandingMovie } from './pagination';
+import { addErrorStartLoad, removeErrorStartLoad } from './error-load-page';
+import {
+  renderPaginationTrandingMovie,
+  addClassToElement,
+  removeClassFromElement,
+} from './pagination';
 
 refs.formSearchEvents.addEventListener('submit', onSearchEvent);
 
@@ -22,16 +27,23 @@ export function fetchEvs() {
     if (
       events.page.totalPages === 0 ||
       newsApiService.searchQuery.length === 0 ||
-      newsApiService.searchQuery === ''
+      newsApiService.searchQuery === ' '
     ) {
+      addErrorStartLoad();
+      addClassToElement(refs.paginationDiv, 'visually-hidden');
       return onError();
     } else {
       renderTicketsGallery(events._embedded);
-      saveData(events._embedded.events);
-      renderPaginationTrandingMovie(events.page.totalPages, newsApiService.query);
+      if (events.page.totalPages === 1) {
+        addErrorStartLoad();
+        addClassToElement(refs.paginationDiv, 'visually-hidden');
+      } else {
+        removeErrorStartLoad();
+        saveData(events._embedded.events);
+        removeClassFromElement(refs.paginationDiv, 'visually-hidden');
+        renderPaginationTrandingMovie(events.page.totalPages, newsApiService.query);
+      }
     }
-
-    
   });
 }
 export function saveData(data) {
