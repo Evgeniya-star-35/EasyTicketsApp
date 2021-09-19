@@ -1,41 +1,33 @@
-import { refs } from "./refs";
-import galleryCard from "../templates/galleryCard.hbs";
-import selectMenu from "../templates/selectMenu.hbs";
-import NewsApiService from "./fetchEvents";
+import { refs } from './refs';
+import galleryCard from '../templates/galleryCard.hbs';
+import selectMenu from '../templates/selectMenu.hbs';
+import NewsApiService from './fetchEvents';
+import { renderTicketsGallery } from './fetchSearch';
 
 const apiService = new NewsApiService();
 
-refs.select.addEventListener("change", onInputValueSearch);
+refs.select.addEventListener('change', onSelectChange);
 
-function onInputValueSearch(e) {
+function onSelectChange(e) {
   try {
-    let countryValue = e.target.value;
-    apiService
-      .fetchEvents()
-      .then((data) =>
-        createCountryList(
-          data._embedded.events.map(
-            (el, arr, ind) => el._embedded.venues[0].country.name
-          )
-        )
-      );
-    console.log(
-      apiService
-        .fetchEvents()
-        .then((data) =>
-          createCountryList(
-            data._embedded.events.map(
-              (el, arr, ind) => el._embedded.venues[0].country.name
-            )
-          )
-        )
+    const countryValue = refs.select.value;
+    console.log(countryValue);
+    apiService.fetchEvents().then(data =>
+      data._embedded.events.filter(el => {
+        console.log(el._embedded.venues[0].country.countryCode);
+        if (el._embedded.venues[0].country.countryCode === countryValue) {
+          renderTicketsGallery(el);
+        }
+      }),
     );
+
+    // );
   } catch (error) {
-    console.log("Error!");
+    console.log('Error!');
   }
 }
 function createCountryList(data) {
   const markupData = selectMenu(data);
-  refs.selectList.insertAdjacentHTML("beforeend", markupData);
+  refs.selectList.insertAdjacentHTML('beforeend', markupData);
 }
-export default onInputValueSearch;
+// export default onInputValueSearch;

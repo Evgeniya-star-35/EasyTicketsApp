@@ -1,7 +1,7 @@
 import './sass/main.scss';
 import NewsApiService from './js/fetchEvents';
 import './js/fetchSearch';
-// import './js/connectInputs';
+import './js/connectInputs';
 import './js/renderJson';
 // import fetchCountries from './js/fetchCountry';
 import galleryItem from './templates/galleryCard.hbs';
