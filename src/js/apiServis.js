@@ -32,6 +32,17 @@ export default class NewApiService {
       });
     });
   }
-
+  get query() {
+        return this.searchQuery;
+      }
+      set query(newQuery) {
+        this.searchQuery = newQuery;
+      }
+      get pageNum() {
+        return this.page;
+      }
+      set pageNum(newPage) {
+        this.page = newPage;
+      }
 }
 
