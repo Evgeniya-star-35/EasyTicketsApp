@@ -40,9 +40,9 @@ export function saveData(data) {
 }
 export function renderTicketsGallery(events) {
   const markup = galleryItem(events);
-  refs.gallery.insertAdjacentHTML('beforeend', markup);
+  refs.gallery.innerHTML = markup;
 }
 
-function clearEventGallery() {
+export function clearEventGallery() {
   gallery.innerHTML = '';
 }
