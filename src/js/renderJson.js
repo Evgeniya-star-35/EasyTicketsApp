@@ -4,7 +4,9 @@ import { refs } from "./refs";
 
 refs.select.addEventListener("click", onSelectClick);
 
-function onSelectClick() {
-  const markup = selectMenu(countryJson);
-  refs.select.insertAdjacentHTML("beforeend", markup);
+function onSelectClick(e) {
+  if (e.target.children.length === 1) {
+    const markup = selectMenu(countryJson);
+    refs.select.insertAdjacentHTML("beforeend", markup);
+  }
 }
