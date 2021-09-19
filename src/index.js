@@ -20,4 +20,4 @@ import './js/apiServis';
 import '../node_modules/basiclightbox';
 import './js/moreButton';
 // // модалка
-refs.gallery.addEventListener('click', onEventClick);
+// refs.gallery.addEventListener('click', onEventClick);
