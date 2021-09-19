@@ -1,112 +1,116 @@
-<button class="modal__close-button">
-	<svg class="modal__icon-close" width="17" height="17">
-		<use href="../images/sprite.svg#icon-close"></use>
-	</svg>
+<button class='modal__close-button'>
+  <svg class='modal__icon-close' width='17' height='17'>
+    <use href='../images/sprite.svg#icon-close'></use>
+  </svg>
 </button>
-<div class="modal__image-small">
-	<picture>
-		<source srcset='{{images.1.url}}, {{images.6.url}}' media='(min-width: 1280px)' />
-		<source srcset='{{images.4.url}}, {{images.3.url}}' media='(min-width: 768px)' />
-		<source srcset='{{images.8.url}}, {{images.7.url}}' media='(max-width: 767.9px)' />
-		<img class='modal__preview-img' src='{{images.1.url}}' width='132' alt='{{name}}' />
-	</picture>
+<div class='modal__image-small'>
+  <picture>
+    <source srcset='{{images.1.url}}, {{images.6.url}}' media='(min-width: 1280px)' />
+    <source srcset='{{images.4.url}}, {{images.3.url}}' media='(min-width: 768px)' />
+    <source srcset='{{images.8.url}}, {{images.7.url}}' media='(max-width: 767.9px)' />
+    <img class='modal__preview-img' src='{{images.1.url}}' width='132' alt='{{name}}' />
+  </picture>
 </div>
 <div class='modal__data'>
 
+  <div class='modal__image-big'>
+    <picture class='modal__image'>
+      <source srcset='{{images.1.url}}, {{images.6.url}}' media='(min-width: 1280px)' />
+      <source srcset='{{images.8.url}}, {{images.3.url}}' media='(min-width: 768px)' />
+      <source srcset='{{images.8.url}}, {{images.7.url}}' media='(max-width: 767.9px)' />
+      <img src='{{images.7.url}}' width='360' alt='{{name}}' />
+    </picture>
+  </div>
 
-	<div class="modal__image-big">
-		<picture class='modal__image'>
-			<source srcset='{{images.1.url}}, {{images.6.url}}' media='(min-width: 1280px)' />
-			<source srcset='{{images.8.url}}, {{images.3.url}}' media='(min-width: 768px)' />
-			<source srcset='{{images.8.url}}, {{images.7.url}}' media='(max-width: 767.9px)' />
-			<img src='{{images.7.url}}' width='360' alt='{{name}}' />
-		</picture>
-	</div>
+  <div class='modal__info'>
+    <ul class='modal__info-list'>
+      <li class='modal__info-list-item'>
 
+        {{#if info}}
+          <h2 class='modal__title'>INFO</h2>
+          <p class='modal__text'>{{info}}</p>
+        {{/if}}
+      </li>
+      <li class='modal__info-list-item'>
 
-	<div class='modal__info'>
-		<ul class='modal__info-list'>
-			<li class='modal__info-list-item'>
+        <h2 class='modal__title'>WHEN</h2>
+        <p class='modal__text'>{{dates.start.localDate}}</p>
+        <p class='modal__text'>{{dates.start.localTime}} {{dates.status.timezone}}</p>
 
-				{{#if info}}
-				<h2 class='modal__title'>INFO</h2>
-				<p class='modal__text'>{{info}}</p>
-				{{/if}}
-			</li>
-			<li class='modal__info-list-item'>
+      </li>
+      <li class='modal__info-list-item'>
+        {{#if _embedded.venues}}
+          <h2 class='modal__title'>WHERE</h2>
+          <p class='modal__text'>{{_embedded.venues.0.city.name}},
+            {{_embedded.venues.0.country.name}}</p>
+          <p class='modal__text'>{{_embedded.venues.0.address.line1}}</p>
+        {{/if}}
+      </li>
+      <li class='modal__info-list-item'>
 
-				<h2 class='modal__title'>WHEN</h2>
-				<p class='modal__text'>{{dates.start.localDate}}</p>
-				<p class='modal__text'>{{dates.start.localTime}} {{dates.status.timezone}}</p>
+        {{#if _embedded.attractions}}
+          <h2 class='modal__title' data-source='{{id}}'>WHO</h2>
+          <p class='modal__text'>{{_embedded.attractions.0.name}}</p>
+        {{/if}}
 
-			</li>
-			<li class='modal__info-list-item'>
-				{{#if _embedded.venues}}
-				<h2 class='modal__title'>WHERE</h2>
-				<p class='modal__text'>{{_embedded.venues.0.city.name}},
-					{{_embedded.venues.0.country.name}}</p>
-				<p class='modal__text'>{{_embedded.venues.0.address.line1}}</p>
-				{{/if}}
-			</li>
-			<li class='modal__info-list-item'>
+      </li>
+      <li class='modal__info-list-item'>
 
-				{{#if _embedded.attractions}}
-				<h2 class='modal__title' data-source='{{id}}'>WHO</h2>
-				<p class='modal__text'>{{_embedded.attractions.0.name}}</p>
-				{{/if}}
+        <h2 class='modal__title'>PRICES</h2>
+        <ul class='modal__prices-list'>
+          <li class='modal__prices-list-item'>
 
-			</li>
-			<li class='modal__info-list-item'>
+            <div class='modal__prices-list-box'>
+              <svg width='24' height='16'>
+                <use href='../images/sprite.svg#icon-ticket1'></use>
+              </svg>
 
-				<h2 class='modal__title'>PRICES</h2>
-				<ul class='modal__prices-list'>
-					<li class='modal__prices-list-item'>
+              {{#if priceRanges.1.min}}
+                <p class='modal__text modal__text--prices-list'>Standart
+                  {{priceRanges.1.min}}-{{priceRanges.1.max}}
+                  {{priceRanges.1.currency}}</p>
+              {{else}}
+                <p class='modal__text modal__text--prices-list'>No information about standart price.</p>
+              {{/if}}
+            </div>
+            <a
+              class='modal__prices-list-link'
+              href={{url}}
+              target='_blank'
+              rel='noopener noreferrer'
+            >BUY TICKETS</a>
 
-						<div class='modal__prices-list-box'>
-							<svg width='24' height='16'>
-								<use href='../images/sprite.svg#icon-ticket1'></use>
-							</svg>
+          </li>
+          <li class='modal__prices-list-item'>
+            <div class='modal__prices-list-box'>
+              <svg width='24' height='16'>
+                <use href='../images/sprite.svg#icon-ticket2'></use>
+              </svg>
 
-							{{#if priceRanges.1.min}}
-							<p class='modal__text modal__text--prices-list'>Standart
-								{{priceRanges.1.min}}-{{priceRanges.1.max}}
-								{{priceRanges.1.currency}}</p>
-							{{else}}
-							<p class='modal__text modal__text--prices-list'>No information about standart price.</p>
-							{{/if}}
-						</div>
-						<a class='modal__prices-list-link' href={{url}} target='_blank' rel='noopener noreferrer'>BUY
-							TICKETS</a>
+              {{#if priceRanges.0.min}}
+                <p class='modal__text modal__text--prices-list'>VIP
+                  {{priceRanges.0.min}}-{{priceRanges.0.max}}
+                  {{priceRanges.0.currency}}</p>
+              {{else}}
+                <p class='modal__text modal__text--prices-list'>No information about VIP price.</p>
+              {{/if}}
 
+            </div>
+            <a
+              class='modal__prices-list-link'
+              href={{url}}
+              target='_blank'
+              rel='noopener noreferrer'
+            >BUY TICKETS</a>
 
-					</li>
-					<li class='modal__prices-list-item'>
-						<div class='modal__prices-list-box'>
-							<svg width='24' height='16'>
-								<use href='../images/sprite.svg#icon-ticket2'></use>
-							</svg>
+          </li>
+        </ul>
 
-							{{#if priceRanges.0.min}}
-							<p class='modal__text modal__text--prices-list'>VIP
-								{{priceRanges.0.min}}-{{priceRanges.0.max}}
-								{{priceRanges.0.currency}}</p>
-							{{else}}
-							<p class='modal__text modal__text--prices-list'>No information about VIP price.</p>
-							{{/if}}
-
-						</div>
-						<a class='modal__prices-list-link' href={{url}} target='_blank' rel='noopener noreferrer'>BUY
-							TICKETS</a>
-
-					</li>
-				</ul>
-
-			</li>
-		</ul>
-	</div>
+      </li>
+    </ul>
+  </div>
 </div>
 
-<button type='button' id="modal__more-button"  class='modal__more-button'>MORE FROM THIS AUTHOR</button>
+<button type='button' id='modal__more-button' class='modal__more-button'>MORE FROM THIS AUTHOR</button>
 
 {{!-- <a class='buttonk' href={{url}} target='_blank' rel='noopener noreferrer'>MORE FROM THIS AUTHOR</a> --}}
-
