@@ -12,6 +12,8 @@
 	</picture>
 </div>
 <div class='modal__data'>
+
+
 	<div class="modal__image-big">
 		<picture class='modal__image'>
 			<source srcset='{{images.1.url}}, {{images.6.url}}' media='(min-width: 1280px)' />
@@ -49,7 +51,7 @@
 			<li class='modal__info-list-item'>
 
 				{{#if _embedded.attractions}}
-				<h2 class='modal__title'>WHO</h2>
+				<h2 class='modal__title' data-source='{{id}}'>WHO</h2>
 				<p class='modal__text'>{{_embedded.attractions.0.name}}</p>
 				{{/if}}
 
@@ -104,6 +106,7 @@
 	</div>
 </div>
 
-<button type='button' class='modal__more-button'>MORE FROM THIS AUTHOR</button>
+<button type='button' id="modal__more-button"  class='modal__more-button'>MORE FROM THIS AUTHOR</button>
 
 {{!-- <a class='buttonk' href={{url}} target='_blank' rel='noopener noreferrer'>MORE FROM THIS AUTHOR</a> --}}
+

@@ -5,13 +5,21 @@ export default class NewsApiService {
   constructor() {
     this.searchQuery = '';
     this.page = 1;
+    this.name = '';
+
+    
+
     this.countryCode = '';
+
   }
   //функция для получения массива events
   async fetchEvents() {
     try {
       const data = await axios.get(
-        `events.json?keyword=${this.searchQuery}&page=${this.page}&countryCode=${this.countryCode}&size=24&apikey=${API_KEY}`,
+
+
+        `events.json?keyword=${this.searchQuery}&page=${this.page}&name=&{this.name}&countryCode=${this.countryCode}&size=24&apikey=${API_KEY}`,
+
       );
       this.incrementPage();
       return data.data;
