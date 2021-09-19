@@ -17,7 +17,6 @@ import { renderPaginationTrandingMovie } from './js/pagination';
 import './js/select-arrowDD';
 var throttle = require('lodash.throttle');
 import {openModal, closeModalHandler} from './js/teamLightbox';
-console.log(openModal)
 import './js/apiServis';
 import '../node_modules/basiclightbox';
 
