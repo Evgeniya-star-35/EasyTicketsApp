@@ -20,7 +20,6 @@ function onButtonClick(e) {
   const fullNameAuthor = authorName.textContent;
 
   searchAuthor.searchQuery = renderFirstWord(fullNameAuthor);
-  console.log(searchAuthor.searchQuery);
 
   searchAuthor.fetchEvents().then(data => {
     renderTicketsGallery(data._embedded);
