@@ -3,17 +3,6 @@ import modalHbs from "../templates/galleryModalCard.hbs";
 import { fetchEvs, renderTicketsGallery } from "./fetchSearch";
 import { saveData } from "./fetchSearch";
 import NewApiService from "./fetchEvents";
-// console.log(NewApiService);
-// ==
-// const searchAuthor = new NewApiService();
-
-// function onEventClick(e) {
-//   e.preventDefault();
-//   if (e.target.nodeName !== 'IMG') {
-//     return;
-//    }
-//   modalOpen(e);
-// }
 
 export function onEventClick(e) {
   e.preventDefault();
@@ -28,23 +17,6 @@ export function onEventClick(e) {
   }
   modalOpen(e);
 }
-
-// function modalOpen(e) {
-//   refs.backdrop.classList.remove('is-hidden');
-
-//   const fetchCardInfo = new NewsApiService();
-//   fetchCardInfo
-//     .fetchEvents()
-//     .then(events => console.log(events))
-
-//     // .then(events => events.map((el, index, array) => {
-//     //   renderModalCard(el)
-//     // }));
-//     .then(events => renderModalCard(events));
-
-//   window.addEventListener('keyup', modalCloseESC);
-//   window.addEventListener('click', modalCloseOverlay);
-// }
 
 export function modalOpen(e) {
   // e.stopPropagation();
@@ -73,23 +45,11 @@ refs.closeButton.addEventListener("click", modalClose);
 
 export function modalClose(e) {
   refs.backdrop.classList.add("is-hidden");
-
-  // refs.modal.innerHTML = `<div class="backdrop is-hidden">
-  // <div class="modal">
-  // <button class="modal__close-button">
-  //         <svg class="modal__icon-close" width="17" height="17">
-  //             <use href="./images/sprite.svg#icon-close"></use>
-  //         </svg>
-  //     </button>
-  //     </div>
-  //     </div>`;
-
   window.removeEventListener("keyup", modalCloseESC);
   window.removeEventListener("click", modalCloseOverlay);
 }
 
 // закрытие по ESC
-
 function modalCloseESC(e) {
   if (e.key !== "Escape") {
     return;
