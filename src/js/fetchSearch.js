@@ -22,7 +22,7 @@ function onSearchEvent(e) {
 export function fetchEvs() {
   newsApiService.fetchEvents().then(events => {
     refs.select.value = '';
-
+    newsApiService.resetPage();
     if (
       events.page.totalPages === 0 ||
       newsApiService.searchQuery.length === 0 ||
@@ -33,7 +33,6 @@ export function fetchEvs() {
       return onError();
     } else {
       renderTicketsGallery(events._embedded);
-
       if (events.page.totalPages === 1) {
         addErrorStartLoad();
         addClassToElement(refs.paginationDiv, 'visually-hidden');
