@@ -13,7 +13,7 @@
     width: 190px;
     
    }
-   @media screen and (max-width: (768 - 1)) {
+   @media screen and (max-width: 767px) {
       margin-top: 70px;
     }
     
@@ -96,7 +96,7 @@
   .team-role {
     font-family:  Montserrat;
   
-    @media screen and (max-width: (768px - 1)) {
+    @media screen and (max-width: 767px) {
       font-size: 14px;
     }
   
