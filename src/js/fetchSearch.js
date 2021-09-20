@@ -1,7 +1,7 @@
-import NewsApiService from './fetchEvents';
-import galleryItem from '../templates/galleryCard.hbs';
-import { refs } from './refs';
-import { onError } from './pnotify';
+import NewsApiService from "./fetchEvents";
+import galleryItem from "../templates/galleryCard.hbs";
+import { refs } from "./refs";
+import { onError } from "./pnotify";
 import { addErrorStartLoad, removeErrorStartLoad } from './error-load-page';
 import {
   renderPaginationTrandingMovie,
@@ -9,7 +9,8 @@ import {
   removeClassFromElement,
 } from './pagination';
 
-refs.formSearchEvents.addEventListener('submit', onSearchEvent);
+
+refs.formSearchEvents.addEventListener("submit", onSearchEvent);
 
 const newsApiService = new NewsApiService();
 
@@ -23,17 +24,19 @@ function onSearchEvent(e) {
 }
 
 export function fetchEvs() {
-  newsApiService.fetchEvents().then(events => {
+  newsApiService.fetchEvents().then((events) => {
     if (
       events.page.totalPages === 0 ||
       newsApiService.searchQuery.length === 0 ||
       newsApiService.searchQuery === ' '
+
     ) {
       addErrorStartLoad();
       addClassToElement(refs.paginationDiv, 'visually-hidden');
       return onError();
     } else {
-      renderTicketsGallery(events._embedded);
+      renderTicketsGallery(events._embedded);   
+
       if (events.page.totalPages === 1) {
         addErrorStartLoad();
         addClassToElement(refs.paginationDiv, 'visually-hidden');
@@ -43,11 +46,12 @@ export function fetchEvs() {
         removeClassFromElement(refs.paginationDiv, 'visually-hidden');
         renderPaginationTrandingMovie(events.page.totalPages, newsApiService.query);
       }
+
     }
   });
 }
 export function saveData(data) {
-  localStorage.setItem('data', JSON.stringify(data));
+  localStorage.setItem("data", JSON.stringify(data));
 }
 export function renderTicketsGallery(events) {
   const markup = galleryItem(events);
@@ -55,5 +59,5 @@ export function renderTicketsGallery(events) {
 }
 
 export function clearEventGallery() {
-  gallery.innerHTML = '';
+  gallery.innerHTML = "";
 }

@@ -1,54 +1,29 @@
 import NewsApiService from "./fetchEvents";
-import { fetchEvs, renderTicketsGallery } from "./fetchSearch";
+import { fetchEvs, renderTicketsGallery, saveData } from "./fetchSearch";
 import { refs } from "./refs";
 import { modalClose, modalOpen } from "./modal";
-
-// if (modalOpen) {
-//     refs.moreAuthorBtn.addEventListener('click', onMoreButtonClick);
-// }
-// // refs.moreAuthorBtn.addEventListener('click', onMoreButtonClick);
-
-// function onMoreButtonClick(e) {
-//     // e.preventDefault();
-//     modalClose();
-
-//     const authorName = e.currentTarget.event.name;
-//     const searchAuthor = new NewsApiService.getByKey(authorName)
-//         .then(renderTicketsGallery()).catch(console.log(error));
-
-//     // onSearchEvent(searchAuthor);
-//     // renderTicketsGallery();
-
-// }
+import { renderFirstWord } from "./renderFirstWord";
+import { renderPaginationTrandingMovie } from "./pagination";
 
 refs.modal.addEventListener("click", onButtonClick);
 function onButtonClick(e) {
   const id = e.target.id;
-  console.log(e.target.id);
+
   if (id === "modal__more-button") {
     modalClose();
   }
 
   const searchAuthor = new NewsApiService();
   const authorName = document.querySelector(".author-name");
-  console.log(authorName);
-  searchAuthor.searchQuery = authorName.textContent;
-  console.log(authorName.textContent);
 
-  searchAuthor.fetchEvents().then((events) => console.log(events));
+  const fullNameAuthor = authorName.textContent;
 
-  // events._embedded.events.filter((el) => {
-  //   console.log(el.name);
-  //   if (el.id === e.target.dataset.source) {
-  //     //  console.log(el.id);
+  searchAuthor.searchQuery = renderFirstWord(fullNameAuthor);
+  console.log(searchAuthor.searchQuery);
 
-  //     renderTicketsGallery(el);
-  //   }
-  //     })
-  //   );
-  // console.log(events._embedded.events);
-  // searchAuthor.getByKey(events.name)
-  // console.log(object);
-  // .then(renderTicketsGallery()).catch(console.log(error));
+  searchAuthor.fetchEvents().then((data) => {
+    renderTicketsGallery(data._embedded);
+    saveData(data._embedded.events);
+    renderPaginationTrandingMovie(data.page.totalPages, searchAuthor.query);
+  });
 }
-// modalOpen();
