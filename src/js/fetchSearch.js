@@ -24,6 +24,7 @@ function onSearchEvent(e) {
 
 export function fetchEvs() {
   newsApiService.fetchEvents().then(events => {
+    refs.select.value = '';
     if (
       events.page.totalPages === 0 ||
       newsApiService.searchQuery.length === 0 ||

@@ -1,7 +1,7 @@
-import NewsApiService from "./fetchEvents";
-import { fetchEvs, renderTicketsGallery } from "./fetchSearch";
-import { refs } from "./refs";
-import { modalClose, modalOpen } from "./modal";
+import NewsApiService from './fetchEvents';
+import { fetchEvs, renderTicketsGallery } from './fetchSearch';
+import { refs } from './refs';
+import { modalClose, modalOpen } from './modal';
 
 // if (modalOpen) {
 //     refs.moreAuthorBtn.addEventListener('click', onMoreButtonClick);
@@ -21,21 +21,21 @@ import { modalClose, modalOpen } from "./modal";
 
 // }
 
-refs.modal.addEventListener("click", onButtonClick);
+refs.modal.addEventListener('click', onButtonClick);
 function onButtonClick(e) {
   const id = e.target.id;
   console.log(e.target.id);
-  if (id === "modal__more-button") {
+  if (id === 'modal__more-button') {
     modalClose();
   }
 
   const searchAuthor = new NewsApiService();
-  const authorName = document.querySelector(".author-name");
-  console.log(authorName);
+  const authorName = document.querySelector('.author-name');
+  // console.log(authorName);
   searchAuthor.searchQuery = authorName.textContent;
   console.log(authorName.textContent);
 
-  searchAuthor.fetchEvents().then((events) => console.log(events));
+  searchAuthor.fetchEvents().then(events => console.log(events));
 
   // events._embedded.events.filter((el) => {
   //   console.log(el.name);
