@@ -25,4 +25,5 @@ import "./js/apiServis";
 import "../node_modules/basiclightbox";
 import "./js/moreButton";
 import "./js/renderFirstWord";
+import './js/clickByLogo';
 
