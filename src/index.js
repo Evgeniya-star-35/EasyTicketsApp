@@ -3,6 +3,7 @@ import NewsApiService from './js/fetchEvents';
 import './js/fetchSearch';
 import './js/searchByCode';
 import './js/renderJson';
+import './js/clickByLogo';
 import galleryItem from './templates/galleryCard.hbs';
 import fetchDefaultEvents from './js/onload';
 import { onEventClick } from './js/modal';

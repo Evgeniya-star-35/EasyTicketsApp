@@ -12,4 +12,5 @@ export const refs = {
   select: document.querySelector('#select-country'),
   moreAuthorBtn: document.querySelector('.modal__more-button'),
   paginationDiv: document.querySelector('.pagination-box'),
+  logo: document.querySelector('#logo'),
 };
