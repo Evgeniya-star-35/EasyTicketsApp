@@ -34,11 +34,14 @@ img {
 }
 
 body {
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
   line-height: 1.25;
+  background-color: #0e0e0e;
+  width: 100vw;
+  height: 100vh;
 
   @media screen and (min-width: 1280px) {
     font-size: 18px;
