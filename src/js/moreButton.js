@@ -19,11 +19,10 @@ function onButtonClick(e) {
   const fullNameAuthor = authorName.textContent;
 
   searchAuthor.searchQuery = renderFirstWord(fullNameAuthor);
-  console.log(searchAuthor.searchQuery);
 
   searchAuthor.fetchEvents().then((data) => {
     renderTicketsGallery(data._embedded);
-    saveData(data._embedded.events);
+    saveData(data._embedded?.events);
     renderPaginationTrandingMovie(data.page.totalPages, searchAuthor.query);
   });
 }
