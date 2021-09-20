@@ -19,12 +19,12 @@ export function onEventClick(e) {
 }
 
 export function modalOpen(e) {
-  // e.stopPropagation();
+  e.stopPropagation();
   refs.modal.innerHTML = "";
   refs.backdrop.classList.remove("is-hidden");
   const saveData = localStorage.getItem("data");
   const parseData = JSON.parse(saveData);
-
+  
   parseData.find((el) => {
     if (e.target.dataset.source === el.id) {
       renderModalCard(el);
@@ -33,15 +33,28 @@ export function modalOpen(e) {
 
   window.addEventListener("keyup", modalCloseESC);
   window.addEventListener("click", modalCloseOverlay);
+  refs.modal.addEventListener('click', onCloseButtonClick);
+  
 }
 
 function renderModalCard(event) {
   const markup = modalHbs(event);
-  refs.modal.innerHTML = markup;
+  // refs.modal.innerHTML = markup;
+  refs.modal.insertAdjacentHTML("beforeend", markup);
 }
 
 // модальное окно закрытие
-refs.closeButton.addEventListener("click", modalClose);
+
+
+function onCloseButtonClick(e) {
+  const id = e.target.id;
+  if (id === 'modal__close-icon'
+    || id === 'modal__close-path1'
+    || id === 'modal__close-path2') {
+    modalClose();
+  } 
+}
+
 
 export function modalClose(e) {
   refs.backdrop.classList.add("is-hidden");

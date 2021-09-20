@@ -11,6 +11,8 @@ function onButtonClick(e) {
 
   if (id === 'modal__more-button') {
     modalClose();
+  } else {
+    return;
   }
 
   const searchAuthor = new NewsApiService();
