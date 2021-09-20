@@ -269,6 +269,7 @@ width: 102px;
   background-color: var(--white-text-color);
   color: var(--main-text-color);
   transition: color var(--animation), background-color var(--animation);
+  box-shadow: 2px 2px 2px 2px var(--main-text-color);
 }
 
 .modal__more-button {
@@ -308,4 +309,5 @@ width: 102px;
   background-color: var(--main-text-color);
   color: var(--white-text-color);
   transition: color var(--animation), background-color var(--animation);
+  box-shadow: 2px 2px 2px 2px #D3D3D3;
 }
