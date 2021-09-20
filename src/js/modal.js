@@ -33,6 +33,7 @@ export function modalOpen(e) {
 
   window.addEventListener("keyup", modalCloseESC);
   window.addEventListener("click", modalCloseOverlay);
+  refs.modal.addEventListener("click", onCloseBtnClick);
 }
 
 function renderModalCard(event) {
@@ -41,7 +42,14 @@ function renderModalCard(event) {
 }
 
 // модальное окно закрытие
-refs.closeButton.addEventListener("click", modalClose);
+function onCloseBtnClick (e) {
+  const id = e.target.id;
+  if (id === 'modal__icon-close'
+  || id === 'modal__icon-path1'
+  || id === 'modal__icon-path2') {
+    modalClose();
+  }
+}
 
 export function modalClose(e) {
   refs.backdrop.classList.add("is-hidden");

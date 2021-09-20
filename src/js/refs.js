@@ -13,4 +13,7 @@ export const refs = {
   moreAuthorBtn: document.querySelector('.modal__more-button'),
   paginationDiv: document.querySelector('.pagination-box'),
   logo: document.querySelector('#logo'),
+  modalIconClose: document.querySelector('#modal__icon-close'),
+  modalIconPath1: document.querySelector('#modal__icon-path1'),
+  modalIconPath2: document.querySelector('#modal__icon-path2'),
 };
