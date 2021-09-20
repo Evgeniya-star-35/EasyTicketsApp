@@ -1,8 +1,9 @@
 import { refs } from './refs';
 import Pagination from 'tui-pagination';
 import NewsApiService from './fetchEvents';
-import galleryItem from '../templates/galleryCard.hbs';
+import { renderPaginationGallery } from './renderPaginatonaGallery';
 import { saveData } from './fetchSearch';
+import { scrollClickPagination } from './scrollClickPagination';
 const newsApiService = new NewsApiService();
 
 export function renderPaginationTrandingMovie(totalItems, searchQuery) {
@@ -26,27 +27,10 @@ export function renderPaginationTrandingMovie(totalItems, searchQuery) {
           saveData(response._embedded.events);
         })
 
-        .then(toPageTopOnClick)
+        .then(scrollClickPagination)
 
         .catch(error => console.log(error));
     };
     setTimeout(renderingPage, 400);
   });
-}
-
-export function toPageTopOnClick() {
-  window.scrollTo({ top: 300, behavior: 'smooth' });
-}
-
-export function renderPaginationGallery(events) {
-  const markup = galleryItem(events);
-  refs.gallery.innerHTML = markup;
-}
-
-export function addClassToElement(ref, className) {
-  ref.classList.add(className);
-}
-
-export function removeClassFromElement(ref, className) {
-  ref.classList.remove(className);
 }

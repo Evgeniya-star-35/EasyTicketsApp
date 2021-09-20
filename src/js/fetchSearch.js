@@ -3,11 +3,8 @@ import galleryItem from '../templates/galleryCard.hbs';
 import { refs } from './refs';
 import { onError } from './pnotify';
 import { addErrorStartLoad, removeErrorStartLoad } from './error-load-page';
-import {
-  renderPaginationTrandingMovie,
-  addClassToElement,
-  removeClassFromElement,
-} from './pagination';
+import { renderPaginationTrandingMovie } from './pagination';
+import { addClassToElement, removeClassFromElement } from './actions-functions';
 
 refs.formSearchEvents.addEventListener('submit', onSearchEvent);
 
