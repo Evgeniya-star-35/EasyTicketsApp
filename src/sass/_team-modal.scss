@@ -2,12 +2,16 @@
   .team-wrapper {
     display: flex;
     flex-wrap: wrap;
-    // position: absolute;
-  
     margin: -20px;
+
+    &:hover,
+    &:focus {
+      box-shadow: 0 0px 10px #0f0f0f, 0 16px 20px #d33eba;
+    }
   
    @media screen and (min-width: 320px){
     width: 190px;
+    margin: 70px;
    }
    @media screen and (min-width: 500px){
     width: 190px;
@@ -146,10 +150,10 @@
     width: 100%;
     height: 100vh;
     background: rgba(0, 0, 0, 0.8);
-    opacity: 0.10;
-    transition: opacity 0.3s ease;
-    // z-index: 1000;
+    opacity: 0.900;
+    transition: opacity 0.4s ease;
     will-change: opacity;
+   
   }
   
   .basicLightbox--visible {
@@ -159,7 +163,7 @@
   .basicLightboxplaceholder {
     max-width: 100%;
     // transform: scale(0.9);
-    // transition: transform 0.4s ease;
+    transition: transform 0.01s ease;
     // z-index: 1;
     // will-change: transform;
   }
@@ -197,14 +201,14 @@
     pointer-events: none;
   }
   
-  .basicLightbox--visible .basicLightboxplaceholder {
-    transform: scale(1);
-  } 
+  // .basicLightbox--visible .basicLightboxplaceholder {
+  //   transform: scale(1);
+  // } 
   
   
   .basicLightbox{
       // background:  var(--main-text-color) !important;
       z-index: 50;
-      transition: 5s ease-in-out !important;
+      transition: 2s ease-in-out !important;
   
   } 
