@@ -40,7 +40,7 @@ function fetchCodes() {
       return onInfoSearch();
     }
     renderTicketsGallery(data._embedded);
-    saveData(data._embedded.events);
+    saveData(data._embedded?.events);
     renderPaginationTrandingMovie(data.page.totalPages, apiService.query);
   });
 }

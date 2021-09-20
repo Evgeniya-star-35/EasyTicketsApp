@@ -1,7 +1,7 @@
 import "./sass/main.scss";
 import NewsApiService from "./js/fetchEvents";
 import "./js/fetchSearch";
-import "./js/searchPoCode";
+import "./js/searchByCode";
 import "./js/renderJson";
 import galleryItem from "./templates/galleryCard.hbs";
 import fetchDefaultEvents from "./js/onload";
@@ -25,5 +25,4 @@ import "./js/apiServis";
 import "../node_modules/basiclightbox";
 import "./js/moreButton";
 import "./js/renderFirstWord";
-
 

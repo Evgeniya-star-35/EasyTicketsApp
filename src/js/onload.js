@@ -39,12 +39,14 @@ export default class NewDefaulteFetchServise {
 }
 
 const defaultServise = new NewDefaulteFetchServise();
-
-defaultServise.defaultFetchServise().then(events => {
-  renderPaginationEventsDefault(events.page.totalPages);
-  renderPaginationGallery(events._embedded);
-  saveData(events._embedded.events);
-});
+export function firstDefaultLoad() {
+  defaultServise.defaultFetchServise().then(events => {
+    renderPaginationEventsDefault(events.page.totalPages);
+    renderPaginationGallery(events._embedded);
+    saveData(events._embedded.events);
+  });
+}
+firstDefaultLoad();
 
 function infoAtFirst() {
   if ('DOMContentLoaded') {

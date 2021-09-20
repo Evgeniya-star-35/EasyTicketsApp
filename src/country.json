@@ -1,7 +1,7 @@
 [
 {
     "alphaCode": "US",
-    "name": "United States Of America"
+    "name": "United States"
   },
   {
     "alphaCode": "AD",
@@ -177,7 +177,7 @@
   },
   {
     "alphaCode": "KR",
-    "name": "Korea, Republic of"
+    "name": "Korea"
   },
   {
     "alphaCode": "LV",
@@ -225,7 +225,7 @@
   },
   {
     "alphaCode": "AN",
-    "name": "Netherlands Antilles"
+    "name": "Antilles"
   },
   {
     "alphaCode": "NZ",
@@ -257,7 +257,7 @@
   },
   {
     "alphaCode": "RU",
-    "name": "Russian Federation"
+    "name": "Russian"
   },
   {
     "alphaCode": "LC",
@@ -309,7 +309,7 @@
   },
   {
     "alphaCode": "TT",
-    "name": "Trinidad and Tobago"
+    "name": "Trinidad"
   },
   {
     "alphaCode": "TR",
@@ -321,7 +321,7 @@
   },
   {
     "alphaCode": "AE",
-    "name": "United Arab Emirates"
+    "name": "United Arab "
   },
   {
     "alphaCode": "UY",
