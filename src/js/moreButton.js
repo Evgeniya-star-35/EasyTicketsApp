@@ -4,6 +4,8 @@ import { refs } from './refs';
 import { modalClose, modalOpen } from './modal';
 import { renderFirstWord } from './renderFirstWord';
 import { renderPaginationTrandingMovie } from './pagination';
+import { addErrorStartLoad, removeErrorStartLoad } from './error-load-page';
+import { addClassToElement,  removeClassFromElement } from './actions-functions';
 
 refs.modal.addEventListener('click', onButtonClick);
 function onButtonClick(e) {
@@ -23,7 +25,14 @@ function onButtonClick(e) {
 
   searchAuthor.fetchEvents().then(data => {
     renderTicketsGallery(data._embedded);
-    saveData(data._embedded?.events);
-    renderPaginationTrandingMovie(data.page.totalPages, searchAuthor.query);
-  });
+    if (data.page.totalPages === 1) {
+        addErrorStartLoad();
+        addClassToElement(refs.paginationDiv, 'visually-hidden');
+      } else {
+        removeErrorStartLoad();
+        saveData(data._embedded?.events);
+        removeClassFromElement(refs.paginationDiv, 'visually-hidden');
+        renderPaginationTrandingMovie(data.page.totalPages, searchAuthor.query);
+      }
+    }).catch(error => console.log(error));
 }
