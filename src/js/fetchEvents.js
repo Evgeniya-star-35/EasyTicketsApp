@@ -1,5 +1,5 @@
 import axios from 'axios';
-const API_KEY = 'KmSv9ZvTIjEkvV4oyWgGjfzHzDqkrmtD';
+const API_KEY = 'HbnVFlf1tTetB2KBJ9qCQzhyBISGPAQw';
 axios.defaults.baseURL = 'https://app.ticketmaster.com/discovery/v2/';
 export default class NewsApiService {
   constructor() {
