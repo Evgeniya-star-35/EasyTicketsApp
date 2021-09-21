@@ -4,7 +4,7 @@ import { refs } from "./refs";
 import { scrollClickPagination } from "./scrollClickPagination";
 import { renderPaginationGallery } from "./renderPaginatonaGallery";
 import { addClassToElement, removeClassFromElement } from "./actions-functions";
-const API_KEY = "KmSv9ZvTIjEkvV4oyWgGjfzHzDqkrmtD";
+const API_KEY = 'HbnVFlf1tTetB2KBJ9qCQzhyBISGPAQw';
 axios.defaults.baseURL = "https://app.ticketmaster.com/discovery/v2/";
 // ==PNotify
 import { info, error } from "@pnotify/core";
