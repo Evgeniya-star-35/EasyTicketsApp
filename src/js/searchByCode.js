@@ -23,15 +23,10 @@ refs.select.addEventListener('change', onSelectChange);
 function onSelectChange(e) {
   try {
     const countryValue = refs.select.value;
-    console.log(countryValue);
+    // console.log(countryValue);
     apiService.countryCode = countryValue;
     clearEventGallery();
     fetchCodes();
-    // newsApiService.resetPage();
-
-    // apiService.fetchEvents().then(data => createByCountry(data._embedded));
-    // const saveData = localStorage.getItem('data');
-    // const parseData = JSON.parse(saveData);
   } catch (error) {
     console.log('Error!');
   }
@@ -39,7 +34,7 @@ function onSelectChange(e) {
 function fetchCodes() {
   apiService.fetchEvents().then(data => {
     // console.log(data);
-    apiService.resetPage();
+    // apiService.resetPage();
     if (data.page.totalElements === 0) {
       addErrorStartLoad();
       addClassToElement(refs.paginationDiv, 'visually-hidden');
