@@ -31,7 +31,6 @@ function onButtonClick(e) {
       const newArray = data._embedded?.events.filter(
         el => el.name.split(' ')[0] === searchAuthor.searchQuery,
       );
-      console.log(newArray);
       renderAuthorCard(newArray);
       if (newArray?.length < 1 || !newArray) {
         addErrorStartLoad();
