@@ -23,7 +23,6 @@ function onButtonClick(e) {
   
 
 const searchAuthor = new NewsApiService();
-    // const array = [];
 
 
 
