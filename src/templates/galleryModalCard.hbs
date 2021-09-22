@@ -55,52 +55,68 @@
 				{{/if}}
 			</li>
 			<li class='modal__info-list-item'>
+          {{#if priceRanges.1.min}}
+		<h2 class='modal__title'>PRICES</h2>
+		{{else}}
+		{{#if priceRanges.0.min}}
+		<h2 class='modal__title'>PRICES</h2>
+		{{else}}
+		{{/if}}
+		{{/if}}
 
-				<h2 class='modal__title'>PRICES</h2>
 				<ul class='modal__prices-list'>
 					<li class='modal__prices-list-item'>
 						<div class='modal__prices-list-box'>
-							<svg class="modal__price-icon" viewBox="0 0 24 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-								<path d="M3.22222 0.833496L0 0.833496L0 20.1668H3.22222L3.22222 0.833496Z" fill="#0E0E0E"/>
-								<path d="M11.3266 0.833496L8.10439 0.833496L8.10439 20.1668H11.3266L11.3266 0.833496Z" fill="#0E0E0E"/>
-								<path d="M16.2088 0.833496L12.9866 0.833496L12.9866 20.1668H16.2088L16.2088 0.833496Z" fill="#0E0E0E"/>
-								<path d="M28.9999 0.833496L24.2154 0.833496L24.2154 20.1668H28.9999L28.9999 0.833496Z" fill="#0E0E0E"/>
-								<path d="M6.44449 0.833496L4.88219 0.833496L4.88219 20.1668H6.44449L6.44449 0.833496Z" fill="#0E0E0E"/>
-								<path d="M19.3333 0.833496L17.771 0.833496L17.771 20.1668H19.3333L19.3333 0.833496Z" fill="#0E0E0E"/>
-								<path d="M22.5555 0.833496L20.9932 0.833496L20.9932 20.1668H22.5555L22.5555 0.833496Z" fill="#0E0E0E"/>
-							</svg>
+							
 							{{#if priceRanges.1.min}}
+							<svg class="modal__price-icon" viewBox="0 0 24 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M3.22222 0.833496L0 0.833496L0 20.1668H3.22222L3.22222 0.833496Z" fill="#0E0E0E" />
+								<path d="M11.3266 0.833496L8.10439 0.833496L8.10439 20.1668H11.3266L11.3266 0.833496Z" fill="#0E0E0E" />
+								<path d="M16.2088 0.833496L12.9866 0.833496L12.9866 20.1668H16.2088L16.2088 0.833496Z" fill="#0E0E0E" />
+								<path d="M28.9999 0.833496L24.2154 0.833496L24.2154 20.1668H28.9999L28.9999 0.833496Z" fill="#0E0E0E" />
+								<path d="M6.44449 0.833496L4.88219 0.833496L4.88219 20.1668H6.44449L6.44449 0.833496Z" fill="#0E0E0E" />
+								<path d="M19.3333 0.833496L17.771 0.833496L17.771 20.1668H19.3333L19.3333 0.833496Z" fill="#0E0E0E" />
+								<path d="M22.5555 0.833496L20.9932 0.833496L20.9932 20.1668H22.5555L22.5555 0.833496Z" fill="#0E0E0E" />
+							</svg>
 							<p class='modal__text modal__text--prices-list'>Standart
 								{{priceRanges.1.min}}-{{priceRanges.1.max}}
 								{{priceRanges.1.currency}}</p>
 							{{else}}
-							<p class='modal__text modal__text--prices-list'>No information about standard price</p>
+							
 							{{/if}}
 						</div>
+						{{#if priceRanges.1.min}}
 						<a class='modal__prices-list-link' href={{url}} target='_blank' rel='noopener noreferrer'>BUY
 							TICKETS</a>
+							{{else}}
+							{{/if}}
 					</li>
 					<li class='modal__prices-list-item'>
 						<div class='modal__prices-list-box'>
-							<svg class="modal__price-icon" viewBox="0 0 24 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-								<path d="M3.22222 0.833496L0 0.833496L0 20.1668H3.22222L3.22222 0.833496Z" fill="#0E0E0E"/>
-								<path d="M11.3266 0.833496L8.10439 0.833496L8.10439 20.1668H11.3266L11.3266 0.833496Z" fill="#0E0E0E"/>
-								<path d="M16.2088 0.833496L12.9866 0.833496L12.9866 20.1668H16.2088L16.2088 0.833496Z" fill="#0E0E0E"/>
-								<path d="M28.9999 0.833496L24.2154 0.833496L24.2154 20.1668H28.9999L28.9999 0.833496Z" fill="#0E0E0E"/>
-								<path d="M6.44449 0.833496L4.88219 0.833496L4.88219 20.1668H6.44449L6.44449 0.833496Z" fill="#0E0E0E"/>
-								<path d="M19.3333 0.833496L17.771 0.833496L17.771 20.1668H19.3333L19.3333 0.833496Z" fill="#0E0E0E"/>
-								<path d="M22.5555 0.833496L20.9932 0.833496L20.9932 20.1668H22.5555L22.5555 0.833496Z" fill="#0E0E0E"/>
-							</svg>
+							
 							{{#if priceRanges.0.min}}
+							<svg class="modal__price-icon" viewBox="0 0 24 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M3.22222 0.833496L0 0.833496L0 20.1668H3.22222L3.22222 0.833496Z" fill="#0E0E0E" />
+								<path d="M11.3266 0.833496L8.10439 0.833496L8.10439 20.1668H11.3266L11.3266 0.833496Z" fill="#0E0E0E" />
+								<path d="M16.2088 0.833496L12.9866 0.833496L12.9866 20.1668H16.2088L16.2088 0.833496Z" fill="#0E0E0E" />
+								<path d="M28.9999 0.833496L24.2154 0.833496L24.2154 20.1668H28.9999L28.9999 0.833496Z" fill="#0E0E0E" />
+								<path d="M6.44449 0.833496L4.88219 0.833496L4.88219 20.1668H6.44449L6.44449 0.833496Z" fill="#0E0E0E" />
+								<path d="M19.3333 0.833496L17.771 0.833496L17.771 20.1668H19.3333L19.3333 0.833496Z" fill="#0E0E0E" />
+								<path d="M22.5555 0.833496L20.9932 0.833496L20.9932 20.1668H22.5555L22.5555 0.833496Z" fill="#0E0E0E" />
+							</svg>
 							<p class='modal__text modal__text--prices-list'>VIP
 								{{priceRanges.0.min}}-{{priceRanges.0.max}}
 								{{priceRanges.0.currency}}</p>
 							{{else}}
-							<p class='modal__text modal__text--prices-list'>No information about VIP price</p>
+							
 							{{/if}}
 						</div>
+						{{#if priceRanges.0.min}}
 						<a class='modal__prices-list-link' href={{url}} target='_blank' rel='noopener noreferrer'>BUY
 							TICKETS</a>
+							{{else}}
+							
+							{{/if}}
 					</li>
 				</ul>
 			</li>
@@ -110,4 +126,3 @@
 
 <button type='button' id='modal__more-button' class='modal__more-button'>MORE FROM THIS AUTHOR</button>
 
-{{!-- <a class='buttonk' href={{url}} target='_blank' rel='noopener noreferrer'>MORE FROM THIS AUTHOR</a> --}}
