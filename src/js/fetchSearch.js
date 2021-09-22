@@ -32,7 +32,7 @@ export function fetchEvs() {
       addClassToElement(refs.paginationDiv, 'visually-hidden');
       return onError();
     } else {
-      renderTicketsGallery(events._embedded);
+      renderTicketsGallery(events._embedded.events);
       if (events.page.totalPages === 1) {
         addErrorStartLoad();
         addClassToElement(refs.paginationDiv, 'visually-hidden');

@@ -40,7 +40,7 @@ function fetchCodes() {
       addClassToElement(refs.paginationDiv, 'visually-hidden');
       return onInfoSearch();
     } else {
-      renderTicketsGallery(data._embedded);
+      renderTicketsGallery(data._embedded.events);
       if (data.page.totalPages === 1) {
         addErrorStartLoad();
         addClassToElement(refs.paginationDiv, 'visually-hidden');

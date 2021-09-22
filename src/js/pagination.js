@@ -23,7 +23,7 @@ export function renderPaginationTrandingMovie(totalItems, searchQuery) {
       newsApiService
         .fetchEvents()
         .then(response => {
-          renderPaginationGallery(response._embedded);
+          renderPaginationGallery(response._embedded.events);
           saveData(response._embedded.events);
         })
 

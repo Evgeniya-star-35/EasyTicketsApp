@@ -6,7 +6,6 @@ import { renderFirstWord } from './renderFirstWord';
 import { renderPaginationTrandingMovie } from './pagination';
 import { addErrorStartLoad, removeErrorStartLoad } from './error-load-page';
 import { addClassToElement, removeClassFromElement } from './actions-functions';
-import authorCard from '../templates/oneCard.hbs';
 
 refs.modal.addEventListener('click', onButtonClick);
 
@@ -31,7 +30,7 @@ function onButtonClick(e) {
       const newArray = data._embedded?.events.filter(
         el => el.name.split(' ')[0] === searchAuthor.searchQuery,
       );
-      renderAuthorCard(newArray);
+      renderTicketsGallery(newArray);
       if (newArray?.length < 1 || !newArray) {
         addErrorStartLoad();
         addClassToElement(refs.paginationDiv, 'visually-hidden');
@@ -45,7 +44,4 @@ function onButtonClick(e) {
     .catch(error => console.log(error));
 }
 
-function renderAuthorCard(el) {
-  const markup = authorCard(el);
-  refs.gallery.innerHTML = markup;
-}
+
