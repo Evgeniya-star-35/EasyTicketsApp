@@ -28,7 +28,7 @@ function onButtonClick(e) {
     .fetchEvents()
     .then(data => {
       const newArray = data._embedded?.events.filter(
-        el => el.name.split(' ')[0] === searchAuthor.searchQuery,
+        el => el.name.split(' ')[0,1] === searchAuthor.searchQuery,
       );
       renderTicketsGallery(newArray);
       if (newArray?.length < 1 || !newArray) {
