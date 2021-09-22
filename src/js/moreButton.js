@@ -10,8 +10,6 @@ import authorCard from '../templates/oneCard.hbs';
 
 refs.modal.addEventListener('click', onButtonClick);
 
-
-
 function onButtonClick(e) {
   const id = e.target.id;
 
@@ -20,35 +18,33 @@ function onButtonClick(e) {
   } else {
     return;
   }
-  
 
-const searchAuthor = new NewsApiService();
-
-
+  const searchAuthor = new NewsApiService();
 
   const authorName = document.querySelector('.author-name');
   const fullNameAuthor = authorName.textContent;
   searchAuthor.searchQuery = renderFirstWord(fullNameAuthor);
 
-  
-  searchAuthor.fetchEvents().then(data => {
-    const newArray = data._embedded?.events.filter(el =>
-      el.name.split(" ")[0] === searchAuthor.searchQuery)
-    console.log(newArray);
-    renderAuthorCard(newArray)
-    if (newArray.length < 1) {
-      addErrorStartLoad();
-      addClassToElement(refs.paginationDiv, 'visually-hidden');
-    } else {
-      removeErrorStartLoad();
-      saveData(data._embedded?.events);
-      removeClassFromElement(refs.paginationDiv, 'visually-hidden');
-      renderPaginationTrandingMovie(data.page.totalPages, searchAuthor.query);
-    }
-
-  }).catch(error => console.log(error))
+  searchAuthor
+    .fetchEvents()
+    .then(data => {
+      const newArray = data._embedded?.events.filter(
+        el => el.name.split(' ')[0] === searchAuthor.searchQuery,
+      );
+      console.log(newArray);
+      renderAuthorCard(newArray);
+      if (newArray?.length < 1 || !newArray) {
+        addErrorStartLoad();
+        addClassToElement(refs.paginationDiv, 'visually-hidden');
+      } else {
+        removeErrorStartLoad();
+        saveData(data._embedded?.events);
+        removeClassFromElement(refs.paginationDiv, 'visually-hidden');
+        renderPaginationTrandingMovie(data.page.totalPages, searchAuthor.query);
+      }
+    })
+    .catch(error => console.log(error));
 }
-
 
 function renderAuthorCard(el) {
   const markup = authorCard(el);

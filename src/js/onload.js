@@ -1,20 +1,20 @@
-import axios from "axios";
-import Pagination from "tui-pagination";
-import { refs } from "./refs";
-import { scrollClickPagination } from "./scrollClickPagination";
-import { renderPaginationGallery } from "./renderPaginatonaGallery";
-import { addClassToElement, removeClassFromElement } from "./actions-functions";
+import axios from 'axios';
+import Pagination from 'tui-pagination';
+import { refs } from './refs';
+import { scrollClickPagination } from './scrollClickPagination';
+import { renderPaginationGallery } from './renderPaginatonaGallery';
+import { addClassToElement, removeClassFromElement } from './actions-functions';
 const API_KEY = 'HbnVFlf1tTetB2KBJ9qCQzhyBISGPAQw';
-axios.defaults.baseURL = "https://app.ticketmaster.com/discovery/v2/";
+axios.defaults.baseURL = 'https://app.ticketmaster.com/discovery/v2/';
 // ==PNotify
-import { info, error } from "@pnotify/core";
-import "@pnotify/core/dist/Material.css";
-import "@pnotify/core/dist/PNotify.css";
-import { saveData } from "./fetchSearch";
+import { info, error } from '@pnotify/core';
+import '@pnotify/core/dist/Material.css';
+import '@pnotify/core/dist/PNotify.css';
+import { saveData } from './fetchSearch';
 
 export default class NewDefaulteFetchServise {
   constructor() {
-    this.keyword = " ";
+    this.keyword = ' ';
     this.size = 24;
     this.page = 1;
   }
@@ -22,12 +22,12 @@ export default class NewDefaulteFetchServise {
   async defaultFetchServise() {
     try {
       const data = await axios.get(
-        `events.json?page=${this.page}&size=${this.size}&keyword=${this.keyword}&apikey=${API_KEY}`
+        `events.json?page=${this.page}&size=${this.size}&keyword=${this.keyword}&apikey=${API_KEY}`,
       );
 
       return data.data;
     } catch (error) {
-      console.log("ERROR!");
+      console.log('ERROR!');
     }
   }
   page(currentPage) {
@@ -37,7 +37,7 @@ export default class NewDefaulteFetchServise {
 
 const defaultServise = new NewDefaulteFetchServise();
 export function firstDefaultLoad() {
-  defaultServise.defaultFetchServise().then((events) => {
+  defaultServise.defaultFetchServise().then(events => {
     renderPaginationEventsDefault(events.page.totalPages);
     renderPaginationGallery(events._embedded);
     saveData(events._embedded.events);
@@ -46,23 +46,23 @@ export function firstDefaultLoad() {
 firstDefaultLoad();
 
 function infoAtFirst() {
-  if ("DOMContentLoaded") {
+  if ('DOMContentLoaded') {
     info({
-      title: "🎶 Welcome to our site!",
-      text: "Enjoy your time on our website 💖",
+      title: '🎶 Welcome to our site!',
+      text: 'Enjoy your time on our website 💖',
       delay: 2500,
-      icons: "material",
-      styling: "material",
-      addModelessClass: "animate__backInLeft",
+      icons: 'material',
+      styling: 'material',
+      addModelessClass: 'animate__backInLeft',
     });
   } else {
     error({
-      title: "ERROR!",
-      text: "😯 Sorry, We Work with this Problem...",
+      title: 'ERROR!',
+      text: '😯 Sorry, We Work with this Problem...',
       delay: 1000,
-      icons: "material",
-      styling: "material",
-      addModelessClass: "animate__bounce",
+      icons: 'material',
+      styling: 'material',
+      addModelessClass: 'animate__bounce',
     });
   }
 }
@@ -71,18 +71,18 @@ infoAtFirst();
 
 export function renderPaginationEventsDefault(totalItems) {
   if (totalItems === 0) {
-    addClassToElement(refs.paginationAnchorRef, "hidden");
+    addClassToElement(refs.paginationAnchorRef, 'hidden');
   } else {
     if (totalItems === 1) {
-      addClassToElement(refs.paginationAnchorRef, "hidden");
+      addClassToElement(refs.paginationAnchorRef, 'hidden');
     } else {
-      removeClassFromElement(refs.paginationAnchorRef, "hidden");
+      removeClassFromElement(refs.paginationAnchorRef, 'hidden');
     }
   }
   if (totalItems <= 1) {
-    addClassToElement(refs.paginationAnchorRef, "hidden");
+    addClassToElement(refs.paginationAnchorRef, 'hidden');
   } else {
-    removeClassFromElement(refs.paginationAnchorRef, "hidden");
+    removeClassFromElement(refs.paginationAnchorRef, 'hidden');
   }
   const options = {
     totalItems,
@@ -93,19 +93,19 @@ export function renderPaginationEventsDefault(totalItems) {
 
   const pagination = new Pagination(refs.paginationAnchorRef, options);
 
-  pagination.on("afterMove", (event) => {
+  pagination.on('afterMove', event => {
     const currentPage = event.page;
     defaultServise.page = currentPage;
 
     const renderingPage = () => {
       defaultServise
         .defaultFetchServise()
-        .then((response) => {
+        .then(response => {
           renderPaginationGallery(response._embedded);
           saveData(response._embedded.events);
         })
         .then(scrollClickPagination)
-        .catch((error) => console.log(error));
+        .catch(error => console.log(error));
     };
     setTimeout(renderingPage, 400);
   });
