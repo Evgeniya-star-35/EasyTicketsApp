@@ -5,9 +5,13 @@ import { modalClose, modalOpen } from './modal';
 import { renderFirstWord } from './renderFirstWord';
 import { renderPaginationTrandingMovie } from './pagination';
 import { addErrorStartLoad, removeErrorStartLoad } from './error-load-page';
-import { addClassToElement,  removeClassFromElement } from './actions-functions';
+import { addClassToElement, removeClassFromElement } from './actions-functions';
+import authorCard from '../templates/oneCard.hbs';
 
 refs.modal.addEventListener('click', onButtonClick);
+
+
+
 function onButtonClick(e) {
   const id = e.target.id;
 
@@ -16,25 +20,38 @@ function onButtonClick(e) {
   } else {
     return;
   }
+  
 
-  const searchAuthor = new NewsApiService();
+const searchAuthor = new NewsApiService();
+    // const array = [];
+
+
 
   const authorName = document.querySelector('.author-name');
-
   const fullNameAuthor = authorName.textContent;
-
   searchAuthor.searchQuery = renderFirstWord(fullNameAuthor);
 
+  
   searchAuthor.fetchEvents().then(data => {
-    renderTicketsGallery(data._embedded);
-    if (data.page.totalPages === 1) {
-        addErrorStartLoad();
-        addClassToElement(refs.paginationDiv, 'visually-hidden');
-      } else {
-        removeErrorStartLoad();
-        saveData(data._embedded?.events);
-        removeClassFromElement(refs.paginationDiv, 'visually-hidden');
-        renderPaginationTrandingMovie(data.page.totalPages, searchAuthor.query);
-      }
-    }).catch(error => console.log(error));
+    const newArray = data._embedded?.events.filter(el =>
+      el.name.split(" ")[0] === searchAuthor.searchQuery)
+    console.log(newArray);
+    renderAuthorCard(newArray)
+    if (newArray.length < 1) {
+      addErrorStartLoad();
+      addClassToElement(refs.paginationDiv, 'visually-hidden');
+    } else {
+      removeErrorStartLoad();
+      saveData(data._embedded?.events);
+      removeClassFromElement(refs.paginationDiv, 'visually-hidden');
+      renderPaginationTrandingMovie(data.page.totalPages, searchAuthor.query);
+    }
+
+  }).catch(error => console.log(error))
+}
+
+
+function renderAuthorCard(el) {
+  const markup = authorCard(el);
+  refs.gallery.innerHTML = markup;
 }
