@@ -43,7 +43,7 @@ export const defaultServise = new NewDefaulteFetchServise();
 export function firstDefaultLoad() {
   defaultServise.defaultFetchServise().then(events => {
     renderPaginationEventsDefault(events.page.totalPages);
-    renderPaginationGallery(events._embedded);
+    renderPaginationGallery(events._embedded.events);
     saveData(events._embedded.events);
   });
 }
@@ -92,7 +92,7 @@ export function renderPaginationEventsDefault(totalItems) {
       defaultServise
         .defaultFetchServise()
         .then(response => {
-          renderPaginationGallery(response._embedded);
+          renderPaginationGallery(response._embedded.events);
           saveData(response._embedded.events);
         })
         .then(scrollClickPagination)
