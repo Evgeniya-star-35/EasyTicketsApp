@@ -12,7 +12,7 @@ import spriteUrl from '../images/sprite-git.svg';
 
 
 const markup = `<div class="team-wrapper">
-<div class="team-group"><h2 class="wrapper-group">EazyScript</h2></div>
+<div class="team-group"><h2 class="wrapper-group">EaZZyScript</h2></div>
 <div class="team-card">
     <img src="${evgeniiaUrl}" alt="evgeniia" class="team-image">
     <p class="team-name">Evgeniya</p>
