@@ -16,4 +16,5 @@ export const refs = {
   modalIconClose: document.querySelector('#modal__icon-close'),
   modalIconPath1: document.querySelector('#modal__icon-path1'),
   modalIconPath2: document.querySelector('#modal__icon-path2'),
+  // reset: document.querySelector('.country-option'),
 };
