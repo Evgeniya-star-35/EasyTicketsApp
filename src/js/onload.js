@@ -33,9 +33,13 @@ export default class NewDefaulteFetchServise {
   page(currentPage) {
     this.page = currentPage;
   }
+  resetPage() {
+    this.page = 1;
+  }
 }
 
-const defaultServise = new NewDefaulteFetchServise();
+export const defaultServise = new NewDefaulteFetchServise();
+
 export function firstDefaultLoad() {
   defaultServise.defaultFetchServise().then(events => {
     renderPaginationEventsDefault(events.page.totalPages);
@@ -43,6 +47,7 @@ export function firstDefaultLoad() {
     saveData(events._embedded.events);
   });
 }
+
 firstDefaultLoad();
 
 function infoAtFirst() {
@@ -70,20 +75,6 @@ function infoAtFirst() {
 infoAtFirst();
 
 export function renderPaginationEventsDefault(totalItems) {
-  if (totalItems === 0) {
-    addClassToElement(refs.paginationAnchorRef, 'hidden');
-  } else {
-    if (totalItems === 1) {
-      addClassToElement(refs.paginationAnchorRef, 'hidden');
-    } else {
-      removeClassFromElement(refs.paginationAnchorRef, 'hidden');
-    }
-  }
-  if (totalItems <= 1) {
-    addClassToElement(refs.paginationAnchorRef, 'hidden');
-  } else {
-    removeClassFromElement(refs.paginationAnchorRef, 'hidden');
-  }
   const options = {
     totalItems,
     itemsPerPage: 1,
