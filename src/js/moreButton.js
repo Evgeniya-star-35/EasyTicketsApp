@@ -37,7 +37,7 @@ const searchAuthor = new NewsApiService();
       el.name.split(" ")[0] === searchAuthor.searchQuery)
     console.log(newArray);
     renderAuthorCard(newArray)
-    if (data.page.totalPages === 1) {
+    if (newArray.length < 1) {
       addErrorStartLoad();
       addClassToElement(refs.paginationDiv, 'visually-hidden');
     } else {
