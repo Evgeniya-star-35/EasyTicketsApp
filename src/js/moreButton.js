@@ -37,9 +37,9 @@ function onButtonClick(e) {
         addClassToElement(refs.paginationDiv, 'visually-hidden');
       } else {
         removeErrorStartLoad();
-        saveData(data._embedded?.events);
+        saveData(newArray);
         removeClassFromElement(refs.paginationDiv, 'visually-hidden');
-        renderPaginationTrandingMovie(data.page.totalPages, searchAuthor.query);
+        renderPaginationTrandingMovie(newArray.totalPages, searchAuthor.searchQuery);
       }
     })
     .catch(error => console.log(error));
