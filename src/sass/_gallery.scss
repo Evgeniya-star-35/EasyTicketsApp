@@ -63,7 +63,7 @@
   margin-top: 40px;
   margin-right: 14px;
   flex-basis: calc((100% - 2 * 14px) / 2);
-  transition: box-shadow var(--animation), transform var(--animation); // добавила
+  transition: box-shadow var(--animation), transform var(--animation);
 
   &:hover .gallery__card::after {
     //
@@ -122,6 +122,12 @@
     height: 143px;
     right: -14px;
     top: -13px;
+  }
+  @media screen and (min-width: 1030px) {
+    right: 60px;
+  }
+  @media screen and (min-width: 1280px) {
+    right: -30px;
   }
 }
 
