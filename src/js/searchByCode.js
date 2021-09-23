@@ -1,17 +1,17 @@
 import { refs } from './refs';
+import Pagination from 'tui-pagination';
 import galleryCard from '../templates/galleryCard.hbs';
-// import selectMenu from '../templates/selectMenu.hbs';
-// import { saveData } from './fetchSearch';
+import axios from 'axios';
 import { info, error } from '@pnotify/core';
 import '@pnotify/core/dist/Material.css';
 import '@pnotify/core/dist/PNotify.css';
 import NewsApiService from './fetchEvents';
-import { renderPaginationTrandingMovie } from './pagination';
+import { renderPaginationGallery } from './renderPaginatonaGallery';
 import { renderTicketsGallery, clearEventGallery, saveData } from './fetchSearch';
 import { onInfoSearch } from './pnotify';
-import axios from 'axios';
 import { addErrorStartLoad, removeErrorStartLoad } from './error-load-page';
 import { addClassToElement, removeClassFromElement } from './actions-functions';
+import { scrollClickPagination } from './scrollClickPagination';
 
 const API_KEY = 'HbnVFlf1tTetB2KBJ9qCQzhyBISGPAQw';
 axios.defaults.baseURL = 'https://app.ticketmaster.com/discovery/v2/';
@@ -26,14 +26,17 @@ function onSelectChange(e) {
     // console.log(countryValue);
     apiService.countryCode = countryValue;
     clearEventGallery();
+    apiService.resetPage();
     fetchCodes();
+    // apiService.resetPage();
   } catch (error) {
     console.log('Error!');
   }
 }
 function fetchCodes() {
   apiService.fetchEvents().then(data => {
-    // console.log(data);
+    console.log(data);
+    // refs.select.value = '';
     apiService.resetPage();
     if (data.page.totalElements === 0) {
       addErrorStartLoad();
@@ -48,10 +51,36 @@ function fetchCodes() {
         removeErrorStartLoad();
         saveData(data._embedded.events);
         removeClassFromElement(refs.paginationDiv, 'visually-hidden');
-        renderPaginationTrandingMovie(data.page.totalPages, apiService.query);
+        renderPaginationCountry(data.page.totalPages, apiService.country);
       }
     }
   });
 }
+function renderPaginationCountry(totalItems, searchCountry) {
+  const options = {
+    totalItems,
+    itemsPerPage: 1,
+    visiblePages: 5,
+    centerAlign: true,
+  };
+  const pagination = new Pagination(refs.paginationAnchorRef, options);
+  apiService.country = searchCountry;
+  pagination.on('afterMove', event => {
+    const currentPage = event.page;
+    apiService.page = currentPage;
 
-// export default onInputValueSearch;
+    const renderingPage = () => {
+      apiService
+        .fetchEvents()
+        .then(response => {
+          renderPaginationGallery(response._embedded.events);
+          saveData(response._embedded.events);
+        })
+
+        .then(scrollClickPagination)
+
+        .catch(error => console.log(error));
+    };
+    setTimeout(renderingPage, 400);
+  });
+}

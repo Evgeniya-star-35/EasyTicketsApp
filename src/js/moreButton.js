@@ -28,8 +28,9 @@ function onButtonClick(e) {
     .fetchEvents()
     .then(data => {
       const newArray = data._embedded?.events.filter(
-        el => el.name.split(' ')[0,1] === searchAuthor.searchQuery,
+        el => el.name.split(' ')[0] === searchAuthor.searchQuery,
       );
+      searchAuthor.resetPage();
       renderTicketsGallery(newArray);
       if (newArray?.length < 1 || !newArray) {
         addErrorStartLoad();
@@ -38,10 +39,8 @@ function onButtonClick(e) {
         removeErrorStartLoad();
         saveData(newArray);
         removeClassFromElement(refs.paginationDiv, 'visually-hidden');
-        renderPaginationTrandingMovie(newArray.totalPages, searchAuthor.searchQuery);
+        renderPaginationTrandingMovie(data.page.totalPages, searchAuthor.query);
       }
     })
     .catch(error => console.log(error));
 }
-
-

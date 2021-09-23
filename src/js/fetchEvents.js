@@ -27,8 +27,15 @@ export default class NewsApiService {
   get query() {
     return this.searchQuery;
   }
+
   set query(newQuery) {
     this.searchQuery = newQuery;
+  }
+  get country() {
+    return this.countryCode;
+  }
+  set country(newCode) {
+    this.countryCode = newCode;
   }
 
   incrementPage() {
