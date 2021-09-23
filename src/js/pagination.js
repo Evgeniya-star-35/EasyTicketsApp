@@ -16,7 +16,7 @@ export function renderPaginationTrandingMovie(totalItems, searchQuery) {
   const pagination = new Pagination(refs.paginationAnchorRef, options);
   newsApiService.query = searchQuery;
   pagination.on('afterMove', event => {
-    const currentPage = event.page;
+    const currentPage = event.page - 1;
     newsApiService.page = currentPage;
 
     const renderingPage = () => {

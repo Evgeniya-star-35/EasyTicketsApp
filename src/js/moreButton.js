@@ -27,19 +27,19 @@ function onButtonClick(e) {
   searchAuthor
     .fetchEvents()
     .then(data => {
-      const newArray = data._embedded?.events.filter(
-        el => el.name.split(' ')[0] === searchAuthor.searchQuery,
-      );
-      searchAuthor.resetPage();
+      const newArray = data._embedded.events.filter(el => el.name === fullNameAuthor);
+      // searchAuthor.resetPage();
+      console.log(newArray);
       renderTicketsGallery(newArray);
-      if (newArray?.length < 1 || !newArray) {
+      if (newArray.length < 1) {
         addErrorStartLoad();
         addClassToElement(refs.paginationDiv, 'visually-hidden');
       } else {
+        // renderTicketsGallery(newArray);
         removeErrorStartLoad();
         saveData(newArray);
         removeClassFromElement(refs.paginationDiv, 'visually-hidden');
-        renderPaginationTrandingMovie(data.page.totalPages, searchAuthor.query);
+        renderPaginationTrandingMovie(newArray.totalPages, searchAuthor.query);
       }
     })
     .catch(error => console.log(error));

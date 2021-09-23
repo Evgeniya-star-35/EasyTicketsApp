@@ -4,7 +4,7 @@ axios.defaults.baseURL = 'https://app.ticketmaster.com/discovery/v2/';
 export default class NewsApiService {
   constructor() {
     this.searchQuery = '';
-    this.page = 1;
+    this.page = 0;
     this.countryCode = '';
   }
   //функция для получения массива events
@@ -42,6 +42,6 @@ export default class NewsApiService {
     this.page += 1;
   }
   resetPage() {
-    this.page = 1;
+    this.page = 0;
   }
 }

@@ -16,7 +16,7 @@ export default class NewDefaulteFetchServise {
   constructor() {
     this.keyword = ' ';
     this.size = 24;
-    this.page = 1;
+    this.page = 0;
   }
 
   async defaultFetchServise() {
@@ -34,7 +34,7 @@ export default class NewDefaulteFetchServise {
     this.page = currentPage;
   }
   resetPage() {
-    this.page = 1;
+    this.page = 0;
   }
 }
 
@@ -85,7 +85,7 @@ export function renderPaginationEventsDefault(totalItems) {
   const pagination = new Pagination(refs.paginationAnchorRef, options);
 
   pagination.on('afterMove', event => {
-    const currentPage = event.page;
+    const currentPage = event.page - 1;
     defaultServise.page = currentPage;
 
     const renderingPage = () => {

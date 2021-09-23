@@ -66,7 +66,7 @@ function renderPaginationCountry(totalItems, searchCountry) {
   const pagination = new Pagination(refs.paginationAnchorRef, options);
   apiService.country = searchCountry;
   pagination.on('afterMove', event => {
-    const currentPage = event.page;
+    const currentPage = event.page - 1;
     apiService.page = currentPage;
 
     const renderingPage = () => {
