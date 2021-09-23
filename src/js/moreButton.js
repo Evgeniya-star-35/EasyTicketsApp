@@ -29,7 +29,7 @@ function onButtonClick(e) {
     .then(data => {
       const newArray = data._embedded.events.filter(el => el.name === fullNameAuthor);
       // searchAuthor.resetPage();
-      console.log(newArray);
+      // console.log(newArray);
       renderTicketsGallery(newArray);
       if (newArray.length < 1) {
         addErrorStartLoad();
