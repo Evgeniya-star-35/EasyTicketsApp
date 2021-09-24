@@ -25,7 +25,9 @@ function onButtonClick(e) {
   searchAuthor
     .fetchEvents()
     .then(data => {
+
       const newArray = data._embedded.events.filter(el => el.name === searchAuthor.searchQuery);
+
       renderTicketsGallery(newArray);
       if (newArray.length < 1) {
         addErrorStartLoad();
