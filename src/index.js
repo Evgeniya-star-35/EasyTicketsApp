@@ -18,6 +18,5 @@ var throttle = require('lodash.throttle');
 import { openModal, closeModalHandler } from './js/teamLightbox';
 import '../node_modules/basiclightbox/dist/basicLightbox.min.css';
 import './js/moreButton';
-import './js/renderFirstWord';
 import './js/clickByLogo';
 import './js/resetCountry';

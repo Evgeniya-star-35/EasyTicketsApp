@@ -19,7 +19,6 @@ export function onEventClick(e) {
 }
 
 export function modalOpen(e) {
-  // e.stopPropagation();
   refs.modal.innerHTML = "";
   refs.backdrop.classList.remove("is-hidden");
   const saveData = localStorage.getItem("data");

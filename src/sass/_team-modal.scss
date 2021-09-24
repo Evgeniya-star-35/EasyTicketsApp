@@ -155,10 +155,8 @@
   
   .basicLightboxplaceholder {
     max-width: 100%;
-    // transform: scale(0.9);
     transition: transform 0.01s ease;
-    // z-index: 1;
-    // will-change: transform;
+  
   }
   
   .basicLightboxplaceholder > iframe:first-child:last-child,
@@ -194,13 +192,7 @@
     pointer-events: none;
   }
   
-  // .basicLightbox--visible .basicLightboxplaceholder {
-  //   transform: scale(1);
-  // } 
-  
-  
   .basicLightbox{
-      // background:  var(--main-text-color) !important;
       z-index: 50;
       transition: 2s ease-in-out !important;
   
