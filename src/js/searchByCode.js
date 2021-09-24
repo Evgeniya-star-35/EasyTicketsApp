@@ -23,20 +23,16 @@ refs.select.addEventListener('change', onSelectChange);
 function onSelectChange(e) {
   try {
     const countryValue = refs.select.value;
-    // console.log(countryValue);
     apiService.countryCode = countryValue;
     clearEventGallery();
     apiService.resetPage();
     fetchCodes();
-    // apiService.resetPage();
   } catch (error) {
     console.log('Error!');
   }
 }
 function fetchCodes() {
   apiService.fetchEvents().then(data => {
-    console.log(data);
-    // refs.select.value = '';
     apiService.resetPage();
     if (data.page.totalElements === 0) {
       addErrorStartLoad();

@@ -10,7 +10,7 @@ axios.defaults.baseURL = 'https://app.ticketmaster.com/discovery/v2/';
 import { info, error } from '@pnotify/core';
 import '@pnotify/core/dist/Material.css';
 import '@pnotify/core/dist/PNotify.css';
-import { saveData } from './fetchSearch';
+import { renderTicketsGallery, saveData } from './fetchSearch';
 
 export default class NewDefaulteFetchServise {
   constructor() {

@@ -67,7 +67,7 @@
 
   &:hover .gallery__card::after {
     //
-    box-shadow: 7px 0 7px 0px var(--main-text-color); // добавила
+    box-shadow: 7px 0 7px 0px var(--main-text-color); 
     transform: translateY(-10%); //
   } //
 }
@@ -115,7 +115,7 @@
   top: -10px;
   border: 1px solid rgba(220, 86, 197, 0.3);
   border-radius: 50px 0px;
-  cursor: pointer; //добавила
+  cursor: pointer; 
 
   @media screen and (min-width: 768px) {
     width: 153px;
@@ -133,14 +133,14 @@
 
 .gallery__card {
   //
-  transition: box-shadow var(--animation), transform var(--animation); // добавила
+  transition: box-shadow var(--animation), transform var(--animation); 
 }
 //
 .gallery__card:hover,
 .gallery__card:focus {
   outline: 2px solid rgb(12, 15, 17);
   box-shadow: 0px 10px 10px -7px #000000, 1px 3px 7px 6px var(--main-text-color);
-  transform: translateY(-10%); // добавила
+  transform: translateY(-10%); 
 }
 
 .gallery__title {
@@ -181,7 +181,6 @@
 .gallery__location {
   display: flex;
   justify-content: center;
-  // align-items: center;
 }
 .gallery__icon {
   font-size: 12px !important;

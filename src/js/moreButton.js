@@ -1,8 +1,7 @@
 import NewsApiService from './fetchEvents';
-import { fetchEvs, renderTicketsGallery, saveData } from './fetchSearch';
+import {  renderTicketsGallery, saveData } from './fetchSearch';
 import { refs } from './refs';
-import { modalClose, modalOpen } from './modal';
-import { renderFirstWord } from './renderFirstWord';
+import { modalClose } from './modal';
 import { renderPaginationTrandingMovie } from './pagination';
 import { addErrorStartLoad, removeErrorStartLoad } from './error-load-page';
 import { addClassToElement, removeClassFromElement } from './actions-functions';
@@ -21,21 +20,17 @@ function onButtonClick(e) {
   const searchAuthor = new NewsApiService();
 
   const authorName = document.querySelector('.author-name');
-  const fullNameAuthor = authorName.textContent;
-  searchAuthor.searchQuery = renderFirstWord(fullNameAuthor);
+  searchAuthor.searchQuery = authorName.textContent;
 
   searchAuthor
     .fetchEvents()
     .then(data => {
-      const newArray = data._embedded.events.filter(el => el.name === fullNameAuthor);
-      // searchAuthor.resetPage();
-      // console.log(newArray);
+      const newArray = data._embedded.events.filter(el => el.name === searchAuthor.searchQuery);
       renderTicketsGallery(newArray);
       if (newArray.length < 1) {
         addErrorStartLoad();
         addClassToElement(refs.paginationDiv, 'visually-hidden');
       } else {
-        // renderTicketsGallery(newArray);
         removeErrorStartLoad();
         saveData(newArray);
         removeClassFromElement(refs.paginationDiv, 'visually-hidden');
