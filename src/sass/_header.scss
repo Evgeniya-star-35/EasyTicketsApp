@@ -288,26 +288,14 @@ select {
     -webkit-border-radius: 2px;
     border-radius: 2px;
   }
-}
 
-.country-option {
-  font-size: 14px;
-  font-weight: 500;
-  width: 100%;
-  color: var(--main-text-color);
-  background: #1b0c1b;
-  border: 5px solid rgb(168, 63, 63);
-  border-radius: 20px;
-}
-
-.pink-polygon {
-  width: 270px;
-  height: 40px;
-  background-image: url(../images/icon-pink-polygon.svg);
-  background-size: 21px 17px;
-  background-position-x: 90%;
-  background-position-y: 13px;
-  background-repeat: no-repeat;
+  & > option {
+    background-color: #1b0c1b;
+    font-size: 16px;
+    font-weight: 500;
+    width: 100%;
+    color: var(--main-text-color);
+  }
 }
 
 .grey-polygon {
@@ -315,6 +303,16 @@ select {
   height: 40px;
   background-image: url(../images/icon-polygon.svg);
   background-size: 15px 10px;
+  background-position-x: 90%;
+  background-position-y: 13px;
+  background-repeat: no-repeat;
+}
+
+.pink-polygon {
+  width: 270px;
+  height: 40px;
+  background-image: url(../images/icon-pink-polygon.svg);
+  background-size: 21px 17px;
   background-position-x: 90%;
   background-position-y: 13px;
   background-repeat: no-repeat;
