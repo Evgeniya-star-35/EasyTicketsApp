@@ -40,7 +40,7 @@ function fetchCodes() {
       return onInfoSearch();
     } else {
       renderTicketsGallery(data._embedded.events);
-      if (data.page.totalPages === 1) {
+      if (data.page.totalPages === 0) {
         addErrorStartLoad();
         addClassToElement(refs.paginationDiv, 'visually-hidden');
       } else {
