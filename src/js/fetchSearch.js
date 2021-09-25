@@ -33,7 +33,7 @@ export function fetchEvs() {
       return onError();
     } else {
       renderTicketsGallery(events._embedded.events);
-      if (events.page.totalPages === 1) {
+      if (events.page.totalPages === 0) {
         addErrorStartLoad();
         addClassToElement(refs.paginationDiv, 'visually-hidden');
       } else {
