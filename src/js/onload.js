@@ -2,7 +2,6 @@ import axios from 'axios';
 import Pagination from 'tui-pagination';
 import { refs } from './refs';
 import { scrollClickPagination } from './scrollClickPagination';
-import { renderPaginationGallery } from './renderPaginatonaGallery';
 import { addClassToElement, removeClassFromElement } from './actions-functions';
 const API_KEY = 'HbnVFlf1tTetB2KBJ9qCQzhyBISGPAQw';
 axios.defaults.baseURL = 'https://app.ticketmaster.com/discovery/v2/';
@@ -43,7 +42,7 @@ export const defaultServise = new NewDefaulteFetchServise();
 export function firstDefaultLoad() {
   defaultServise.defaultFetchServise().then(events => {
     renderPaginationEventsDefault(events.page.totalPages);
-    renderPaginationGallery(events._embedded.events);
+    renderTicketsGallery(events._embedded.events);
     saveData(events._embedded.events);
   });
 }
@@ -92,7 +91,7 @@ export function renderPaginationEventsDefault(totalItems) {
       defaultServise
         .defaultFetchServise()
         .then(response => {
-          renderPaginationGallery(response._embedded.events);
+          renderTicketsGallery(response._embedded.events);
           saveData(response._embedded.events);
         })
         .then(scrollClickPagination)

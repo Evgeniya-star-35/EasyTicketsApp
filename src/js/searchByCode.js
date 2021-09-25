@@ -6,7 +6,6 @@ import { info, error } from '@pnotify/core';
 import '@pnotify/core/dist/Material.css';
 import '@pnotify/core/dist/PNotify.css';
 import NewsApiService from './fetchEvents';
-import { renderPaginationGallery } from './renderPaginatonaGallery';
 import { renderTicketsGallery, clearEventGallery, saveData } from './fetchSearch';
 import { onInfoSearch } from './pnotify';
 import { addErrorStartLoad, removeErrorStartLoad } from './error-load-page';
@@ -69,7 +68,7 @@ function renderPaginationCountry(totalItems, searchCountry) {
       apiService
         .fetchEvents()
         .then(response => {
-          renderPaginationGallery(response._embedded.events);
+          renderTicketsGallery(response._embedded.events);
           saveData(response._embedded.events);
         })
 

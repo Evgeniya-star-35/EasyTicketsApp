@@ -1,8 +1,8 @@
 import { refs } from './refs';
 import Pagination from 'tui-pagination';
 import NewsApiService from './fetchEvents';
-import { renderPaginationGallery } from './renderPaginatonaGallery';
-import { saveData } from './fetchSearch';
+// import { renderPaginationGallery } from './renderPaginatonaGallery';
+import { renderTicketsGallery, saveData } from './fetchSearch';
 import { scrollClickPagination } from './scrollClickPagination';
 const newsApiService = new NewsApiService();
 
@@ -23,7 +23,7 @@ export function renderPaginationTrandingMovie(totalItems, searchQuery) {
       newsApiService
         .fetchEvents()
         .then(response => {
-          renderPaginationGallery(response._embedded.events);
+          renderTicketsGallery(response._embedded.events);
           saveData(response._embedded.events);
         })
 
